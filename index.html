@@ -1,214 +1,166 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
-  <meta name="google-site-verification" content="uHCstNYhNbNppEhwFfRky7phUsoRLfM8jz9lFXF-Dcw" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ebro ሸቀጣሸቀጥ Shop</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EbRo-Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #2b7a78;
-      --accent: #f6bc52;
-      --bg: #f7faf9;
-      --card: #ffffff
+    :root{
+      --bg:#0f4a72; /* deep blue overlay */
+      --card:#ffffff;
+      --muted:#9aa7b3;
+      --accent:#123f60;
+      --shadow: 0 8px 24px rgba(15,74,114,0.18);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;
+      color:#15343f;background:#f6f8fb; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+ /*for click order go to order contact*/ 
+    .signin {
+      display: inline-block;
+      background-color:#007bff;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .signin:hover {
+      background-color: #0056b3;
     }
 
-    body {
-      font-family: Segoe UI, Roboto, Arial, sans-serif;
-      margin: 0;
-      background: var(--bg);
-      color: #123
-    }
+    /* top bar */
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;background:#fff}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo img{height:44px}
+    .signin{border:1px solid #e6eef6;padding:10px 16px;border-radius:12px;color:#123f60;font-weight:600}
 
-    .container {
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 20px
+    /* hero */
+    .hero{
+      min-height:72vh;display:flex;align-items:center;justify-content:center;padding:48px 20px;background-image:linear-gradient(rgba(15,74,114,0.82),rgba(15,74,114,0.82)), url('Screenshot_20251031_151856_Chrome.jpg');
+      background-size:cover;background-position:center;color:#fff;position:relative
+    }
+    .container{max-width:980px;width:100%;text-align:center}
+    h1{font-size:64px;line-height:1;margin:0;font-weight:800;letter-spacing:-1px}
+    @media(max-width:760px){h1{font-size:46px}}
+    .tag{font-size:22px;margin-top:14px;color:#dfeef6;font-weight:600}
+    .sub{margin-top:14px;color:rgba(255,255,255,0.9);font-size:20px}
+
+    /* search card */
+    .search-card{margin-top:34px;background:var(--card);border-radius:18px;padding:14px;display:flex;gap:12px;align-items:center;box-shadow:var(--shadow);max-width:760px;margin-left:auto;margin-right:auto}
+    .search-field{flex:1;display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:12px;border:1px solid #eef5fb}
+    .search-field input{border:0;outline:0;font-size:16px;width:100%}
+    .btn{padding:12px 28px;border-radius:12px;border:0;font-weight:700;cursor:pointer}
+    .btn-primary{background:var(--accent);color:#fff}
+    .btn-ghost{background:#f6f9fb;color:#123f60;border:1px solid #eef5fb}
+
+    /* page content placeholder */
+    .content{padding:38px 22px}
+
+    /* small screens */
+    @media(max-width:520px){
+      .search-card{flex-direction:column;align-items:stretch;padding:12px}
+      .search-field{width:100%}
+      .btn{width:100%}
+      .search-row{display:flex;flex-direction:column;gap:8px}
     }
 
     header {
-      display: flex;
-      align-items: center;
-      gap: 15px
-    }
+       background-color: #042725;
+       background-image: url('./images/unnamed\ \(1\).jpg');
+       background-size: cover;
+       background-position: center;
+       background-repeat: no-repeat;
 
-    .logo {
-      width: 72px;
-      height: 72px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--primary), #145b5a);
+       background-blend-mode:soft-light;
+      height: 80vh;
+  
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      color: white;
-      font-weight: 700
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 1.6rem
-    }
-
-    p.lead {
-      margin: 6px 0 18px;
-      color: #334
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px
-    }
-
-    .card {
-      background: var(--card);
-      padding: 16px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06)
-    }
-
-    .two {
-      display: flex;
-      gap: 16px;
-      flex-direction: column
-    }
-
-    .info-list {
-      list-style: none;
-      padding: 0;
-      margin: 0
-    }
-
-    .info-list li {
-      padding: 8px 0;
-      border-bottom: 1px dashed #eee
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 14px;
-      border-radius: 8px;
-      background: var(--primary);
-      color: #fff;
-      text-decoration: none
-    }
-
-    footer {
       text-align: center;
-      margin-top: 18px;
-      color: #556
     }
-
-    form input,
-    form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 8px;
-      border: 1px solid #ddd;
-      border-radius: 6px
-    }
-
-    form button {
-      margin-top: 10px
-    }
-
-    @media(min-width:720px) {
-      .grid {
-        grid-template-columns: 1fr 380px
-      }
-
-      .two {
-        flex-direction: column
-      }
+    h1{
+      color: #e6eef6;
+      text-align: center;
     }
   </style>
+
 </head>
 
 <body>
-  <div class="container">
-    <header>
-      <div class="logo">EbRo</div>
-      <div>
-        <h1>EbRo-Shop</h1>
-        <p class="lead">A small shop for clothes, shoes, and daily things. Friendly staff and good prices.</p>
+
+  <div class="topbar">
+     <div class="logo">
+      <img src="./images/Screenshot_20251031_154926_Learn HTML.jpg" width="50px"/>
       </div>
-    </header>
+    <div>
+      <a href="./order.html" class="signin">Order</a>
+    </div>
+    </div>
 
-    <main class="grid">
-      <section class="card">
-        <h2>About the Shop</h2>
-        <p>Ebro ሸቀጣሸቀጥ Shop sells many items like shirts, pants, shoes, and accessories. The shop is clean and the
-          workers are helpful. You can come and choose what you want.</p>
+ 
+  <header>
+   <div class="container">
+     
+      <div>
+      <h1>EbRo-Shop</h1>
+      <div class="tag" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">From the hosts, for Customers</div>
+      <div class="sub">Making Shopping Easier For Everyone.</div>
+      </div>
+  
+      
+    </div>
+    
+  </header>
 
-        <h3>Service Hours</h3>
-        <ul class="info-list">
-          <li>Open every day: 7:00am — 11:30pm</li>
-          <li>Weekends: same hours</li>
-        </ul>
+  <main class="content">
+    <!-- Placeholder for additional homepage content -->
+    <div style="max-width:920px;margin:0 auto;background:#fff;padding:24px;border-radius:12px;box-shadow:0 6px 18px rgba(2,12,27,0.04)">
+      <h3 style="margin-top:0;color:#123f60">Recent uploads</h3>
+      <p style="color:var(--muted)">This is a static prototype. Replace this area with dynamic content from your backend or a CMS.</p>
 
-        <h3>Delivery Service</h3>
-        <p>We offer home delivery in nearby areas. Call or write a message to order. Delivery is fast and safe.</p>
-
-        <h3>Location</h3>
-        <p>Find us opposite Ednamol Square. The shop is easy to find and near the main road.</p>
-
-        <h3>Gallery</h3>
-        <p>(Photos can be added later.)</p>
-      </section>
-
-      <aside class="two">
-        <div class="card">
-          <h3>Quick Info</h3>
-          <ul class="info-list">
-            <li><strong>Name:</strong> Ebro ሸቀጣሸቀጥ Shop</li>
-            <li><strong>Hours:</strong> 8:00 AM — 9:00 PM</li>
-            <li><strong>Delivery:</strong> Yes — nearby areas</li>
-            <li><strong>Location:</strong> Opposite Ednamol Square</li>
-            <li><strong>Phone:</strong> +251 989 498 343</li>
-          </ul>
-          <a class="btn" href="#contact">Contact Us</a>
-        </div>
-
-        <div class="card" id="contact">
-          <h3>Contact / Order</h3>
-          <form action="https://formspree.io/f/xgvplkvz" method="POST">
-            <label>Name</label>
-            <input type="text" name="name" placeholder="Your name" required>
-
-            <label>Phone or Email</label>
-            <input type="text" name="contactinfo" placeholder="Phone or email" required>
-
-            <label>Message / Order</label>
-            <textarea name="message" rows="4" placeholder="Write your order or question" required></textarea>
-
-            <button class="btn" type="submit">Send</button>
-          </form>
-          <p id="status" style="margin-top:10px;color:#246;display:none">Message sent. We will call you soon.</p>
-        </div>
-
-        <div class="card">
-          <h3>Map</h3>
-          <p>Opposite Ednamol Square — near the main road. Use a local map app to find exact directions.</p>
-        </div>
-      </aside>
-    </main>
-    <footer>
-      <p>© <strong>Ebro ሸቀጣሸቀጥ Shop</strong> — Opposite Ednamol Square • Open daily 8 AM–9 PM</p>
-    </footer>
-  </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:18px">
+        <article style="padding:12px;border-radius:10px;border:1px solid #eef6fb">
+          <strong>Biology — Lecture 3</strong>
+          <div style="font-size:13px;color:var(--muted);margin-top:8px">Uploaded 2 days ago • by User123</div>
+        </article>
+        <article style="padding:12px;border-radius:10px;border:1px solid #eef6fb">
+          <strong>Computer Systems — Notes</strong>
+          <div style="font-size:13px;color:var(--muted);margin-top:8px">Uploaded 5 days ago • by Alice</div>
+        </article>
+        <article style="padding:12px;border-radius:10px;border:1px solid #eef6fb">
+          <strong>Statistics — Formula Sheet</strong>
+          <div style="font-size:13px;color:var(--muted);margin-top:8px">Uploaded 1 week ago • by Bob</div>
+        </article>
+      </div>
+    </div>
+  </main>
 
   <script>
-    function sendMessage(e) {
-      e.preventDefault();
-      // Simple demo: show confirmation text
-      document.getElementById('status').style.display = 'block';
-      // Clear the form
-      document.getElementById('name').value = '';
-      document.getElementById('contactinfo').value = '';
-      document.getElementById('message').value = '';
-    }
-  </script>
-</body>
+    // small interactive behaviour to show how this could be wired up
+    document.getElementById('doSearch').addEventListener('click', function(){
+      const q = document.getElementById('search').value.trim();
+      if(!q){
+        alert('Please enter search terms (try: "calculus", "notes", or a course name")
+        return;
+      }
+      // in a real app you'd navigate to a search results page or call an API
+      alert('Searching for: ' + q);
+    });
 
+    document.getElementById('filters').addEventListener('click', function(){
+      alert('Advanced filters would open here.');
+    });
+
+    // make Enter trigger the search
+    document.getElementById('search').addEventListener('keydown', function(e){
+      if(e.key === 'Enter') document.getElementById('doSearch').click();
+    });
+  </script>
+  <a href="./About.html">About</a>
+</body>
 </html>
