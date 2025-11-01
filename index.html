@@ -23,236 +23,79 @@
     form button{margin-top:10px}
     @media(min-width:720px){.grid{grid-template-columns:1fr 380px}.two{flex-direction:column}}
 
-
-
- :root{
-      --bg:#f5f7f9;
-      --card:#ffffff;
-      --muted:#6b7480;
-      --accent:#111827;
-      --pill:#eef2f5;
+    a{
+      margin-right: 15px;
     }
-    *{box-sizing:border-box}
-    body{
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      margin:0;
-      background:var(--bg);
-      color:var(--accent);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      min-height:100vh;
-      display:flex;
-      align-items:flex-start;
-      justify-content:center;
-      padding:48px 16px;
-    }
-
-    /* Sidebar card */
-    .sidebar{
-      width:360px; /* close to picture width on mobile */
-      background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.99));
-      border-radius:14px;
-      padding:28px 28px;
-      box-shadow:0 6px 20px rgba(16,24,40,0.06);
-    }
-
-    /* Logo */
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-bottom:18px;
-    }
-    .logo-mark{
-      font-weight:800;
-      font-size:46px;
-      letter-spacing:-2px;
-      position:relative;
-      color:#0a0a05;
-    }
-    .hub-badge{
-      position:absolute;
-      right:-6px;
-      top:14px;
-      background:#560202;
-      color :#9a9c0b;
-      font-size:11px;
-      padding:3px 6px;
-      border-radius:4px;
-      font-weight:700;
-      transform:rotate(-6deg);
-      box-shadow:0 6px 14px rgba(2,6,23,0.15);
-    }
-    .logo-tag{
-      display:flex;
-      flex-direction:column;
-      line-height:1;
-    }
-    .logo-tag .by{font-weight:700; font-size:14px}
-    .logo-tag .for{font-weight:700; font-size:14px}
-
-    /* Intro text */
-    .intro{
-      color:var(--muted);
-      font-size:16px;
-      line-height:1.6;
-      margin-bottom:28px;
-    }
-
-    h3.section-title{
-      margin:0 0 12px 0;
-      font-size:20px;
-      color:#0e1320;
-    }
-
-    ul.quick-links{
-      list-style:none;
-      padding:0;
-      margin:0 0 26px 0;
-    }
-    ul.quick-links li{
-      padding:10px 0;
-      border-radius:8px;
-      color:var(--muted);
-      font-size:18px;
-    }
-    ul.quick-links li a{color:inherit; text-decoration:none}
-
-    /* Contact */
-    .contact{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-    .contact .item{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      color:var(--muted);
-      font-size:16px;
-    }
-    .icon-wrap{
-      width:34px;height:34px;display:inline-grid;place-items:center;background:var(--pill);border-radius:8px;
-      flex:0 0 34px;
-    }
-
-    /* Small responsive tweak */
-    @media (max-width:420px){
-      body{padding:18px}
-      .sidebar{width:100%; padding:22px}
-      .logo-mark{font-size:40px}
-    }
-
-  a{
-    margin-right: 15px;
-  }
-
-
   </style>
 </head>
 <body>
   <div class="container">
-    <header style="border: #0a0a05;">
-<div class="logo">
-      <div style="position:relative;">
-        <div class="logo-mark">EbRo<span class="hub-badge">shop</span></div>
-      </div>
-      <div class="logo-tag">
-        <span style="font-weight:800; font-size:18px"></span>
-        <span style="font-weight:800; font-size:18px"></span>
-      </div>
-    </div>
-<br />
+    <header>
+      <div class="logo">EbRo</div>
       <div>
-      
-        <h1 style="font-family:Georgia, 'Times New Roman', Times, serif;  color: #111827;font-weight:800;">EbRo-Shop</h1>
-        
+       <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;">EbRo-Shop</h1>
+        <p class="lead" style="font-family: 'Times New Roman', Times, serif;">A big shop for home , restaurants, and daily things appliances. Friendly staff and good prices.</p>
       </div>
     </header>
-<br />
-<br />
-    <div>
-      <h3>Welcome to EbRo-Shop</h3>
-      <p class="lead" style="font-family: Georgia, 'Times New Roman', Times, serif;">A big shop for Household appliances, restaurant appliances and more daily things</p>
-    </div>
     
 
-      
-       
+    <main class="grid">
+      <section class="card">
 
-       
-
-
-
-
-
-
-
-        <div>
-          <aside class="sidebar" role="complementary" aria-label="Site sidebar">
-    <div class="logo">
-      <div style="position:relative;">
-        <div class="logo-mark">EbRo<span class="hub-badge">shop</span></div>
-      </div>
-      <div class="logo-tag">
-        <span style="font-weight:800; font-size:18px"></span>
-        <span style="font-weight:800; font-size:18px"></span>
-      </div>
+        <div style="text-align: center;">
+       <a href="#">Home</a><a href="./Menu.html">Menu</a> <a href="./Gallary.html">Gallary</a><a href="./DeliveryService.html">Delivery</a><a href="./Location.html">Location</a><a href="./About.html">About</a><a href="./contact.html">Contact-us</a>
     </div>
 
-    <p class="intro">Empowering shopping through technology. <br>Providing accessible shopping things for all Customers.</p>
+        <h2>About the Shop</h2>
+        <p>Ebro ሸቀጣሸቀጥ Shop sells many items like shirts, pants, shoes, and accessories. The shop is clean and the workers are helpful. You can come and choose what you want.</p>
 
-    <h3 class="section-title">Quick Links</h3>
-    <ul class="quick-links" aria-label="Quick links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
-      <li><a href="#">FAQ's</a></li>
-    </ul>
-    <h3 class="section-title">Contact me</h3>
-    <div class="contact">
-      <div class="item">
-        <span class="icon-wrap" aria-hidden="true">
-          <!-- location pin SVG -->
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7z" stroke="#6b7480" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="12" cy="9" r="2.2" fill="#6b7480"/>
-          </svg>
-        </span>
-        <span>Mekelle, Ethiopia</span>
-      </div>
+        <h3>Service Hours</h3>
+        <ul class="info-list">
+          <li>Open every day: 8:00 AM — 9:00 PM</li>
+          <li>Weekends: same hours</li>
+        </ul>
 
-      <div class="item">
-        <span class="icon-wrap" aria-hidden="true">
-          <!-- phone SVG -->
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.98.37 1.94.73 2.84a2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 6 6l1.23-1.23a2 2 0 0 1 2.11-.45c.9.36 1.86.61 2.84.73A2 2 0 0 1 22 16.92z" stroke="#6b7480" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <a href="tel:+251989498343" style="color:inherit; text-decoration:none;">+251-989-498-343</a>
-      </div>
+        <h3>Delivery Service</h3>
+        <p>We offer home delivery in nearby areas. Call or write a message to order. Delivery is fast and safe.</p>
 
-      <div class="item">
-        <span class="icon-wrap" aria-hidden="true">
-          <!-- octocat / contribution icon -->
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C7.03 2 3 6.03 3 11.74c0 4.32 2.87 7.99 6.84 9.29.5.09.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.61-3.37-1.34-3.37-1.34-.45-1.18-1.11-1.49-1.11-1.49-.91-.62.07-.61.07-.61 1.01.07 1.54 1.05 1.54 1.05.9 1.54 2.36 1.1 2.94.84.09-.66.35-1.1.64-1.35-2.22-.25-4.55-1.12-4.55-4.99 0-1.1.39-2 1.03-2.71-.11-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.03A9.28 9.28 0 0 1 12 7.64c.85.004 1.71.115 2.51.338 1.9-1.3 2.74-1.03 2.74-1.03.55 1.37.21 2.39.1 2.64.64.71 1.03 1.61 1.03 2.71 0 3.88-2.34 4.74-4.57 4.99.36.31.68.92.68 1.85 0 1.34-.01 2.42-.01 2.75 0 .27.18.59.69.49A9.01 9.01 0 0 0 21 11.74C21 6.03 16.97 2 12 2z" fill="#6b7480"/>
-          </svg>
-        </span>
-        <a href="#" style="color:inherit; text-decoration:none;">Contribute.</a>
-      </div>
-    </div>
+        <h3>Location</h3>
+        <p>Find us opposite Ednamol Square. The shop is easy to find and near the main road.</p>
 
-  </aside>
+        <h3>Gallery</h3>
+        <p>(Photos can be added later.)</p>
+      </section>
+
+      <aside class="two">
+        <div class="card">
+          <h3>Quick Info</h3>
+          <ul class="info-list">
+            <li><strong>Name:</strong> Ebro ሸቀጣሸቀጥ Shop</li>
+            <li><strong>Hours:</strong> 8:00 AM — 9:00 PM</li>
+            <li><strong>Delivery:</strong> Yes — nearby areas</li>
+            <li><strong>Location:</strong> Opposite Ednamol Square</li>
+            <li><strong>Phone:</strong> +251 9XX XXX XXX</li>
+          </ul>
+          <a class="btn" href="#contact">Contact Us</a>
         </div>
 
+        <div class="card" id="contact">
+          <h3>Contact / Order</h3>
 
+<form action="https://formspree.io/f/mvgvvqar" method="POST">
+  <label>Name</label>
+  <input type="text" name="name" placeholder="Your name" required>
+  
+  <label>Phone or Email</label>
+  <input type="text" name="contactinfo" placeholder="Phone or email" required>
+  
+  <label>Message / Order</label>
+  <textarea name="message" rows="4" placeholder="Write your order or question" required></textarea>
+  
+  <button class="btn" type="submit">Send</button>
+</form>
 
-
-
-
-
-
+          <p id="status" style="margin-top:10px;color:#246;display:none">Message sent. We will call you soon.</p>
+        </div>
 
         <div class="card">
           <h3>Map</h3>
