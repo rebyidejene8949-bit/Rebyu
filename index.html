@@ -2,126 +2,256 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ebro ሸቀጣሸቀጥ Shop</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Soni Restaurant</title>
   <style>
-    :root{--primary:#2b7a78;--accent:#f6bc52;--bg:#f7faf9;--card:#ffffff}
-    body{font-family:Segoe UI, Roboto, Arial, sans-serif;margin:0;background:var(--bg);color:#123}
-    .container{max-width:1000px;margin:30px auto;padding:20px}
-    header{display:flex;align-items:center;gap:15px}
-    .logo{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,var(--primary),#145b5a);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
-    h1{margin:0;font-size:1.6rem}
-    p.lead{margin:6px 0 18px;color:#334}
-    .grid{display:grid;grid-template-columns:1fr;gap:16px}
-    .card{background:var(--card);padding:16px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.06)}
-    .two{display:flex;gap:16px;flex-direction:column}
-    .info-list{list-style:none;padding:0;margin:0}
-    .info-list li{padding:8px 0;border-bottom:1px dashed #eee}
-    .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--primary);color:#fff;text-decoration:none}
-    footer{text-align:center;margin-top:18px;color:#556}
-    form input, form textarea{width:100%;padding:10px;margin-top:8px;border:1px solid #ddd;border-radius:6px}
-    form button{margin-top:10px}
-    @media(min-width:720px){.grid{grid-template-columns:1fr 380px}.two{flex-direction:column}}
-
-    a{
-      margin-right: 12px;
+    :root{
+      --cyan:#00e6ef;
+      --lime:#d9f200;
+      --muted:#f6f3f3;
+      --card-border:#efebef;
+      --dark-footer:#2f2f2f;
+      --accent:#8b1f3a;
+      --text:#222;
+      --radius:6px;
+      font-family: "Helvetica Neue", Arial, sans-serif;
     }
+    body{
+      margin:0;
+      color:var(--text);
+      background:#fff;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* Header */
+    header.site-header{
+      background:var(--cyan);
+      text-align:center;
+      padding:26px 16px 44px;
+      position:relative;
+      box-shadow: inset 0 -3px rgba(0,0,0,0.02);
+    }
+    header .brand{
+      font-weight:700;
+      font-size:32px;
+      color:#fff;
+      margin:0;
+    }
+    nav.main-nav{
+      margin-top:14px;
+      display:flex;
+      justify-content:center;
+      gap:22px;
+      font-size:14px;
+    }
+    nav.main-nav a{
+      color: rgba(255,255,255,0.9);
+      text-decoration:none;
+      opacity:0.95;
+    }
+
+    /* thin lime separator like screenshot */
+    .lime-sep{
+      height:10px;
+      background:linear-gradient(90deg,var(--lime), rgba(255,255,255,0) 60%);
+      box-shadow: 0 2px 0 rgba(0,0,0,0.02);
+    }
+
+    /* Container */
+    .container{
+      max-width:980px;
+      margin:28px auto;
+      padding:0 18px;
+    }
+
+    /* Welcome */
+    .hero{
+      background:#fff;
+      border-radius:4px;
+      padding:26px 22px;
+      margin-bottom:22px;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.02) inset;
+    }
+    .hero h1{
+      margin:0 0 8px;
+      font-size:22px;
+    }
+    .hero p{ margin:0; color:#666; }
+
+    /* Another lime separator */
+    .lime-sep-thin{
+      height:8px;
+      background:var(--lime);
+      margin-bottom:26px;
+      border-radius:2px;
+      opacity:0.95;
+    }
+
+    /* Menu heading */
+    .menu-heading{
+      color:var(--accent);
+      font-weight:700;
+      font-size:20px;
+      margin:10px 0 16px;
+    }
+
+    /* Menu card */
+    .menu-card{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      border:1px solid var(--card-border);
+      border-radius:6px;
+      padding:14px;
+      background:linear-gradient(180deg,#fff,#fafafa);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+      overflow:hidden;
+    }
+    .menu-card img.thumb{
+      width:80px;
+      height:80px;
+      object-fit:cover;
+      border-radius:4px;
+      flex-shrink:0;
+      border:1px solid #eee;
+    }
+    .menu-content{
+      flex:1;
+      min-width:0;
+    }
+    .menu-title{
+      font-weight:700;
+      font-size:16px;
+      margin-bottom:6px;
+      display:inline-block;
+    }
+    .menu-desc{
+      color:#6b6b6b;
+      font-size:14px;
+      display:block;
+      margin-bottom:6px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .menu-price{
+      font-weight:700;
+      margin-right:12px;
+    }
+
+    /* order button */
+    .order-btn{
+      background:#333;
+      color:#fff;
+      border:none;
+      padding:8px 14px;
+      border-radius:6px;
+      cursor:pointer;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.12);
+      transition:transform .06s ease;
+    }
+    .order-btn:hover{ transform:translateY(-1px); }
+
+    /* footer */
+    footer.site-footer{
+      margin-top:38px;
+      background:var(--dark-footer);
+      color:#dcdcdc;
+      text-align:center;
+      padding:18px 10px;
+      font-size:13px;
+    }
+
+    /* small screens */
+    @media (max-width:640px){
+      header .brand{ font-size:22px; }
+      nav.main-nav{ gap:12px; font-size:13px; flex-wrap:wrap; justify-content:center }
+      .menu-card{flex-direction:row; align-items:center}
+      .menu-card img.thumb{width:64px;height:64px}
+    }
+
+
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <img src="./images/Screenshot_20251031_154926_Learn HTML.jpg" width="100px" height="140px"/>
-      <div>
-       <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;">EbRo-Shop</h1>
-        <p class="lead" style="font-family: 'Times New Roman', Times, serif;">A big shop for home , restaurants, and daily things appliances. Friendly staff and good prices.</p>
-      </div>
-    </header>
-    
 
-    <main class="grid">
-      <section class="card">
+  <header class="site-header" role="banner">
+    <h1 class="brand" style="font-family: Georgia, 'Times New Roman', Times, serif; color: black;">EbRo-Shop</h1>
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+     
+      <a href="#">Home</a>
+      <a href="./Menu.html">Menu</a>
+      <a href="./Gallary.html">Gallary</a>
+      <a href="./About.html">About</a>
+      <a href="./contact.html">contact</a>
+     
+    </nav>
+  </header>
 
+  <div class="lime-sep" aria-hidden="true"></div>
+
+  <main class="container" role="main">
+
+    <section class="hero" aria-labelledby="welcome-heading">
+      <h2 id="welcome-heading">Welcome to EbRo-Shop</h2>
+      <p>Forward with us. Order your favorite items online!</p>
+    </section>
+
+    <div class="lime-sep-thin" aria-hidden="true"></div>
+
+    <h3 class="menu-heading">Our Menu</h3>
+
+    <!-- Menu item 1-->
+    <article class="menu-card" aria-labelledby="pizza-title">
+      <!-- Replace 'pizza.jpg' with your dish image path -->
+      <img class="thumb" src="images/Food sources.jpg" alt="food sources">
+
+      <div class="menu-content">
         <div>
-       <a href="#">Home</a><a href="./Menu.html">Menu</a> <a href="./Gallary.html">Gallary</a><a href="./About.html">About</a><a href="./contact.html">Contact</a>
-    </div>
-    <div>
-        <img src="./images/Screenshot_20251031_154926_Learn HTML.jpg" width="250px" height="240px"/>
-    </div>
-         
-
-        <h2>About the Shop</h2>
-        <p>Ebro ሸቀጣሸቀጥ Shop sells many items like shirts, pants, shoes, and accessories. The shop is clean and the workers are helpful. You can come and choose what you want.</p>
-
-        <h3>Service Hours</h3>
-        <ul class="info-list">
-          <li>Open every day: 8:00 AM — 9:00 PM</li>
-          <li>Weekends: same hours</li>
-        </ul>
-
-        <h3>Delivery Service</h3>
-        <p>We offer home delivery in nearby areas. Call or write a message to order. Delivery is fast and safe.</p>
-
-        <h3>Location</h3>
-        <p>Find us opposite Ednamol Square. The shop is easy to find and near the main road.</p>
-
-        <h3>Gallery</h3>
-        <p>(Photos can be added later.)</p>
-      </section>
-
-      <aside class="two">
-        <div class="card">
-          <h3>Quick Info</h3>
-          <ul class="info-list">
-            <li><strong>Name:</strong> Ebro ሸቀጣሸቀጥ Shop</li>
-            <li><strong>Hours:</strong> 8:00 AM — 9:00 PM</li>
-            <li><strong>Delivery:</strong> Yes — nearby areas</li>
-            <li><strong>Location:</strong> Opposite Ednamol Square</li>
-            <li><strong>Phone:</strong> +251 9XX XXX XXX</li>
-          </ul>
-          <a class="btn" href="#contact">Contact Us</a>
+          <span id="pizza-title" class="menu-title">Food Sources</span>
+          <span class="menu-desc">We have a best food sources like rice, lentils, pasta, and more</span>
         </div>
-
-        <div class="card" id="contact">
-          <h3>Contact / Order</h3>
-
-<form action="https://formspree.io/f/mvgvvqar" method="POST">
-  <label>Name</label>
-  <input type="text" name="name" placeholder="Your name" required>
-  
-  <label>Phone or Email</label>
-  <input type="text" name="contactinfo" placeholder="Phone or email" required>
-  
-  <label>Message / Order</label>
-  <textarea name="message" rows="4" placeholder="Write your order or question" required></textarea>
-  
-  <button class="btn" type="submit">Send</button>
-</form>
-
-          <p id="status" style="margin-top:10px;color:#246;display:none">Message sent. We will call you soon.</p>
+        <div style="margin-top:8px;">
+          <span class="menu-price">Price: ask with Order</span>
         </div>
+      </div>
 
-        <div class="card">
-          <h3>Map</h3>
-          <p>Opposite Ednamol Square — near the main road. Use a local map app to find exact directions.</p>
+      <!-- Order button links to a hypothetical ordering page -->
+      <div style="margin-left:12px">
+        <a href="https://example.com/order" target="_blank" rel="noopener">
+          <button class="order-btn" type="button">Order Now</button>
+        </a>
+      </div>
+    </article>
+
+ <!-- Menu item 2-->
+    <article class="menu-card" aria-labelledby="pizza-title">
+      <!-- Replace 'pizza.jpg' with your dish image path -->
+      <img class="thumb" src="images/cooking tasks.png" alt="cooking tasks">
+
+      <div class="menu-content">
+        <div>
+          <span id="pizza-title" class="menu-title">Cooking tasks</span>
+          <span class="menu-desc">We have a more cooking tasks like oil, berber, and more</span>
         </div>
-      </aside>
-    </main>
-    <footer>
-      <p>© <strong>Ebro ሸቀጣሸቀጥ Shop</strong> — Opposite Ednamol Square • Open daily 8 AM–9 PM</p>
-    </footer>
-  </div>
+        <div style="margin-top:8px;">
+          <span class="menu-price">Price: ask with Order</span>
+        </div>
+      </div>
 
-  <script>
-    function sendMessage(e){
-      e.preventDefault();
-      // Simple demo: show confirmation text
-      document.getElementById('status').style.display = 'block';
-      // Clear the form
-      document.getElementById('name').value = '';
-      document.getElementById('contactinfo').value = '';
-      document.getElementById('message').value = '';
-    }
-  </script>
+      <!-- Order button links to a hypothetical ordering page -->
+      <div style="margin-left:12px">
+        <a href="https://example.com/order" target="_blank" rel="noopener">
+          <button class="order-btn" type="button">Order Now</button>
+        </a>
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    © 2024 SONI Restaurant. All rights reserved.
+  </footer>
+
 </body>
 </html>
