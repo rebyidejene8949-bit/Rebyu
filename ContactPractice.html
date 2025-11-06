@@ -1,13 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <style>
-        
-  :root {
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Send Us a Message — Ebro-Shop</title>
+
+  <!-- Optional: change font family -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+:root {
       --cyan: #09af6f;
       --lime: #d9f200;
       --muted: #f6f3f3;
@@ -56,205 +59,222 @@
       opacity: 0.95;
     }
 
-    /* thin lime separator like screenshot */
-    .lime-sep {
-      height: 10px;
-      background: linear-gradient(90deg, var(--lime), rgba(255, 255, 255, 0) 60%);
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+
+
+
+
+
+    :root{
+      --bg:#dff4ee; /* soft mint page edge */
+      --card:#ffffff;
+      --muted:#9aa6b1;
+      --label:#0f1720;
+      --input-bg:#f7f8fa;
+      --accent:#0d3f60; /* navy button */
+      --shadow: 0 10px 24px rgba(16,24,32,0.08);
+      --radius-lg:18px;
+      --radius-md:12px;
+      --radius-sm:10px;
+      --gap:18px;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
 
-    /* Container */
-    .container {
-      max-width: 980px;
-      margin: 28px auto;
-      padding: 0 18px;
+    html,body{
+      height:100%;
+      margin:0;
+      background: linear-gradient(90deg,var(--bg), #ecfbf0 70%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      color:var(--label);
     }
 
-    /* Welcome */
-    .hero {
-      background: #fff;
-      border-radius: 4px;
-      padding: 26px 22px;
-      margin-bottom: 22px;
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02) inset;
+    /* Centering container like screenshot */
+    .page {
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:40px 18px;
     }
 
-    .hero h1 {
-      margin: 0 0 8px;
-      font-size: 22px;
+    .card {
+      width:100%;
+      max-width:420px; /* similar to screenshot */
+      background:var(--card);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      padding:32px 28px;
+      box-sizing:border-box;
+      border:1px solid rgba(15,23,32,0.03);
     }
 
-    .hero p {
-      margin: 0;
-      color: #666;
+    h1 {
+      margin:0 0 22px 0;
+      font-size:34px;
+      line-height:1;
+      font-weight:800;
+      color: #0b1720;
+      letter-spacing:-0.3px;
     }
 
-    /* Another lime separator */
-    .lime-sep-thin {
-      height: 8px;
-      background: var(--lime);
-      margin-bottom: 26px;
-      border-radius: 2px;
-      opacity: 0.95;
+    form {
+      display:flex;
+      flex-direction:column;
+      gap:16px;
     }
 
-    /* Menu heading */
-    .menu-heading {
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 20px;
-      margin: 10px 0 16px;
+    .field {
+      display:flex;
+      flex-direction:column;
+      gap:8px;
     }
 
-    /* Menu card */
-    .menu-card {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      border: 1px solid var(--card-border);
-      border-radius: 6px;
-      padding: 14px;
-      background: linear-gradient(180deg, #fff, #fafafa);
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
-      overflow: hidden;
+    label {
+      font-weight:700;
+      color:var(--label);
+      font-size:16px;
     }
 
-    .menu-card img.thumb {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 4px;
-      flex-shrink: 0;
-      border: 1px solid #eee;
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      font-size:18px;
+      padding:20px 18px;
+      background:var(--input-bg);
+      border:1px solid rgba(15,23,32,0.06);
+      border-radius:14px;
+      outline:none;
+      color:#24303a;
+      box-sizing:border-box;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
     }
 
-    .menu-content {
-      flex: 1;
-      min-width: 0;
+    input::placeholder,
+    textarea::placeholder{
+      color:var(--muted);
+      font-weight:500;
     }
 
-    .menu-title {
-      font-weight: 700;
-      font-size: 16px;
-      margin-bottom: 6px;
-      display: inline-block;
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus{
+      box-shadow:0 0 0 4px rgba(13,63,96,0.06);
+      border-color: rgba(13,63,96,0.18);
     }
 
-    .menu-desc {
-      color: #6b6b6b;
-      font-size: 14px;
-      display: block;
-      margin-bottom: 6px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    /* two-column row for first+last name */
+    .row {
+      display:flex;
+      gap:12px;
     }
 
-    .menu-price {
-      font-weight: 700;
-      margin-right: 12px;
+    .row .field { flex:1; }
+
+    textarea{
+      min-height:140px;
+      resize:vertical;
+      border-radius:14px;
+      padding-top:18px;
+      padding-bottom:18px;
     }
 
-    /* order button */
-    .order-btn {
-      background: #333;
-      color: #fff;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      cursor: pointer;
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
-      transition: transform .06s ease;
+    /* big button at bottom */
+    .submit-wrap{
+      margin-top:6px;
     }
 
-    .order-btn:hover {
-      transform: translateY(-1px);
+    button[type="submit"] {
+      width:100%;
+      padding:16px 22px;
+      font-size:20px;
+      font-weight:700;
+      border-radius:20px;
+      border:0;
+      background:var(--accent);
+      color:white;
+      cursor:pointer;
+      box-shadow: 0 6px 18px rgba(13,63,96,0.18);
+      transition:transform .12s ease, box-shadow .12s ease;
     }
 
-    /* footer */
-    footer.site-footer {
-      margin-top: 38px;
-      background: var(--dark-footer);
-      color: #dcdcdc;
-      text-align: center;
-      padding: 18px 10px;
-      font-size: 13px;
+    button[type="submit"]:active { transform:translateY(1px) }
+    button[type="submit"]:hover { box-shadow: 0 10px 28px rgba(13,63,96,0.22) }
+
+    /* small helper responsiveness */
+    @media (max-width:420px){
+      .card { padding:26px 18px; border-radius:14px; }
+      h1 { font-size:30px; }
+      input[type="text"], textarea { font-size:17px; padding:16px; }
+      button[type="submit"] { font-size:18px; padding:14px; border-radius:16px; }
     }
 
-    /* small screens */
-    @media (max-width:640px) {
-      header .brand {
-        font-size: 22px;
-      }
-
-      nav.main-nav {
-        gap: 12px;
-        font-size: 13px;
-        flex-wrap: wrap;
-        justify-content: center
-      }
-
-      .menu-card {
-        flex-direction: row;
-        align-items: center
-      }
-
-      .menu-card img.thumb {
-        width: 64px;
-        height: 64px
-      }
-    }
-
-
-        .social-links a {
-            font-size: 3em; /* Makes the icon large */
-            margin: 0 15px;
-            color: #333; /* Default icon color */
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .social-links a:hover {
-            color: #007bff; /* Color change on hover */
-        }
-        /* Specific colors for better branding */
-    
-    </style>
-
-
+  </style>
 </head>
 <body>
 
-      <header class="site-header" role="banner">
+<header class="site-header" role="banner">
     <h1 class="brand" style="font-family: Georgia, 'Times New Roman', Times, serif; color: black;">EbRo-Shop</h1>
     <nav class="main-nav" role="navigation" aria-label="Main navigation">
       <a href="./index.html">Home</a>
-      <a  href="./index.html">Menu</a>
-      <a href="./Gallary.html">Gallary</a>
+      <a href="./Menu.html">Menu</a>
       <a href="./About.html">About</a>
       <a style="color: #222; font-weight: 700;" href="#">contact</a>
       <a href="./order.html">Order</a>
     </nav>
   </header>
 
-  
-  <div style="font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 50px;" >
-    <h1>Connect With Us</h1>
-    <p>We'd love to hear from you! Click on any of the icons below to find us on social media.</p>
+  <div class="page">
+    <main class="card" role="main" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact-us</h2>
+       <form action="https://formspree.io/f/mvgvvqar" method="POST" enctype="multipart/form-data">
+        <div class="row">
+          <div class="field">
+            <label for="first">First Name</label>
+            <input id="first" name="first Name:" type="text" placeholder="Your first name" required>
+          </div>
+          </div>
 
-    <div class="social-links">
-        <a href="https://fb.com/l/6lp1kJRRR" target="_blank" title="Facebook Profile">
-            <i style="color: #0e60b1;"  class="fab fa-facebook"></i>
-        </a>
-        <a href="https://www.t.me/Rebyi43" target="_blank" title="telegram profile">
-            <i style="color: #0088cc;" class="fab fa-telegram"></i>
-        </a>
-        <a href="#" target="_blank" title="WhatsApp">
-            <i style="color: #25d366; " class="fab fa-whatsapp"></i>
-        </a>
-    </div>
-    </div>
+          <div class="row">
+          <div class="field">
+            <label for="last">Last Name</label>
+            <input id="last" name="last name:" type="text" placeholder="Your last name" required>
+          </div>
+          </div>
 
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email:" type="email" placeholder="your.email13@gmail.com" required>
+        </div>
+
+        <div class="field">
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject:" type="text" placeholder="Message subject">
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message:" placeholder="Your message..." aria-label="message"></textarea>
+        </div>
+
+        <div class="submit-wrap">
+          <button type="submit">Send Message</button>
+        </div>
+      </form>
+
+    </main>
+  </div>
+
+  <!-- Minimal JS: prevent real submit (for demo) -->
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      // For demo show a quick success style change:
+      const btn = this.querySelector('button[type="submit"]');
+      btn.textContent = "Message Sent";
+      btn.disabled = true;
+      setTimeout(()=>{ btn.textContent = "Send Message"; btn.disabled = false; }, 2000);
+      return false;
+    });
+  </script>
 </body>
 </html>
