@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ's of Ebro-Shop</title>
+  <style>
+    :root {
+      --cyan: #09af6f;
+      --lime: #d9f200;
+      --muted: #f6f3f3;
+      --card-border: #efebef;
+      --dark-footer: #2f2f2f;
+      --accent: #8b1f3a;
+      --text: #222;
+      --radius: 6px;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    header.site-header {
+      background: var(--cyan);
+      text-align: center;
+      padding: 26px 16px 44px;
+      position: relative;
+      box-shadow: inset 0 -3px rgba(0, 0, 0, 0.02);
+    }
+
+    header .brand {
+      font-weight: 700;
+      font-size: 32px;
+      color: #fff;
+      margin: 0;
+    }
+
+    nav.main-nav {
+      margin-top: 14px;
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      font-size: 14px;
+    }
+
+    nav.main-nav a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      opacity: 0.95;
+    }
+
+    
+
+   
+
+    
+
+   
+
+    
+
+   
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    
+
+    .card{
+      width:100%;
+      max-width:720px;
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:28px 32px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);
+      border:1px solid rgba(12,24,20,0.03);
+    }
+
+    h1.hero{
+      margin:0 0 20px 0;
+      font-size:40px;
+      line-height:1.03;
+      font-weight:800;
+      text-align:center;
+    }
+
+    h2.section{
+      margin:28px 0 12px 0;
+      font-size:26px;
+      font-weight:700;
+    }
+
+    p.lead{
+      color:var(--muted);
+      line-height:1.8;
+      font-size:18px;
+      margin:0 0 18px 0;
+      font-weight:400;
+    }
+
+    .stats{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      margin:18px 0 6px 0;
+    }
+    .stat{
+      background:var(--stat-bg);
+      padding:22px 18px;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      box-shadow:inset 0 1px rgba(0,0,0,0.02);
+    }
+    .stat .num{
+      font-size:36px;
+      font-weight:800;
+      color:var(--accent);
+      margin-bottom:6px;
+    }
+    .stat .label{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 320px;
+      gap:28px;
+      align-items:start;
+    }
+
+    .values .value{
+      margin-bottom:18px;
+    }
+    .values .value h3{
+      margin:0 0 8px 0;
+      font-size:18px;
+      font-weight:800;
+    }
+    .values .value p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:15px;
+    }
+
+    ul.checklist{
+      padding-left:20px;
+      margin:8px 0 0 0;
+      color:var(--muted);
+      line-height:1.9;
+    }
+    ul.checklist li{margin-bottom:12px;font-weight:500}
+    ul.checklist strong{color:var(--accent);font-weight:700}
+
+    .contact{
+      margin-top:14px;
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    .muted-block{
+      background:linear-gradient(180deg,#fbfdfe,#f7fbfa);
+      border-radius:12px;
+      padding:16px;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+      h1.hero{font-size:36px}
+      .stat .num{font-size:30px}
+    }
+
+    @media (max-width:420px){
+      .card{padding:20px}
+      h1.hero{font-size:32px}
+      h2.section{font-size:22px}
+      p.lead{font-size:16px}
+      .stat .num{font-size:26px}
+    }
+    
+    
+
+    
+    
+    
+
+   
+
+    
+  
+
+
+
+
+    /* footer */
+    footer.site-footer {
+      margin-top: 38px;
+      background: var(--dark-footer);
+      color: #dcdcdc;
+      text-align: center;
+      padding: 18px 10px;
+      font-size: 13px;
+    }
+   
+
+    
+
+
+
+
+
+
+
+
+    summary {
+      font-weight: 600;
+      color: #111;
+      outline: none;
+    }
+
+    
+
+    p {
+      margin-top: 10px;
+      line-height: 1.7;
+    }
+
+    ol, ul {
+      margin: 15px 0 10px 25px;
+      line-height: 1.8;
+    }
+
+    footer {
+      text-align: center;
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    a {
+      color: #0078D7;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header" role="banner">
+    <h1 class="brand" style="font-family: Georgia, 'Times New Roman', Times, serif; color: black;">EbRo-Shop</h1>
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+      <a href="./index.html">Home</a>
+      <a  href="./Menu.html">Menu</a>
+      <a style="color: #222; font-weight: 700;" href="#">About</a>
+      <a href="./Contact.html">contact</a>
+      <a href="./order.html">Order</a>
+    </nav>
+  </header>
+
+
+  <div style=" font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;">
+  <section style=" max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <h2 style="color: #0078D7;
+      border-bottom: 3px solid #0078D7;
+      display: inline-block;
+      margin-bottom: 20px;
+      padding-bottom: 5px;">Frequently Asked Questions</h2>
+
+    <details  style=" background: #eef6ff;
+      border-color: #0078D7;" open>
+      <summary>How do I place an order?</summary>
+      <p>To place an order, browse our shop website, select the products you want, then go to order page, and Fill in your shipping and payment details to confirm your order.</p>
+    </details>
+
+    <details style=" background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin: 12px 0;
+      padding: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;">
+      <summary>Can I track my order?</summary>
+      <p>Yes. Once your order has been shipped, you’ll receive a tracking link via email or SMS. Use it to track your delivery status anytime.</p>
+    </details>
+
+    <details style=" background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin: 12px 0;
+      padding: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;">
+      <summary>What payment methods do you accept?</summary>
+      <p>We accept bank transfers, Telebirr, and Cash methods depending on your location.</p>
+    </details>
+
+    <details style=" background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin: 12px 0;
+      padding: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;">
+      <summary>Can I return a product?</summary>
+      <p>Yes. We offer a 3-day return policy on most items. Products must be unused and in their original packaging. Contact us for our support  for easy returns.</p>
+    </details>
+
+    <details style=" background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin: 12px 0;
+      padding: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;">
+      <summary>Do you offer free shipping?</summary>
+      <p>We offer free shipping on selected products or when your order exceeds a minimum purchase amount. Check our shipping policy for details.</p>
+    </details>
+
+    <details style=" background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin: 12px 0;
+      padding: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;">
+      <summary>How can I contact customer support?</summary>
+      <p>You can contact our support team through the <a href="contact.html">Contact Us</a> page or by emailing us directly. We’re available 24/7 to assist you.</p>
+    </details>
+  </section>
+
+  <section style=" max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <h2 style="color: #0078D7;
+      border-bottom: 3px solid #0078D7;
+      display: inline-block;
+      margin-bottom: 20px;
+      padding-bottom: 5px;">Getting Started</h2>
+    <ol>
+      <li>Browse Ebro-Shop website chrome or others.</li>
+      <li>Browse and select your desired products.</li>
+      <li>Complete your purchase through checkout.</li>
+      <li>Track your order and enjoy by your items!</li>
+    </ol>
+  </section>
+
+  <section style=" max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <h2 style="color: #0078D7;
+      border-bottom: 3px solid #0078D7;
+      display: inline-block;
+      margin-bottom: 20px;
+      padding-bottom: 5px;">Technical Support</h2>
+    <p>If you face any technical problems, please try the following steps:</p>
+    <ul>
+      <li>Clear your browser cache and cookies.</li>
+      <li>Try a different web browser.</li>
+      <li>Ensure a stable internet connection.</li>
+      <li>Disable browser extensions that may interfere.</li>
+      <li>Update your browser to the latest version.</li>
+    </ul>
+    <p>If the problem continues, please reach out through the <a href="./contact.html">Contact Page</a>.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Ebro-Shop. All rights reserved.</p>
+  </footer>
+</div>
+
+</body>
+</html>
