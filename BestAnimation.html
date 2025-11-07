@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About EbRo-Shop</title>
+
+  <style>
+    :root {
+      --cyan: #09af6f;
+      --lime: #d9f200;
+      --muted: #666f78;
+      --card-border: #efebef;
+      --dark-footer: #2f2f2f;
+      --accent: #0d4a7e;
+      --radius: 14px;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      color: #222;
+      background: #fff;
+    }
+
+    /* HEADER (no animation) */
+    header.site-header {
+      background: var(--cyan);
+      text-align: center;
+      padding: 26px 16px 44px;
+      box-shadow: inset 0 -3px rgba(0, 0, 0, 0.02);
+    }
+
+    header .brand {
+      font-weight: 700;
+      font-size: 32px;
+      color: #fff;
+      margin: 0;
+    }
+
+    nav.main-nav {
+      margin-top: 14px;
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      font-size: 14px;
+    }
+
+    nav.main-nav a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      opacity: 0.95;
+    }
+
+    /* MAIN CARD */
+    .card {
+      width: 100%;
+      max-width: 720px;
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(12, 24, 20, 0.03);
+      margin: 50px auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    /* Animate text sections */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: scale(0.85);
+      transition: all 0.8s ease-out;
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Headings and text */
+    h1.hero {
+      font-size: 30px;
+      text-align: center;
+    }
+
+    h2.section {
+      margin: 28px 0 12px 0;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    p.lead {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    ul.checklist {
+      padding-left: 20px;
+      margin: 8px 0;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .stat {
+      background: #f5f8fa;
+      padding: 22px 18px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: inset 0 1px rgba(0,0,0,0.02);
+    }
+
+    .stat .num {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .stat .label {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .muted-block {
+      background: #f7fbfa;
+      border-radius: 12px;
+      padding: 16px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* FOOTER (no animation) */
+    footer.site-footer {
+      margin-top: 38px;
+      background: var(--dark-footer);
+      color: #dcdcdc;
+      text-align: center;
+      padding: 18px 10px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="brand">EbRo-Shop</h1>
+    <nav class="main-nav">
+      <a href="./index.html">Home</a>
+      <a href="./Menu.html">Menu</a>
+      <a style="color:#222;font-weight:700;" href="#">About</a>
+      <a href="./Contact.html">Contact</a>
+      <a href="./order.html">Order</a>
+    </nav>
+  </header>
+
+  <main class="card">
+    <h1 class="hero animate-on-scroll">About Ebro-Shop</h1>
+
+    <div class="animate-on-scroll">
+      <h2 class="section">Our Mission</h2>
+      <p class="lead">At <strong style="color:var(--accent) ;">Ebro-Shop</strong>, our mission is to make online shopping in Ethiopia simple, secure, and affordable. We provide a seamless digital marketplace that connects customers with high-quality products at unbeatable prices. Whether you’re looking for electronics, fashion, home essentials, or personal care products, we’re committed to ensuring a smooth and enjoyable shopping experience every time.</p>
+    </div>
+
+    <div class="animate-on-scroll">
+        <h2 class="section">What We Offer</h2>
+      <ul class="checklist">
+        <li><strong style="color:var(--accent) ;">Wide Product Range:</strong> From daily essentials to exclusive deals. Ebro‑Shop offers thousands of products across multiple categories.</li>
+        <li><strong style="color:var(--accent) ;">Trusted Quality:</strong> Every product is carefully reviewed to meet our strict quality standards..</li>
+        <li><strong style="color:var(--accent) ;">Fast Delivery:</strong> Reliable delivery service that gets your order to your doorstep quickly and safely.</li>
+        <li><strong style="color:var(--accent) ;">Secure Payments:</strong> Multiple secure payment options including Cash, bank transfers and Telebirr transfers.</li>
+        <li><strong style="color:var(--accent) ;">Customer Support:</strong> Our dedicated support team is help you with your orders and inquiries.</li>
+      </ul>
+    </div>
+
+    <div class="animate-on-scroll">
+      <h2 class="section">Our Story</h2>
+      <p class="lead">Ebro‑Shop started with a simple idea — to bring convenience and trust to online shopping in Ethiopia. What began as a small local e‑commerce project quickly grew into one of the most loved digital marketplaces. We’ve helped thousands of customers find what they need with confidence, transparency, and affordability.</p>
+      <p class="lead">Every product we add and every partnership we form is guided by our mission to make quality products accessible to everyone, everywhere in the country.</p>
+
+    </div>
+
+    <div class="animate-on-scroll">
+      <h2 class="section">Our Vision</h2>
+      <p class="lead">To be Ethiopia’s most trusted online marketplace — empowering people to shop smarter, live better, and connect with a modern digital economy.</p>
+       </div>
+
+    <aside class="animate-on-scroll">
+      <h2 class="section">Our Impact</h2>
+      <div class="stat">
+        <div class="num">1,000+</div>
+        <div class="label">Products Available</div>
+      </div>
+      <div class="stat">
+        <div class="num">500+</div>
+        <div class="label">Happy Customers</div>
+      </div>
+      <div class="stat">
+        <div class="num">5+</div>
+        <div class="label">Partner Brands</div>
+      </div>
+    </aside>
+
+    <div class="animate-on-scroll">
+ <h2 class="section">Our Values</h2>
+        <div class="values">
+          <div class="value">
+            <h3 style="color:var(--accent) ;">Customers First</h3>
+            <p>We always prioritize customer satisfaction above all else.</p>
+          </div>
+
+          <div class="value">
+            <h3 style="color:var(--accent) ;">Integrity</h3>
+            <p>Honesty and transparency guide every transaction and partnership.</p>
+          </div>
+
+          <div class="value">
+            <h3 style="color:var(--accent) ;">Innovation</h3>
+            <p>We continuously improve our platform and services to meet evolving customer needs.</p>
+          </div>
+
+          <div class="value">
+            <h3 style="color:var(--accent) ;">Community</h3>
+            <p>We support local businesses and promote digital transformation within Ethiopia.</p>
+          </div>
+        </div>
+   </div>
+   <br>
+    <div class="animate-on-scroll">
+      <h2 class="section">Contact Information</h2>
+      <div class="muted-block">
+        For inquiries or support, please contact us via our 
+        <a href="./Contact.html" style="color:var(--accent);font-weight:700;text-decoration:underline">Contact Us page</a>.
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    © 2025 EbRo-Shop. All rights reserved.
+  </footer>
+
+  <script>
+    // Animate only when visible on scroll
+    const items = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    items.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
