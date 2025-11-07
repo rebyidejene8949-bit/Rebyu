@@ -1,3 +1,167 @@
-  <h3>Gallery</h3>
-        <p>(Photos can be added later.)</p>
-        
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ebro-Shop Gallery</title>
+<style>
+  body {
+    font-family: "Poppins", sans-serif;
+    background: #f1f5f9;
+    margin: 0;
+    padding: 0;
+    color: #0f172a;
+  }
+
+  header {
+    background: linear-gradient(90deg, #0088ff, #00ffaa);
+    color: white;
+    text-align: center;
+    padding: 30px 10px;
+    font-size: 1.8em;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .gallery-preview {
+    max-width: 100px; /* before its 500px*/
+    margin: 40px auto;
+    text-align: center;
+  }
+
+  .gallery-preview img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    cursor: pointer;
+  }
+
+  .gallery-preview h3 {
+    margin-top: 10px;
+    font-size: 1.3em;
+  }
+
+  /* Overlay background */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    flex-direction: column;
+  }
+
+  .overlay img {
+    max-width: 60%; /* before its 90%*/
+    max-height: 50%; /* before its 80%*/
+    border-radius: 10px;
+    margin-bottom: 10px;
+    object-fit: cover;
+  }
+
+  .overlay button {
+    background: #00ffaa;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .thumbs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .thumbs img {
+    width:60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+  .thumbs img:hover {
+    opacity: 1;
+    border: 2px solid #00ffaa;
+  }
+</style>
+</head>
+<body>
+
+<header>📷 Ebro-Shop Gallery</header>
+
+<!-- MAIN PREVIEW IMAGE -->
+<div class="gallery-preview">
+  <img src="./Developer.png" alt="Beautiful View" id="openGallery">
+  <h3><b style="font-size: 10px;">Food Items</b> <a style="text-align: center; font-size: 8px;">23 pic</a></h3>
+</div>
+
+<!-- OVERLAY GALLERY 1 -->
+<div class="overlay" id="galleryOverlay">
+  <img id="mainPhoto" src="./cooking tasks.png" alt="Gallery Photo">
+  <div class="thumbs">
+    <img src="./Ebro Hosts.jpg" onclick="changePhoto(this.src)">
+    <img src="./Food sources.jpg" onclick="changePhoto(this.src)">
+    <img src="./Map.png" onclick="changePhoto(this.src)">
+    <img src="./Pharmacy.jpg" onclick="changePhoto(this.src)">
+    <img src="./Rebyii Hosts.png" onclick="changePhoto(this.src)">
+    <img src="./Ebro Hosts.jpg" onclick="changePhoto(this.src)">
+  </div>
+  <button onclick="closeGallery()">Back Home ✖</button>
+</div>
+
+
+<!-- MAIN PREVIEW IMAGE  2-->
+<div class="gallery-preview">
+  <img src="./Developer.png" alt="Beautiful View" id="openGallery">
+  <h3><b style="font-size: 10px;">Cooking Tasks</b> <a style="text-align: center; font-size: 8px;">23 pic</a></h3>
+</div>
+
+<!-- OVERLAY GALLERY -->
+<div class="overlay" id="galleryOverlay">
+  <img id="mainPhoto" src="./cooking tasks.png" alt="Gallery Photo">
+  <div class="thumbs">
+    <img src="./Ebro Hosts.jpg" onclick="changePhoto(this.src)">
+    <img src="./Food sources.jpg" onclick="changePhoto(this.src)">
+    <img src="./Map.png" onclick="changePhoto(this.src)">
+    <img src="./Pharmacy.jpg" onclick="changePhoto(this.src)">
+    <img src="./Rebyii Hosts.png" onclick="changePhoto(this.src)">
+    <img src="./Ebro Hosts.jpg" onclick="changePhoto(this.src)">
+  </div>
+  <button onclick="closeGallery()">Back Home ✖</button>
+</div>
+
+
+
+
+<script>
+  const overlay = document.getElementById("galleryOverlay");
+  const mainPhoto = document.getElementById("mainPhoto");
+  const openGallery = document.getElementById("openGallery");
+
+  openGallery.onclick = () => {
+    overlay.style.display ="flex";
+  };
+
+  function closeGallery() {
+    overlay.style.display = "none";
+  }
+
+  function changePhoto(src) {
+    mainPhoto.src = src;
+  }
+</script>
+
+</body>
+</html>
