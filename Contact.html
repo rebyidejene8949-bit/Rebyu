@@ -3,291 +3,257 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Send Us a Message — Ebro-Shop</title>
+  <title>Contact-us</title>
 
   <!-- Optional: change font family -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-
 :root {
-      --cyan: #09af6f;
-      --lime: #d9f200;
-      --muted: #f6f3f3;
-      --card-border: #efebef;
-      --dark-footer: #2f2f2f;
-      --accent: #8b1f3a;
-      --text: #222;
-      --radius: 6px;
-      font-family: "Helvetica Neue", Arial, sans-serif;
-    }
+  --cyan: #09af6f;
+  --lime: #d9f200;
+  --muted: #f6f3f3;
+  --card-border: #efebef;
+  --dark-footer: #2f2f2f;
+  --accent: #8b1f3a;
+  --text: #222;
+  --radius: 6px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
 
-    body {
-      margin: 0;
-      color: var(--text);
-      background: #fff;
-      -webkit-font-smoothing: antialiased;
-    }
+body {
+  margin: 0;
+  color: var(--text);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
 
-    /* Header */
-    header.site-header {
-      background: var(--cyan);
-      text-align: center;
-      padding: 26px 16px 44px;
-      position: relative;
-      box-shadow: inset 0 -3px rgba(0, 0, 0, 0.02);
-    }
+/* Header (no animation) */
+header.site-header {
+  background: var(--cyan);
+  text-align: center;
+  padding: 26px 16px 44px;
+  position: relative;
+  box-shadow: inset 0 -3px rgba(0, 0, 0, 0.02);
+}
 
-    header .brand {
-      font-weight: 700;
-      font-size: 32px;
-      color: #fff;
-      margin: 0;
-    }
+header .brand {
+  font-weight: 700;
+  font-size: 32px;
+  color: #fff;
+  margin: 0;
+}
 
-    nav.main-nav {
-      margin-top: 14px;
-      display: flex;
-      justify-content: center;
-      gap: 22px;
-      font-size: 14px;
-    }
+nav.main-nav {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  font-size: 14px;
+}
 
-    nav.main-nav a {
-      color: rgba(255, 255, 255, 0.9);
-      text-decoration: none;
-      opacity: 0.95;
-    }
- /* footer */
-    footer.site-footer {
-      margin-top: 38px;
-      background: var(--dark-footer);
-      color: #dcdcdc;
-      text-align: center;
-      padding: 18px 10px;
-      font-size: 13px;
-    }
+nav.main-nav a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  opacity: 0.95;
+}
 
+/* Footer (no animation) */
+footer.site-footer {
+  margin-top: 38px;
+  background: var(--dark-footer);
+  color: #dcdcdc;
+  text-align: center;
+  padding: 18px 10px;
+  font-size: 13px;
+}
 
+/* Main part styling */
+:root {
+  --bg:#dff4ee;
+  --card:#ffffff;
+  --muted:#9aa6b1;
+  --label:#0f1720;
+  --input-bg:#f7f8fa;
+  --accent:#0d3f60;
+  --shadow: 0 10px 24px rgba(16,24,32,0.08);
+  --radius-lg:18px;
+  --gap:18px;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
 
+html,body{
+  height:100%;
+  margin:0;
+  background: linear-gradient(90deg,var(--bg), #ecfbf0 70%);
+  color:var(--label);
+}
 
+.page {
+  min-height:100%;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:40px 18px;
+}
 
-    :root{
-      --bg:#dff4ee; /* soft mint page edge */
-      --card:#ffffff;
-      --muted:#9aa6b1;
-      --label:#0f1720;
-      --input-bg:#f7f8fa;
-      --accent:#0d3f60; /* navy button */
-      --shadow: 0 10px 24px rgba(16,24,32,0.08);
-      --radius-lg:18px;
-      --radius-md:12px;
-      --radius-sm:10px;
-      --gap:18px;
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
+/* Main card animation */
+.card {
+  width:100%;
+  max-width:420px;
+  background:var(--card);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  padding:32px 28px;
+  border:1px solid rgba(15,23,32,0.03);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
 
-    html,body{
-      height:100%;
-      margin:0;
-      background: linear-gradient(90deg,var(--bg), #ecfbf0 70%);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      color:var(--label);
-    }
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    /* Centering container like screenshot */
-    .page {
-      min-height:100%;
-      display:flex;
-      align-items:flex-start;
-      justify-content:center;
-      padding:40px 18px;
-    }
+h1, h2, label, input, textarea, button {
+  transition: all 2s ease;
+}
 
-    .card {
-      width:100%;
-      max-width:420px; /* similar to screenshot */
-      background:var(--card);
-      border-radius:18px;
-      box-shadow:var(--shadow);
-      padding:32px 28px;
-      box-sizing:border-box;
-      border:1px solid rgba(15,23,32,0.03);
-    }
+/* Other input/form styles */
+h2 {
+  margin:0 0 22px 0;
+  font-size:34px;
+  font-weight:800;
+  color: #0b1720;
+  letter-spacing:-0.3px;
+}
 
-    h1 {
-      margin:0 0 22px 0;
-      font-size:34px;
-      line-height:1;
-      font-weight:800;
-      color: #0b1720;
-      letter-spacing:-0.3px;
-    }
+form {
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
 
-    form {
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-    }
+.field { display:flex; flex-direction:column; gap:8px; }
+label { font-weight:700; color:var(--label); font-size:16px; }
 
-    .field {
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-    }
+input[type="text"], input[type="email"], textarea {
+  font-size:18px;
+  padding:20px 18px;
+  background:var(--input-bg);
+  border:1px solid rgba(15,23,32,0.06);
+  border-radius:14px;
+  color:#24303a;
+}
 
-    label {
-      font-weight:700;
-      color:var(--label);
-      font-size:16px;
-    }
+textarea{
+  min-height:140px;
+  resize:vertical;
+  border-radius:14px;
+}
 
-    input[type="text"],
-    input[type="email"],
-    textarea {
-      font-size:18px;
-      padding:20px 18px;
-      background:var(--input-bg);
-      border:1px solid rgba(15,23,32,0.06);
-      border-radius:14px;
-      outline:none;
-      color:#24303a;
-      box-sizing:border-box;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
-    }
+button[type="submit"] {
+  width:100%;
+  padding:16px 22px;
+  font-size:20px;
+  font-weight:700;
+  border-radius:20px;
+  border:0;
+  background:var(--accent);
+  color:white;
+  cursor:pointer;
+  box-shadow: 0 6px 18px rgba(13,63,96,0.18);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+button[type="submit"]:active { transform:translateY(1px) }
+button[type="submit"]:hover { box-shadow: 0 10px 28px rgba(13,63,96,0.22) }
 
-    input::placeholder,
-    textarea::placeholder{
-      color:var(--muted);
-      font-weight:500;
-    }
-
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    textarea:focus{
-      box-shadow:0 0 0 4px rgba(13,63,96,0.06);
-      border-color: rgba(13,63,96,0.18);
-    }
-
-    /* two-column row for first+last name */
-    .row {
-      display:flex;
-      gap:12px;
-    }
-
-    .row .field { flex:1; }
-
-    textarea{
-      min-height:140px;
-      resize:vertical;
-      border-radius:14px;
-      padding-top:18px;
-      padding-bottom:18px;
-    }
-
-    /* big button at bottom */
-    .submit-wrap{
-      margin-top:6px;
-    }
-
-    button[type="submit"] {
-      width:100%;
-      padding:16px 22px;
-      font-size:20px;
-      font-weight:700;
-      border-radius:20px;
-      border:0;
-      background:var(--accent);
-      color:white;
-      cursor:pointer;
-      box-shadow: 0 6px 18px rgba(13,63,96,0.18);
-      transition:transform .12s ease, box-shadow .12s ease;
-    }
-
-    button[type="submit"]:active { transform:translateY(1px) }
-    button[type="submit"]:hover { box-shadow: 0 10px 28px rgba(13,63,96,0.22) }
-
-    /* small helper responsiveness */
-    @media (max-width:420px){
-      .card { padding:26px 18px; border-radius:14px; }
-      h1 { font-size:30px; }
-      input[type="text"], textarea { font-size:17px; padding:16px; }
-      button[type="submit"] { font-size:18px; padding:14px; border-radius:16px; }
-    }
-
+@media (max-width:420px){
+  .card { padding:26px 18px; border-radius:14px; }
+  h2 { font-size:30px; }
+  input[type="text"], textarea { font-size:17px; padding:16px; }
+  button[type="submit"] { font-size:18px; padding:14px; border-radius:16px; }
+}
   </style>
 </head>
 <body>
 
 <header class="site-header" role="banner">
-    <h1 class="brand" style="font-family: Georgia, 'Times New Roman', Times, serif; color: black;">EbRo-Shop</h1>
-    <nav class="main-nav" role="navigation" aria-label="Main navigation">
-      <a href="./index.html">Home</a>
-      <a href="./Menu.html">Menu</a>
-      <a href="./About.html">About</a>
-      <a style="color: #222; font-weight: 700;" href="#">contact</a>
-      <a href="./order.html">Order</a>
-    </nav>
-  </header>
+  <h1 class="brand" style="font-family: Georgia, 'Times New Roman', Times, serif; color: black;">EbRo-Shop</h1>
+  <nav class="main-nav" role="navigation">
+    <a href="./index.html">Home</a>
+    <a href="./Menu.html">Menu</a>
+    <a href="./About.html">About</a>
+    <a style="color: #222; font-weight: 700;" href="#">Contact</a>
+    <a href="./order.html">Order</a>
+  </nav>
+</header>
+<div class="page">
+  <main class="card" role="main" aria-labelledby="contact-heading">
+    <h2 id="contact-heading">Contact-us</h2>
+    <form id="contact-form" action="https://formspree.io/f/mvgvvqar" method="POST">
+      <div class="field">
+        <label for="first">First Name</label>
+        <input id="first" name="first Name:" type="text" placeholder="Your first name" required>
+      </div>
 
-  <div class="page">
-    <main class="card" role="main" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Contact-us</h2>
-       <form action="https://formspree.io/f/mvgvvqar" method="POST" enctype="multipart/form-data">
-        <div class="row">
-          <div class="field">
-            <label for="first">First Name</label>
-            <input id="first" name="first Name:" type="text" placeholder="Your first name" required>
-          </div>
-          </div>
+      <div class="field">
+        <label for="last">Last Name</label>
+        <input id="last" name="last name:" type="text" placeholder="Your last name" required>
+      </div>
 
-          <div class="row">
-          <div class="field">
-            <label for="last">Last Name</label>
-            <input id="last" name="last name:" type="text" placeholder="Your last name" required>
-          </div>
-          </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email:" type="email" placeholder="your.email13@gmail.com" required>
+      </div>
 
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" name="email:" type="email" placeholder="your.email13@gmail.com" required>
-        </div>
+      <div class="field">
+        <label for="subject">Subject</label>
+        <input id="subject" name="subject:" type="text" placeholder="Message subject">
+      </div>
 
-        <div class="field">
-          <label for="subject">Subject</label>
-          <input id="subject" name="subject:" type="text" placeholder="Message subject">
-        </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message:" placeholder="Your message..."></textarea>
+      </div>
 
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message:" placeholder="Your message..." aria-label="message"></textarea>
-        </div>
+      <div class="submit-wrap">
+        <button type="submit">Send Message</button>
+      </div>
+    </form>
+  </main>
+</div>
 
-        <div class="submit-wrap">
-          <button type="submit">Send Message</button>
-        </div>
-      </form>
+<footer class="site-footer">
+  © 2025 EbRo-Shop. All rights reserved.
+</footer>
 
-    </main>
-  </div>
+<script>
+// Show animation when main content enters viewport
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
 
-  <!-- Minimal JS: prevent real submit (for demo) -->
-  <script>
-    document.getElementById('contact-form').addEventListener('submit', function(e){
-      e.preventDefault();
-      // For demo show a quick success style change:
-      const btn = this.querySelector('button[type="submit"]');
-      btn.textContent = "Message Sent";
-      btn.disabled = true;
-      setTimeout(()=>{ btn.textContent = "Send Message"; btn.disabled = false; }, 2000);
-      return false;
-    });
-  </script>
+observer.observe(document.querySelector('.card'));
 
-  <footer class="site-footer" role="contentinfo">
-    © 2025 EbRo-Shop. All rights reserved.
-  </footer>
-  
+// Prevent actual form submission (demo)
+document.getElementById('contact-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  const btn = this.querySelector('button[type="submit"]');
+  btn.textContent = "Message Sent";
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = "Send Message";
+    btn.disabled = false;
+  }, 2000);
+});
+</script>
+
 </body>
 </html>

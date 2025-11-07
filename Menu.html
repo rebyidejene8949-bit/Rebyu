@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-      <meta charset="utf-8" />
+<head>
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
- 
   <title>Menu</title>
   <style>
     :root {
@@ -25,7 +24,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Header */
+    /* Header (no animation) */
     header.site-header {
       background: var(--cyan);
       text-align: center;
@@ -55,54 +54,12 @@
       opacity: 0.95;
     }
 
-    /* thin lime separator like screenshot */
-    .lime-sep {
-      height: 10px;
-      background: linear-gradient(90deg, var(--lime), rgba(255, 255, 255, 0) 60%);
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
-    }
-
-    /* Container */
-    .container {
-      max-width: 980px;
-      margin: 28px auto;
-      padding: 0 18px;
-    }
-
-    /* Welcome */
-    .hero {
-      background: #fff;
-      border-radius: 4px;
-      padding: 26px 22px;
-      margin-bottom: 22px;
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02) inset;
-    }
-
-    .hero h1 {
-      margin: 0 0 8px;
-      font-size: 22px;
-    }
-
-    .hero p {
-      margin: 0;
-      color: #666;
-    }
-
-    /* Another lime separator */
-    .lime-sep-thin {
-      height: 8px;
-      background: var(--lime);
-      margin-bottom: 26px;
-      border-radius: 2px;
-      opacity: 0.95;
-    }
-
-    /* Menu heading */
     .menu-heading {
       color: var(--accent);
       font-weight: 700;
       font-size: 20px;
-      margin: 10px 0 16px;
+      margin: 20px 0 16px;
+      text-align: center;
     }
 
     /* Menu card */
@@ -116,6 +73,15 @@
       background: linear-gradient(180deg, #fff, #fafafa);
       box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
       overflow: hidden;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 2s ease, transform 3s ease;
+    }
+
+    /* Animate when visible */
+    .menu-card.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .menu-card img.thumb {
@@ -154,7 +120,6 @@
       margin-right: 12px;
     }
 
-    /* order button */
     .order-btn {
       background: #333;
       color: #fff;
@@ -170,7 +135,7 @@
       transform: translateY(-1px);
     }
 
-    /* footer */
+    /* Footer (no animation) */
     footer.site-footer {
       margin-top: 38px;
       background: var(--dark-footer);
@@ -180,7 +145,6 @@
       font-size: 13px;
     }
 
-    /* small screens */
     @media (max-width:640px) {
       header .brand {
         font-size: 22px;
@@ -190,108 +154,77 @@
         gap: 12px;
         font-size: 13px;
         flex-wrap: wrap;
-        justify-content: center
-      }
-
-      .menu-card {
-        flex-direction: row;
-        align-items: center
+        justify-content: center;
       }
 
       .menu-card img.thumb {
         width: 64px;
-        height: 64px
+        height: 64px;
       }
     }
-  </style>  
+  </style>
+</head>
 
-
-    </head>
-    <body>
-         <header class="site-header" role="banner">
+<body>
+  <header class="site-header">
     <h1 class="brand" style="font-family: Georgia, 'Times New Roman', Times, serif; color: black;">EbRo-Shop</h1>
-    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+    <nav class="main-nav">
       <a href="./index.html">Home</a>
       <a style="color: #0b0808; font-weight: 700;" href="#">Menu</a>
       <a href="./About.html">About</a>
-      <a href="./Contact.html">contact</a>
+      <a href="./Contact.html">Contact</a>
       <a href="./order.html">Order</a>
     </nav>
   </header>
-        <h3 style="text-align: center; font-size: 20px;" class="menu-heading">Our Menu</h3>    
-  <h3 style="color: rgb(23, 3, 241);" class=menu-heading>Food Items</h3>    
-    <!-- Menu item 1-->
-    <article class="menu-card" aria-labelledby="pizza-title">
-      <!-- Replace 'pizza.jpg' with your dish image path -->
-      <img class="thumb" src="./Food sources.jpg" alt="food sources">
 
-      <div class="menu-content">
-        <div>
-          <span id="pizza-title" class="menu-title">Food Items</span>
-          <span class="menu-desc">We have a best food items like rice, lentils, pasta, and more</span>
-        </div>
-        <div style="margin-top:8px;">
-          <span class="menu-price">Price: on detail menu</span>
-        </div>
-      </div>
+  <h3 class="menu-heading">Our Menu</h3>    
+  <h3 style="color: rgb(23, 3, 241);" class="menu-heading">Food Items</h3>
+  <article class="menu-card">
+    <img class="thumb" src="./Food sources.jpg" alt="food sources">
+    <div class="menu-content">
+      <span class="menu-title">Food Items</span>
+      <span class="menu-desc">We have best food items like rice, lentils, pasta, and more</span>
+      <span class="menu-price">Price: on detail menu</span>
+    </div>
+    <div><a href="./order.html" target="_blank"><button class="order-btn">Order Now</button></a></div>
+  </article>
 
-      <!-- Order button links to a hypothetical ordering page -->
-      <div style="margin-left:12px">
-        <a href="./order.html" target="_blank" rel="noopener">
-          <button class="order-btn" type="button">Order Now</button>
-        </a>
-      </div>
-    </article>
+  <article class="menu-card">
+    <img class="thumb" src="./cooking tasks.png" alt="cooking tasks">
+    <div class="menu-content">
+      <span class="menu-title">Cooking Tasks</span>
+      <span class="menu-desc">We have more cooking items like oil, berbere, and more</span>
+      <span class="menu-price">Price: on detail menu</span>
+    </div>
+    <div><a href="./order.html" target="_blank"><button class="order-btn">Order Now</button></a></div>
+  </article>
 
-    <!-- Menu item 2-->
-    <article class="menu-card" aria-labelledby="pizza-title">
-      <!-- Replace 'pizza.jpg' with your dish image path -->
-      <img class="thumb" src="./cooking tasks.png" alt="cooking tasks">
+  <article class="menu-card">
+    <img class="thumb" src="./Pharmacy.jpg" alt="healthcare products">
+    <div class="menu-content">
+      <span class="menu-title">HealthCare Products</span>
+      <span class="menu-desc">We have products like shampoo, soap, lotion and more</span>
+      <span class="menu-price">Price: on detail menu</span>
+    </div>
+    <div><a href="./order.html" target="_blank"><button class="order-btn">Order Now</button></a></div>
+  </article>
 
-      <div class="menu-content">
-        <div>
-          <span id="pizza-title" class="menu-title">Cooking tasks</span>
-          <span class="menu-desc">We have a more cooking tasks like oil, berber, and more</span>
-        </div>
-        <div style="margin-top:8px;">
-          <span class="menu-price">Price: on detail menu</span>
-        </div>
-      </div>
-
-      <!-- Order button links to a hypothetical ordering page -->
-      <div style="margin-left:12px">
-        <a href="./order.html" target="_blank" rel="noopener">
-          <button class="order-btn" type="button">Order Now</button>
-        </a>
-      </div>
-    </article>
-
-    <!-- Menu item 3-->
-    <article class="menu-card" aria-labelledby="pizza-title">
-      <!-- Replace 'pizza.jpg' with your dish image path -->
-      <img class="thumb" src="./Pharmacy.jpg" alt="healthcare products">
-
-      <div class="menu-content">
-        <div>
-          <span id="pizza-title" class="menu-title">HealthCare products</span>
-          <span class="menu-desc">We have a HealthCare products like Shampoo, Soap, lotion and more</span>
-        </div>
-        <div style="margin-top:8px;">
-          <span class="menu-price">Price: on detail menu</span>
-        </div>
-      </div>
-
-      <!-- Order button links to a hypothetical ordering page -->
-      <div style="margin-left:12px">
-        <a href="./order.html" target="_blank" rel="noopener">
-          <button class="order-btn" type="button">Order Now</button>
-        </a>
-      </div>
-    </article>
-
-    <footer class="site-footer" role="contentinfo">
+  <footer class="site-footer">
     © 2025 EbRo-Shop. All rights reserved.
   </footer>
-  
-    </body>
+
+  <script>
+    // Animation trigger when elements reach the screen edge
+    const cards = document.querySelectorAll('.menu-card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    cards.forEach(card => observer.observe(card));
+  </script>
+</body>
 </html>

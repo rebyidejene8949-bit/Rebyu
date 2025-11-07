@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="en">
+<head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Order</title>
   <style>
-
      :root {
       --cyan: #09af6f;
       --lime: #d9f200;
@@ -23,6 +22,7 @@
       color: var(--text);
       background: #fff;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     /* Header */
@@ -55,122 +55,61 @@
       opacity: 0.95;
     }
 
-    /* thin lime separator like screenshot */
-    .lime-sep {
-      height: 10px;
-      background: linear-gradient(90deg, var(--lime), rgba(255, 255, 255, 0) 60%);
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+    /* Animation setup */
+    .animate {
+      opacity: 0;
+      transition: all 2s ease-out;
     }
 
-    /* Container */
-    .container {
-      max-width: 980px;
-      margin: 28px auto;
-      padding: 0 18px;
+    .animate.show {
+      opacity: 1;
+      transform: translate(0, 0);
     }
 
-    /* Welcome */
-    .hero {
-      background: #fff;
-      border-radius: 4px;
-      padding: 26px 22px;
-      margin-bottom: 22px;
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02) inset;
+    /* specific directions */
+    .from-bottom {
+      transform: translateY(60px);
     }
 
-    .hero h1 {
-      margin: 0 0 8px;
-      font-size: 22px;
+    .from-right {
+      transform: translateX(80px);
     }
 
-    .hero p {
+    .from-left {
+      transform: translateX(-80px);
+    }
+
+    /* Main section */
+    .main-section {
+      text-align: center;
+      font-family: Segoe UI, Roboto, Arial, sans-serif;
       margin: 0;
-      color: #666;
+      color: #123;
+      padding: 40px 10px;
     }
 
-    /* Another lime separator */
-    .lime-sep-thin {
-      height: 8px;
-      background: var(--lime);
-      margin-bottom: 26px;
-      border-radius: 2px;
-      opacity: 0.95;
+    .main-section h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
     }
 
-    /* Menu heading */
-    .menu-heading {
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 20px;
-      margin: 10px 0 16px;
-    }
-
-    /* Menu card */
-    .menu-card {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      border: 1px solid var(--card-border);
-      border-radius: 6px;
-      padding: 14px;
-      background: linear-gradient(180deg, #fff, #fafafa);
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
-      overflow: hidden;
-    }
-
-    .menu-card img.thumb {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 4px;
-      flex-shrink: 0;
-      border: 1px solid #eee;
-    }
-
-    .menu-content {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .menu-title {
-      font-weight: 700;
-      font-size: 16px;
-      margin-bottom: 6px;
-      display: inline-block;
-    }
-
-    .menu-desc {
-      color: #6b6b6b;
-      font-size: 14px;
-      display: block;
-      margin-bottom: 6px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .menu-price {
-      font-weight: 700;
-      margin-right: 12px;
-    }
-
-    /* order button */
     .order-btn {
       background: #196b51;
       color: #fff;
       border: none;
-      padding: 8px 14px;
+      padding: 10px 16px;
       border-radius: 6px;
       cursor: pointer;
+      margin: 10px 0;
       box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
-      transition: transform .06s ease;
+      transition: transform .1s ease;
     }
 
     .order-btn:hover {
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
-    /* footer */
+    /* Footer */
     footer.site-footer {
       margin-top: 38px;
       background: var(--dark-footer);
@@ -180,7 +119,7 @@
       font-size: 13px;
     }
 
-    /* small screens */
+    /* Responsive */
     @media (max-width:640px) {
       header .brand {
         font-size: 22px;
@@ -190,72 +129,64 @@
         gap: 12px;
         font-size: 13px;
         flex-wrap: wrap;
-        justify-content: center
-      }
-
-      .menu-card {
-        flex-direction: row;
-        align-items: center
-      }
-
-      .menu-card img.thumb {
-        width: 64px;
-        height: 64px
+        justify-content: center;
       }
     }
-  
-    
-    
-
-    
-    
-    
-    
-  
-  
-    .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--primary);color:#fff;text-decoration:none}
-    form input, form textarea{width:100%;padding:10px;margin-top:8px;border:1px solid #ddd;border-radius:6px}
-    form button{margin-top:10px}
- 
   </style>
-   
+</head>
 
-    </head>
-    <body>
+<body>
 
-      <header class="site-header" role="banner">
+  <header class="site-header" role="banner">
     <h1 class="brand" style="font-family: Georgia, 'Times New Roman', Times, serif; color: black;">EbRo-Shop</h1>
     <nav class="main-nav" role="navigation" aria-label="Main navigation">
       <a href="./index.html">Home</a>
       <a href="./Menu.html">Menu</a>
       <a href="./About.html">About</a>
-      <a href="./Contact.html">contact</a>
+      <a href="./Contact.html">Contact</a>
       <a style="color: #222; font-weight: 700;" href="#">Order</a>
     </nav>
   </header>
 
+  <div class="main-section">
+    <h2><b>If you pay by ⏬</b></h2>
 
-  <div style="font-family:Segoe UI, Roboto, Arial, sans-serif;margin:0;background:var(--bg);color:#123">
+    <!-- Cash from bottom -->
+    <p class="animate from-bottom">
+      <a href="./cash.html" target="_blank" rel="noopener">
+        <button class="order-btn" type="button">Cash</button>
+      </a>
+    </p>
 
-    <div style="--primary:#2b7a78;--accent:#f6bc52;--bg:#f7faf9;--card:#ffffff;text-align: center;">
-      <h2><b>If you pay by ⏬</b></h2>
-      <p><a href="./cash.html" target="_blank" rel="noopener">
-          <button class="order-btn" type="button">Cash</button>
-        </a></p>  
-      <p><a href="./Bank.html" target="_blank" rel="noopener">
-          <button class="order-btn" type="button">Bank</button>
-        </a></p>
-        <p><a href="./Telebirr.html" target="_blank" rel="noopener">
-          <button class="order-btn" type="button">Telebirr</button>
-        </a>
-        </p>
-      </div> 
-  
+    <!-- Bank from right -->
+    <p class="animate from-right">
+      <a href="./Bank.html" target="_blank" rel="noopener">
+        <button class="order-btn" type="button">Bank</button>
+      </a>
+    </p>
 
-
+    <!-- Telebirr from left -->
+    <p class="animate from-left">
+      <a href="./Telebirr.html" target="_blank" rel="noopener">
+        <button class="order-btn" type="button">Telebirr</button>
+      </a>
+    </p>
   </div>
 
-   
+  <footer class="site-footer">
+    © 2025 EbRo-Shop. All rights reserved.
+  </footer>
+  <script>
+    // Animation observer
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.3 });
 
-    </body>
+    document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+  </script>
+</body>
 </html>

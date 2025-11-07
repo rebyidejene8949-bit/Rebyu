@@ -54,155 +54,6 @@
       opacity: 0.95;
     }
 
-    
-
-   
-
-    
-
-   
-
-    
-
-   
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    
-
-    .card{
-      width:100%;
-      max-width:720px;
-      background:var(--card);
-      border-radius:var(--radius);
-      padding:28px 32px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.06);
-      border:1px solid rgba(12,24,20,0.03);
-    }
-
-    h1.hero{
-      margin:0 0 20px 0;
-      font-size:40px;
-      line-height:1.03;
-      font-weight:800;
-      text-align:center;
-    }
-
-    h2.section{
-      margin:28px 0 12px 0;
-      font-size:26px;
-      font-weight:700;
-    }
-
-    p.lead{
-      color:var(--muted);
-      line-height:1.8;
-      font-size:18px;
-      margin:0 0 18px 0;
-      font-weight:400;
-    }
-
-    .stats{
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-      margin:18px 0 6px 0;
-    }
-    .stat{
-      background:var(--stat-bg);
-      padding:22px 18px;
-      border-radius:12px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-direction:column;
-      box-shadow:inset 0 1px rgba(0,0,0,0.02);
-    }
-    .stat .num{
-      font-size:36px;
-      font-weight:800;
-      color:var(--accent);
-      margin-bottom:6px;
-    }
-    .stat .label{
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:1fr 320px;
-      gap:28px;
-      align-items:start;
-    }
-
-    .values .value{
-      margin-bottom:18px;
-    }
-    .values .value h3{
-      margin:0 0 8px 0;
-      font-size:18px;
-      font-weight:800;
-    }
-    .values .value p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.7;
-      font-size:15px;
-    }
-
-    ul.checklist{
-      padding-left:20px;
-      margin:8px 0 0 0;
-      color:var(--muted);
-      line-height:1.9;
-    }
-    ul.checklist li{margin-bottom:12px;font-weight:500}
-    ul.checklist strong{color:var(--accent);font-weight:700}
-
-    .contact{
-      margin-top:14px;
-      color:var(--muted);
-      line-height:1.8;
-    }
-
-    .muted-block{
-      background:linear-gradient(180deg,#fbfdfe,#f7fbfa);
-      border-radius:12px;
-      padding:16px;
-      color:var(--muted);
-      font-size:15px;
-    }
-
-    @media (max-width:900px){
-      .grid{grid-template-columns:1fr}
-      h1.hero{font-size:36px}
-      .stat .num{font-size:30px}
-    }
-
-    @media (max-width:420px){
-      .card{padding:20px}
-      h1.hero{font-size:32px}
-      h2.section{font-size:22px}
-      p.lead{font-size:16px}
-      .stat .num{font-size:26px}
-    }
-    
-    
-
-    
-    
-    
-
-   
-
-    
-  
-
-
-
-
-    /* footer */
     footer.site-footer {
       margin-top: 38px;
       background: var(--dark-footer);
@@ -211,24 +62,12 @@
       padding: 18px 10px;
       font-size: 13px;
     }
-   
-
-    
-
-
-
-
-
-
-
 
     summary {
       font-weight: 600;
       color: #111;
       outline: none;
     }
-
-    
 
     p {
       margin-top: 10px;
@@ -256,6 +95,18 @@
     a:hover {
       text-decoration: underline;
     }
+
+    /* ✅ Animation Part */
+    .animate-section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 3s ease-out;
+    }
+
+    .animate-section.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -264,123 +115,50 @@
     <h1 class="brand" style="font-family: Georgia, 'Times New Roman', Times, serif; color: black;">EbRo-Shop</h1>
     <nav class="main-nav" role="navigation" aria-label="Main navigation">
       <a href="./index.html">Home</a>
-      <a  href="./Menu.html">Menu</a>
+      <a href="./Menu.html">Menu</a>
       <a style="color: #222; font-weight: 700;" href="#">About</a>
-      <a href="./Contact.html">contact</a>
+      <a href="./Contact.html">Contact</a>
       <a href="./order.html">Order</a>
     </nav>
-  </header>
+</header>
 
+<div style="font-family: 'Poppins', sans-serif; background-color: #f9f9f9; color: #333;">
 
-  <div style=" font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;">
-  <section style=" max-width: 900px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 10px;
-      padding: 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-    <h2 style="color: #0078D7;
-      border-bottom: 3px solid #0078D7;
-      display: inline-block;
-      margin-bottom: 20px;
-      padding-bottom: 5px;">Frequently Asked Questions</h2>
-
-    <details  style=" background: #eef6ff;
-      border-color: #0078D7;" open>
+  <!-- FAQ Section -->
+  <section class="animate-section" style="max-width: 900px; margin: 40px auto; background: #fff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <h2 style="color: #0078D7; border-bottom: 3px solid #0078D7; display: inline-block; margin-bottom: 20px; padding-bottom: 5px;">Frequently Asked Questions</h2>
+    <details open style="background: #eef6ff; border-color: #0078D7;">
       <summary>How do I place an order?</summary>
-      <p>To place an order, browse our shop website, select the products you want, then go to order page, and Fill in your shipping and payment details to confirm your order.</p>
+      <p>To place an order, browse our shop website, select the products you want, then go to order page, and fill in your shipping and payment details to confirm your order.</p>
     </details>
-
-    <details style=" background: #fafafa;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      margin: 12px 0;
-      padding: 15px;
-      cursor: pointer;
-      transition: all 0.3s ease;">
+    <details style="background: #fafafa; border: 1px solid #ddd; border-radius: 8px; margin: 12px 0; padding: 15px;">
       <summary>Can I track my order?</summary>
-      <p>Yes. Once your order has been shipped, you’ll receive a tracking link via email or SMS. Use it to track your delivery status anytime.</p>
+      <p>Yes. Once your order has been shipped, you’ll receive a tracking link via email or SMS.</p>
     </details>
-
-    <details style=" background: #fafafa;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      margin: 12px 0;
-      padding: 15px;
-      cursor: pointer;
-      transition: all 0.3s ease;">
+    <details style="background: #fafafa; border: 1px solid #ddd; border-radius: 8px; margin: 12px 0; padding: 15px;">
       <summary>What payment methods do you accept?</summary>
       <p>We accept bank transfers, Telebirr, and Cash methods depending on your location.</p>
     </details>
-
-    <details style=" background: #fafafa;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      margin: 12px 0;
-      padding: 15px;
-      cursor: pointer;
-      transition: all 0.3s ease;">
+    <details style="background: #fafafa; border: 1px solid #ddd; border-radius: 8px; margin: 12px 0; padding: 15px;">
       <summary>Can I return a product?</summary>
-      <p>Yes. We offer a 3-day return policy on most items. Products must be unused and in their original packaging. Contact us for our support  for easy returns.</p>
-    </details>
-
-    <details style=" background: #fafafa;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      margin: 12px 0;
-      padding: 15px;
-      cursor: pointer;
-      transition: all 0.3s ease;">
-      <summary>Do you offer free shipping?</summary>
-      <p>We offer free shipping on selected products or when your order exceeds a minimum purchase amount. Check our shipping policy for details.</p>
-    </details>
-
-    <details style=" background: #fafafa;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      margin: 12px 0;
-      padding: 15px;
-      cursor: pointer;
-      transition: all 0.3s ease;">
-      <summary>How can I contact customer support?</summary>
-      <p>You can contact our support team through the <a href="contact.html">Contact Us</a> page or by emailing us directly. We’re available 24/7 to assist you.</p>
+      <p>Yes. We offer a 3-day return policy on most items. Contact us for our support for easy returns.</p>
     </details>
   </section>
 
-  <section style=" max-width: 900px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 10px;
-      padding: 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-    <h2 style="color: #0078D7;
-      border-bottom: 3px solid #0078D7;
-      display: inline-block;
-      margin-bottom: 20px;
-      padding-bottom: 5px;">Getting Started</h2>
+  <!-- Getting Started -->
+  <section class="animate-section" style="max-width: 900px; margin: 40px auto; background: #fff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <h2 style="color: #0078D7; border-bottom: 3px solid #0078D7; display: inline-block; margin-bottom: 20px; padding-bottom: 5px;">Getting Started</h2>
     <ol>
-      <li>Browse Ebro-Shop website chrome or others.</li>
-      <li>Browse and select your desired products.</li>
+      <li>Browse Ebro-Shop website on Chrome or others.</li>
+      <li>Select your desired products.</li>
       <li>Complete your purchase through checkout.</li>
-      <li>Track your order and enjoy by your items!</li>
+      <li>Track your order and enjoy your items!</li>
     </ol>
   </section>
 
-  <section style=" max-width: 900px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 10px;
-      padding: 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-    <h2 style="color: #0078D7;
-      border-bottom: 3px solid #0078D7;
-      display: inline-block;
-      margin-bottom: 20px;
-      padding-bottom: 5px;">Technical Support</h2>
+  <!-- Technical Support -->
+  <section class="animate-section" style="max-width: 900px; margin: 40px auto; background: #fff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <h2 style="color: #0078D7; border-bottom: 3px solid #0078D7; display: inline-block; margin-bottom: 20px; padding-bottom: 5px;">Technical Support</h2>
     <p>If you face any technical problems, please try the following steps:</p>
     <ul>
       <li>Clear your browser cache and cookies.</li>
@@ -396,6 +174,23 @@
     <p>© 2025 Ebro-Shop. All rights reserved.</p>
   </footer>
 </div>
+
+<!-- ✅ Animation Script -->
+<script>
+  const animatedSections = document.querySelectorAll('.animate-section');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      } else {
+        entry.target.classList.remove('in-view');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  animatedSections.forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>

@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delivery Deposit & Document Upload</title>
-    <style>
-
-  :root {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delivery Deposit & Document Upload</title>
+  <style>
+    :root {
       --cyan: #09af6f;
       --lime: #d9f200;
-      --muted: #f6f3f3;
-      --card-border: #efebef;
       --dark-footer: #2f2f2f;
       --accent: #8b1f3a;
       --text: #222;
-      --radius: 6px;
-      font-family: "Helvetica Neue", Arial, sans-serif;
     }
 
     body {
@@ -23,15 +18,14 @@
       color: var(--text);
       background: #fff;
       -webkit-font-smoothing: antialiased;
+      font-family: "Helvetica Neue", Arial, sans-serif;
     }
 
-    /* Header */
     header.site-header {
       background: var(--cyan);
       text-align: center;
       padding: 26px 16px 44px;
       position: relative;
-      box-shadow: inset 0 -3px rgba(0, 0, 0, 0.02);
     }
 
     header .brand {
@@ -46,131 +40,13 @@
       display: flex;
       justify-content: center;
       gap: 22px;
-      font-size: 14px;
     }
 
     nav.main-nav a {
       color: rgba(255, 255, 255, 0.9);
       text-decoration: none;
-      opacity: 0.95;
     }
 
-    /* thin lime separator like screenshot */
-    .lime-sep {
-      height: 10px;
-      background: linear-gradient(90deg, var(--lime), rgba(255, 255, 255, 0) 60%);
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
-    }
-
-    /* Container */
-    .container {
-      max-width: 980px;
-      margin: 28px auto;
-      padding: 0 18px;
-    }
-
-    /* Welcome */
-    .hero {
-      background: #fff;
-      border-radius: 4px;
-      padding: 26px 22px;
-      margin-bottom: 22px;
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02) inset;
-    }
-
-    .hero h1 {
-      margin: 0 0 8px;
-      font-size: 22px;
-    }
-
-    .hero p {
-      margin: 0;
-      color: #666;
-    }
-
-    /* Another lime separator */
-    .lime-sep-thin {
-      height: 8px;
-      background: var(--lime);
-      margin-bottom: 26px;
-      border-radius: 2px;
-      opacity: 0.95;
-    }
-
-    /* Menu heading */
-    .menu-heading {
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 20px;
-      margin: 10px 0 16px;
-    }
-
-    /* Menu card */
-    .menu-card {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      border: 1px solid var(--card-border);
-      border-radius: 6px;
-      padding: 14px;
-      background: linear-gradient(180deg, #fff, #fafafa);
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
-      overflow: hidden;
-    }
-
-    .menu-card img.thumb {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 4px;
-      flex-shrink: 0;
-      border: 1px solid #eee;
-    }
-
-    .menu-content {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .menu-title {
-      font-weight: 700;
-      font-size: 16px;
-      margin-bottom: 6px;
-      display: inline-block;
-    }
-
-    .menu-desc {
-      color: #6b6b6b;
-      font-size: 14px;
-      display: block;
-      margin-bottom: 6px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .menu-price {
-      font-weight: 700;
-      margin-right: 12px;
-    }
-
-    /* order button */
-    .order-btn {
-      background: #333;
-      color: #fff;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      cursor: pointer;
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
-      transition: transform .06s ease;
-    }
-
-    .order-btn:hover {
-      transform: translateY(-1px);
-    }
-
-    /* footer */
     footer.site-footer {
       margin-top: 38px;
       background: var(--dark-footer);
@@ -180,99 +56,115 @@
       font-size: 13px;
     }
 
-    /* small screens */
-    @media (max-width:640px) {
-      header .brand {
-        font-size: 22px;
-      }
-
-      nav.main-nav {
-        gap: 12px;
-        font-size: 13px;
-        flex-wrap: wrap;
-        justify-content: center
-      }
-
-      .menu-card {
-        flex-direction: row;
-        align-items: center
-      }
-
-      .menu-card img.thumb {
-        width: 64px;
-        height: 64px
-      }
+    /* --- animation setup --- */
+    .animate {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 2s ease-out;
+    }
+    .animate.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-        /* Basic Styling for Clarity and Modern Look */
-        input[type="text"], input[type="file"], select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 16px; transition: border-color 0.3s; }
-        input[type="text"]:focus, select:focus { border-color: #007bff; outline: none; }
-        .file-upload-wrapper { border: 2px dashed #ccc; padding: 20px; text-align: center; border-radius: 6px; cursor: pointer; transition: background-color 0.3s; }
-        .file-upload-wrapper:hover { background-color: #e9ecef; }
-        /* Hide default file input and use wrapper as custom button */
-        input[type="file"] { display: none; }
-        .custom-file-label { display: block; color: #007bff; font-weight: bold; margin-bottom: 5px; }
-        .submit-btn { width: 100%; padding: 15px; background-color: #28a745; color: white; border: none; border-radius: 6px; font-size: 18px; cursor: pointer; transition: background-color 0.3s; }
-        .submit-btn:hover { background-color: #218838; }
-        .note { font-size: 14px; color: #888; margin-top: 15px; text-align: center; }
-    </style>
+    /* Form style */
+    input[type="text"], select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
 
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #218838;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #888;
+      margin-top: 15px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
-<header class="site-header" role="banner">
-    <h1 class="brand" style="font-family: Georgia, 'Times New Roman', Times, serif; color: black;">EbRo-Shop</h1>
-    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+  <header class="site-header">
+    <h1 class="brand">EbRo-Shop</h1>
+    <nav class="main-nav">
       <a href="./index.html">Home</a>
       <a href="./Menu.html">Menu</a>
       <a href="./About.html">About</a>
-      <a href="./Contact.html">contact</a>
+      <a href="./Contact.html">Contact</a>
       <a style="color: #222; font-weight: 700;" href="#">Order</a>
     </nav>
   </header>
 
-<div style=" font-family: sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
-<div style=" background-color: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); width: 100%; max-width: 400px; " class="upload-container">
-    <h1 style="color: #044b15; text-align: center; margin-bottom: 25px; font-family: Georgia, 'Times New Roman', Times, serif;"><ins>Order pay by Cash</ins></h1>
-    <p><b>ማዘዝ/order ማድረግ የፈለጉትን ሜኑ/Menu ላይ ተመልክተው ከታች ያለውን ፎርም ይሙሉና <b style="color: #007bff;">submit</b> ይበሉት። ትዛዝዎን አድርሰን እንደውልሎት አለን ያዘዙትን እቃ ብር ካሽ አዘጋጅተው ይጠብቁን🙏</b></p>
-   <form action="https://formspree.io/f/mvgvvqar" method="POST" enctype="multipart/form-data">
-        
-        <div style=" margin-bottom: 20px;" class ="form-group">
-            <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #044b15 " for="order-id"><b>Name/ሙሉ ስም:</b></label>
-            <input type="text" id="order-id" name="Bank Full-Name" placeholder="ሙሉ ስም" required>
+  <div style="font-family: sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
+    <div class="upload-container animate" style="background-color: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); width: 100%; max-width: 400px;">
+      <h1 style="color: #044b15; text-align: center; margin-bottom: 25px; font-family: Georgia, 'Times New Roman', Times, serif;"><ins>Order pay by Cash</ins></h1>
+      <p class="animate"><b>ማዘዝ/order ማድረግ የፈለጉትን ሜኑ/Menu ላይ ተመልክተው ከታች ያለውን ፎርም ይሙሉና <b style="color: #007bff;">submit</b> ይበሉት። ትዛዝዎን አድርሰን እንደውልሎት አለን ያዘዙትን እቃ ብር ካሽ አዘጋጅተው ይጥብቁን🙏</b></p>
+
+      <form action="https://formspree.io/f/mvgvvqar" method="POST" enctype="multipart/form-data" class="animate">
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #044b15;">Name/ሙሉ ስም:</label>
+          <input type="text" name="Full-Name" placeholder="ሙሉ ስም" required>
         </div>
 
-         <div style=" margin-bottom: 20px;" class ="form-group">
-            <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #044b15 " for="order-id"><b>Phone-number/ስልክ፟-ቁጥር:</b></label>
-            <input type="text" id="order-id" name="Account-number" placeholder="ስልክ፟-ቁጥር" required>
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #044b15;">Phone-number/ስልክ-ቁጥር:</label>
+          <input type="text" name="Phone-number" placeholder="ስልክ ቁጥር" required>
         </div>
 
-      <div style=" margin-bottom: 20px;" class ="form-group">
-            <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #044b15 " for="order"><b>Order/ትዕዛዝ:</b></label>
-            <input type="text" id="order" name="order" placeholder="የሚያዙት እቃ" required>
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #044b15;">Order/ትዕዛዝ:</label>
+          <input type="text" name="Order" placeholder="የሚያዙት እቃ" required>
+        </div>
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #044b15;">Address/አድራሻ:</label>
+          <input type="text" name="Address" placeholder="አድራሻዎት" required>
         </div>
 
-<div style=" margin-bottom: 20px;" class ="form-group">
-            <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #044b15 " for="Address"><b>Address/አድራሻ:</b></label>
-            <input type="text" id="Address" name="Address" placeholder="አድራሻዎት እዚህ ያስቀምጡ" required>
-        </div>
-  
-        <button type="submit" class="submit-btn" >✅ Submit order Confirmation</button>
-        <a style="font-size: 30px;" href="./order.html">🔙</a>
-        <p class="note">Submission will securely send your data to the Hosts panel.</p>
+        <button type="submit" class="submit-btn animate">✅ Submit order Confirmation</button>
+        <a style="font-size: 30px; display:block; text-align:center;" href="./order.html">🔙</a>
+        <p class="note animate">Submission will securely send your data to the Hosts panel.</p>
+      </form>
+    </div>
+  </div>
 
-    </form>
-</div>
-
-
-</script>
-
-</div>
-
-<footer class="site-footer" role="contentinfo">
-    © 2025 EbRo-Shop. All rights reserved. <a style="color: #0e91f6; font-weight: 900;"
-      href="./contactDeveloper.html">Contact-Developer</a>
+  <footer class="site-footer">
+    © 2025 EbRo-Shop. All rights reserved. 
   </footer>
+
+  <script>
+    // Scroll-based animation trigger
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible'); // keeps it dynamic
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
