@@ -1,14 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="google-site-verification" content="o95k2LyRLHdxHfvFppjhrK-vxqZh0JDXyhWHX_SVd_A" />
 
   <title>EbRo-Shop</title>
-
   <style>
-    :root {
+      :root {
       --cyan: #09af6f;
       --lime: #d9f200;
       --muted: #666f78;
@@ -21,13 +22,13 @@
 
     body {
       margin: 0;
-      color: #222;
+      color: var(--text);
       background: #fff;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* HEADER (no animation) */
-   
-     header.site-header {
+    /* Header */
+    header.site-header {
       background: var(--cyan);
       text-align: center;
       padding: 26px 16px 44px;
@@ -56,94 +57,114 @@
       opacity: 0.95;
     }
 
-    /* MAIN CARD */
-    .card {
-      width: 100%;
-      max-width: 720px;
+    .lime-sep {
+      height: 10px;
+      background: linear-gradient(90deg, var(--lime), rgba(255, 255, 255, 0) 60%);
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 28px auto;
+      padding: 0 18px;
+    }
+
+    .hero {
       background: #fff;
-      border-radius: var(--radius);
-      padding: 28px 32px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-      border: 1px solid rgba(12, 24, 20, 0.03);
-      margin: 50px auto;
+      border-radius: 4px;
+      padding: 26px 22px;
+      margin-bottom: 22px;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02) inset;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 28px;
-      align-items: start;
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: 30px; /* before it"s 22px*/
     }
 
-    @media (max-width:900px){
-      .grid{grid-template-columns:1fr}
+    .hero p {
+      margin: 0;
+      color: #666;
     }
 
-    /* Animate text sections */
-    .animate-on-scroll {
-      opacity: 0;
-      transform: scale(0.85);
-      transition: all 4s ease-out;
-    }
-    .animate-on-scroll.visible {
-      opacity: 1;
-      transform: scale(1);
+    .lime-sep-thin {
+      height: 8px;
+      background: var(--lime);
+      margin-bottom: 26px;
+      border-radius: 2px;
+      opacity: 0.95;
     }
 
-    /* Headings and text */
-    h1.hero {
-      font-size: 30px;
-      text-align: center;
-    }
-
-    h2.section {
-      margin: 28px 0 12px 0;
-      font-size: 26px;
+    .menu-heading {
+      color: var(--accent);
       font-weight: 700;
-      color: var(--accent);
+      font-size: 20px;
+      margin: 10px 0 16px;
     }
 
-    p.lead {
-      color: var(--muted);
-      line-height: 1.8;
-      font-size: 18px;
+    .menu-card {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;
     }
 
-    ul.checklist {
-      padding-left: 20px;
-      margin: 8px 0;
-      color: var(--muted);
-      line-height: 1.9;
+    .menu-card img.thumb {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;
     }
 
-    .stat {
-      background: #f5f8fa;
-      padding: 22px 18px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: inset 0 1px rgba(0,0,0,0.02);
+    .menu-content {
+      flex: 1;
+      min-width: 0;
     }
 
-    .stat .num {
-      font-size: 36px;
-      font-weight: 800;
-      color: var(--accent);
+    .menu-title {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block;
     }
 
-    .stat .label {
-      color: var(--muted);
+    .menu-desc {
+      color: #6b6b6b;
       font-size: 14px;
+      display: block;
+      margin-bottom: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .muted-block {
-      background: #f7fbfa;
-      border-radius: 12px;
-      padding: 16px;
-      color: var(--muted);
-      font-size: 15px;
+    .menu-price {
+      font-weight: 700;
+      margin-right: 12px;
     }
 
-    /* FOOTER (no animation) */
+    .order-btn {
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;
+    }
+
+    .order-btn:hover {
+      transform: translateY(-1px);
+    }
+
     footer.site-footer {
       margin-top: 38px;
       background: var(--dark-footer);
@@ -152,5 +173,339 @@
       padding: 18px 10px;
       font-size: 13px;
     }
+
+    @media (max-width:640px) {
+      header .brand {
+        font-size: 22px;
+      }
+
+      nav.main-nav {
+        gap: 12px;
+        font-size: 13px;
+        flex-wrap: wrap;
+        justify-content: center
+      }
+
+      .menu-card {
+        flex-direction: row;
+        align-items: center
+      }
+
+      .menu-card img.thumb {
+        width: 64px;
+        height: 64px
+      }
+    }
+
+    /* ===== Scroll Reveal Animation ===== */
+    .reveal {
+      opacity: 0;
+      transform: scale(0.85);
+      transition: all 1.5s ease-out;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: scale(1);
+    }
   </style>
+
 </head>
+
+<body>
+
+  <header class="site-header" role="banner">
+    <h1 class="brand" style="font-family: Georgia, 'Times New Roman', Times, serif; color: black;">EbRo-Shop</h1>
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+      <a style="color: #222; font-weight: 700;" href="#">Home</a>
+      <a href="./Menu.html">Menu</a>
+      <a href="./About.html">About</a>
+      <a href="./Gallary.html">Gallary</a>
+      <a href="./Contact.html">Contact</a>
+      <a href="./order.html">Order</a>
+    </nav>
+  </header>
+
+  <div class="lime-sep" aria-hidden="true"></div>
+
+  <main class="container" role="main">
+
+    <section class="hero reveal" aria-labelledby="welcome-heading">
+      <h2 id="welcome-heading">Welcome to EbRo-Shop</h2>
+      <p>Forward with us. Order your favorite items online!</p>
+    </section>
+
+    <div class="lime-sep-thin reveal" aria-hidden="true"></div>
+
+    <h3 class="menu-heading reveal">Our Menu</h3>
+
+    <article class="menu-card reveal" aria-labelledby="pizza-title">
+      <img class="thumb" src="./Food sources.jpg" alt="food Items">
+      <div class="menu-content">
+        <div>
+          <span id="pizza-title" class="menu-title">Food Items</span>
+          <span class="menu-desc">We have a best food items like rice, lentils, pasta, and more</span>
+        </div>
+        <div style="margin-top:8px;">
+          <span class="menu-price">Price: on detail menu</span>
+        </div>
+      </div>
+      <div style="margin-left:12px">
+        <a href="./order.html" target="_blank" rel="noopener">
+          <button class="order-btn" type="button">Order Now</button>
+        </a>
+      </div>
+    </article>
+
+    <article class="menu-card reveal">
+      <img class="thumb" src="./cooking tasks.png" alt="cooking Tasks">
+      <div class="menu-content">
+        <div>
+          <span class="menu-title">Cooking tasks</span>
+          <span class="menu-desc">We have a more cooking tasks like oil, berber, and more</span>
+        </div>
+        <div style="margin-top:8px;">
+          <span class="menu-price">Price: on detail menu</span>
+        </div>
+      </div>
+      <div style="margin-left:12px">
+        <a href="./order.html" target="_blank" rel="noopener">
+          <button class="order-btn" type="button">Order Now</button>
+        </a>
+      </div>
+    </article>
+
+    <article class="menu-card reveal">
+      <img class="thumb" src="./Pharmacy.jpg" alt="healthcare products">
+      <div class="menu-content">
+        <div>
+          <span class="menu-title">HealthCare products</span>
+          <span class="menu-desc">We have a HealthCare products like Shampoo, Soap, lotion and more</span>
+        </div>
+        <div style="margin-top:8px;">
+          <span class="menu-price">Price: on detail menu</span>
+        </div>
+      </div>
+      <div style="margin-left:12px">
+        <a href="./order.html" target="_blank" rel="noopener">
+          <button class="order-btn" type="button">Order Now</button>
+        </a>
+      </div>
+    </article>
+
+    <div style="text-align:right;">
+      <a style="color: rgb(45, 45, 145);" href="./Menu.html">For detail menu</a>
+    </div>
+
+    <h3 class="menu-heading reveal">Our Hosts</h3>
+
+    <article class="menu-card reveal">
+      <img class="thumb" src="./Ebro Hosts.jpg" alt="Hosts photo">
+      <div class="menu-content">
+        <div>
+          <span class="menu-title">Ibrahim / Wema</span>
+          <span class="menu-desc">I'm Ibrahim, host of EbRo-Shop, and I am always ready to host you!</span>
+        </div>
+        <div style="margin-top:8px;">
+          <span class="menu-price"><a href="./EbroContact.html">Contact-me</a></span>
+        </div>
+      </div>
+    </article>
+    <article class="menu-card reveal">
+      <img class="thumb" src="./Rebyii Hosts.png" alt="Hosts photo">
+      <div class="menu-content">
+        <div>
+          <span class="menu-title">Rebyii / Agaz</span>
+          <span class="menu-desc">I'm Rebyii, host of EbRo-Shop, and I am always ready to host you!</span>
+        </div>
+        <div style="margin-top:8px;">
+          <span class="menu-price"><a href="./RebyiiContact.html">Contact-me</a></span>
+        </div>
+      </div>
+    </article>
+
+    <h3 class="menu-heading reveal">Delivery service</h3>
+    <article class="menu-card reveal">
+       <p><b>EbRo-Shop</b> offers fast and reliable delivery to make sure your orders arrive safely and on time.
+        Currently, our delivery service is available in <b> Bole and nearby areas</b>, with plans to expand soon.</p>
+    </article>
+
+    <h3 class="menu-heading reveal">Location</h3>
+    <article class="menu-card reveal">
+      <p><b>EbRo-Shop</b> is located in <b>Bole Edna Mall, in front of ማኛ ኬክ</b>. Or by click map icons <b
+          style="font-size: 20px;">👉🏻</b> <br> search "<b>ማኛ ኬክ</b>" you will find us in front of it.</p>
+      <a style="text-align: center;" href="https://maps.app.goo.gl/YnNTUwjB3ByMLMgJ6"><img src="./Map.png" alt="Map icon" width="50px"
+          height="50px" /></a>
+    
+    </article>
+  </main>
+
+
+ <div style="--bg:#f5f7f9;
+      --card:#ffffff;
+      --muted:#635a5a;
+      --accent:#111827;
+      --pill:#eef2f5;">
+
+    <div style=" font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      margin:0;
+      background:var(--bg);
+      color:var(--accent);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      min-height:100vh;
+      display:flex;
+      align-items:flex-start;
+      justify-content:left;">
+      <aside style="width:360px; /* close to picture width on mobile */
+      background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.99));
+      border-radius:14px;
+      padding:28px 28px;
+      box-shadow:0 6px 20px rgba(16,24,40,0.06);" class="sidebar" role="complementary" aria-label="Site sidebar">
+        <div style=" display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:18px;" class="logo">
+          <div style="position:relative;">
+            <div style="font-size:40px; font-weight:800;
+      font-size:46px;
+      letter-spacing:-2px;
+      position:relative;
+      color:#0b0b0b;" class="logo-mark">EbRo<span style="position:absolute;
+      right:-6px;
+      top:14px;
+      background:#111;
+      color:#fff;
+      font-size:11px;
+      padding:3px 6px;
+      border-radius:4px;
+      font-weight:700;
+      transform:rotate(-6deg);
+      box-shadow:0 6px 14px rgba(2,6,23,0.15);" class="hub-badge">shop</span></div>
+          </div>
+          <div style="display:flex;
+      flex-direction:column;
+      line-height:1;" class="logo-tag">
+            <span style="font-weight:800; font-size:18px; color: #670d0dd6;">by EbRo-Shop,</span>
+            <span style="font-weight:800; font-size:18px; color: #670d0dd6;">for Everyone</span>
+          </div>
+        </div>
+
+        <p style="color: black;" style=" color:var(--muted);
+      font-size:16px;
+      line-height:1.6;
+      margin-bottom:28px;" class="intro">Empowering shopping through technology. <br>Providing accessible products for
+          all customers.</p>
+
+        <h3 style="color: #670d0dd6;  margin:0 0 12px 0;
+      font-size:20px;" class="section-title">Quick Links</h3>
+        <ul style="list-style:none;
+      padding:0;
+      margin:0 0 26px 0;" class="quick-links" aria-label="Quick links">
+          <li style="padding:10px 0;
+      border-radius:8px;
+      color:var(--muted);
+      font-size:18px;"><a style="color:inherit; text-decoration:none" href="#"><b>Home</b></a></li>
+          <li style="padding:10px 0;
+      border-radius:8px;
+      color:var(--muted);
+      font-size:18px;"><a style="color:inherit; text-decoration:none" href="./About.html"><b>About</b></a></li>
+          <li style="padding:10px 0;
+      border-radius:8px;
+      color:var(--muted);
+      font-size:18px;"><a style="color:inherit; text-decoration:none" href="./Contact.html"><b>Contact</b></a></li>
+          <li style="padding:10px 0;
+      border-radius:8px;
+      color:var(--muted);
+      font-size:18px;"><a style="color:inherit; text-decoration:none" href="./FAQ's.html"><b>FAQ's</b></a></li>
+        </ul>
+        <h3 style="color: #670d0dd6;" class="section-title">Contact</h3>
+        <div style=" display:flex;
+      flex-direction:column;
+      gap:12px;" class="contact">
+          <div style="
+      align-items:center;
+      gap:12px;
+      color:var(--muted);
+      font-size:16px;" class="item">
+            <span style="width:34px;height:34px;display:inline-grid;place-items:center;background:var(--pill);border-radius:8px;
+      flex:0 0 34px;" class="icon-wrap" aria-hidden="true">
+              <!-- location pin SVG -->
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <path d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7z" stroke="#6b7480"
+                  stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="12" cy="9" r="2.2" fill="#6b7480" />
+              </svg>
+            </span>
+            <span><b>Addis Abeba, Ethiopia</b></span>
+          </div>
+
+          <div style="
+      align-items:center;
+      gap:12px;
+      color:var(--muted);
+      font-size:16px;" class="item">
+            <span style="width:34px;height:34px;display:inline-grid;place-items:center;background:var(--pill);border-radius:8px;
+      flex:0 0 34px;" class="icon-wrap" aria-hidden="true">
+              <!-- phone SVG -->
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.98.37 1.94.73 2.84a2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 6 6l1.23-1.23a2 2 0 0 1 2.11-.45c.9.36 1.86.61 2.84.73A2 2 0 0 1 22 16.92z"
+                  stroke="#6b7480" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <a style="color:inherit; text-decoration:none;" href="tel:+251989498343"><b>+251-98-949-8343</b></a>
+          </div>
+
+          <div style="
+      align-items:center;
+      gap:12px;
+      color:var(--muted);
+      font-size:16px;" class="item">
+            <span style="width:34px;height:34px;display:inline-grid;place-items:center;background:var(--pill);border-radius:8px;
+      flex:0 0 34px;" class="icon-wrap" aria-hidden="true">
+              <!-- octocat / contribution icon -->
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 2C7.03 2 3 6.03 3 11.74c0 4.32 2.87 7.99 6.84 9.29.5.09.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.61-3.37-1.34-3.37-1.34-.45-1.18-1.11-1.49-1.11-1.49-.91-.62.07-.61.07-.61 1.01.07 1.54 1.05 1.54 1.05.9 1.54 2.36 1.1 2.94.84.09-.66.35-1.1.64-1.35-2.22-.25-4.55-1.12-4.55-4.99 0-1.1.39-2 1.03-2.71-.11-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.03A9.28 9.28 0 0 1 12 7.64c.85.004 1.71.115 2.51.338 1.9-1.3 2.74-1.03 2.74-1.03.55 1.37.21 2.39.1 2.64.64.71 1.03 1.61 1.03 2.71 0 3.88-2.34 4.74-4.57 4.99.36.31.68.92.68 1.85 0 1.34-.01 2.42-.01 2.75 0 .27.18.59.69.49A9.01 9.01 0 0 0 21 11.74C21 6.03 16.97 2 12 2z"
+                  fill="#6b7480" />
+              </svg>
+            </span>
+            <a style="color:rgb(13, 13, 133); text-decoration:none;"
+              href="./contactDeveloper.html"><b>ContactDeveloper</b></a>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+
+
+
+  <footer class="site-footer" role="contentinfo">
+    © 2025 EbRo-Shop. All rights reserved.
+  </footer>
+
+  <script>
+    // Scroll reveal logic
+    const reveals = document.querySelectorAll('.reveal');
+    function revealOnScroll() {
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const revealTop = reveals[i].getBoundingClientRect().top;
+        const revealPoint = 120;
+        if (revealTop < windowHeight - revealPoint) {
+          reveals[i].classList.add('show');
+        } else {
+          reveals[i].classList.remove('show');
+        }
+      }
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+  </script>
+
+</body>
+</html>
