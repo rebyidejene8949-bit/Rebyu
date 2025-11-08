@@ -168,89 +168,7 @@
     
 
 
-/*below are before*/
-    .menu-card img.thumb {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 4px;
-      flex-shrink: 0;
-      border: 1px solid #eee;
-    }
 
-    .menu-content {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .menu-title {
-      font-weight: 700;
-      font-size: 16px;
-      margin-bottom: 6px;
-      display: inline-block;
-    }
-
-    .menu-desc {
-      color: #6b6b6b;
-      font-size: 14px;
-      display: block;
-      margin-bottom: 6px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .menu-price {
-      font-weight: 700;
-      margin-right: 12px;
-    }
-
-    .order-btn {
-      background: #333;
-      color: #fff;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      cursor: pointer;
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
-      transition: transform .06s ease;
-    }
-
-    .order-btn:hover {
-      transform: translateY(-1px);
-    }
-
-    footer.site-footer {
-      margin-top: 38px;
-      background: var(--dark-footer);
-      color: #dcdcdc;
-      text-align: center;
-      padding: 18px 10px;
-      font-size: 13px;
-    }
-
-    @media (max-width:640px) {
-      header .brand {
-        font-size: 22px;
-      }
-
-      nav.main-nav {
-        gap: 12px;
-        font-size: 13px;
-        flex-wrap: wrap;
-        justify-content: center
-      }
-
-      .menu-card {
-        flex-direction: row;
-        align-items: center
-      }
-
-      .menu-card img.thumb {
-        width: 64px;
-        height: 64px
-      }
-    }
 
     /* ===== Scroll Reveal Animation ===== */
     .reveal {
@@ -333,7 +251,8 @@
       font-size: 20px;
       margin: 10px 0 16px;" class="menu-heading reveal">Our Menu</h3>
 
-    <article style=" display: flex;
+   
+   <article style=" display: flex;
       gap: 18px;
       align-items: center;
       border: 1px solid var(--card-border);
@@ -342,55 +261,145 @@
       background: linear-gradient(180deg, #fff, #fafafa);
       box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
       overflow: hidden;" class="menu-card reveal" aria-labelledby="pizza-title">
-      <img class="thumb" src="./Food sources.jpg" alt="food Items">
-      <div class="menu-content">
+      <img style=" width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;" class="thumb" src="./Food sources.jpg" alt="food Items">
+      <div style="flex: 1;
+      min-width: 0;" class="menu-content">
         <div>
-          <span id="pizza-title" class="menu-title">Food Items</span>
-          <span class="menu-desc">We have a best food items like rice, lentils, pasta, and more</span>
+          <span id="pizza-title" style=" font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block;" class="menu-title">Food Items</span>
+          <span style=" color: #6b6b6b;
+      font-size: 14px;
+      display: block;
+      margin-bottom: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;" class="menu-desc">We have a best food items like rice, lentils, pasta, and more</span>
         </div>
         <div style="margin-top:8px;">
-          <span class="menu-price">Price: on detail menu</span>
+          <span style=" font-weight: 700;
+      margin-right: 12px;" class="menu-price">Price: on detail menu</span>
         </div>
       </div>
       <div style="margin-left:12px">
         <a href="./order.html" target="_blank" rel="noopener">
-          <button class="order-btn" type="button">Order Now</button>
+          <button style=" background: #333;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;" class="order-btn" type="button">Order Now</button>
         </a>
       </div>
     </article>
 
-    <article class="menu-card reveal">
-      <img class="thumb" src="./cooking tasks.png" alt="cooking Tasks">
-      <div class="menu-content">
+
+
+    <article  style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;" class="menu-card reveal">
+      <img style=" width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;"  class="thumb" src="./cooking tasks.png" alt="cooking Tasks">
+      <div style="flex: 1;
+      min-width: 0;" class="menu-content">
         <div>
-          <span class="menu-title">Cooking tasks</span>
-          <span class="menu-desc">We have a more cooking tasks like oil, berber, and more</span>
+          <span style=" font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block;" class="menu-title">Cooking tasks</span>
+          <span style=" color: #6b6b6b;
+      font-size: 14px;
+      display: block;
+      margin-bottom: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;"  class="menu-desc">We have a more cooking tasks like oil, berber, and more</span>
         </div>
         <div style="margin-top:8px;">
-          <span class="menu-price">Price: on detail menu</span>
+          <span style=" font-weight: 700;
+      margin-right: 12px;" class="menu-price">Price: on detail menu</span>
         </div>
       </div>
       <div style="margin-left:12px">
         <a href="./order.html" target="_blank" rel="noopener">
-          <button class="order-btn" type="button">Order Now</button>
+          <button style=" background: #333;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;"  class="order-btn" type="button">Order Now</button>
         </a>
       </div>
     </article>
 
-    <article class="menu-card reveal">
-      <img class="thumb" src="./Pharmacy.jpg" alt="healthcare products">
-      <div class="menu-content">
+
+
+
+    <article  style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;" class="menu-card reveal">
+      <img style=" width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;" class="thumb" src="./Pharmacy.jpg" alt="healthcare products">
+      <div style="flex: 1;
+      min-width: 0;" class="menu-content">
         <div>
-          <span class="menu-title">HealthCare products</span>
-          <span class="menu-desc">We have a HealthCare products like Shampoo, Soap, lotion and more</span>
+          <span style=" font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block;"  class="menu-title">HealthCare products</span>
+          <span style=" color: #6b6b6b;
+      font-size: 14px;
+      display: block;
+      margin-bottom: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;"  class="menu-desc">We have a HealthCare products like Shampoo, Soap, lotion and more</span>
         </div>
         <div style="margin-top:8px;">
-          <span class="menu-price">Price: on detail menu</span>
+          <span style=" font-weight: 700;
+      margin-right: 12px;" class="menu-price">Price: on detail menu</span>
         </div>
       </div>
       <div style="margin-left:12px">
         <a href="./order.html" target="_blank" rel="noopener">
-          <button class="order-btn" type="button">Order Now</button>
+          <button style=" background: #333;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;"  class="order-btn" type="button">Order Now</button>
         </a>
       </div>
     </article>
@@ -399,41 +408,127 @@
       <a style="color: rgb(45, 45, 145);" href="./Menu.html">For detail menu</a>
     </div>
 
-    <h3 class="menu-heading reveal">Our Hosts</h3>
 
-    <article class="menu-card reveal">
-      <img class="thumb" src="./Ebro Hosts.jpg" alt="Hosts photo">
-      <div class="menu-content">
+
+
+
+
+
+
+
+
+
+
+    <h3 style=" color: var(--accent);
+      font-weight: 700;
+      font-size: 20px;
+      margin: 10px 0 16px;" class="menu-heading reveal">Our Hosts</h3>
+
+    <article  style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;"  class="menu-card reveal">
+      <img style=" width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;"  class="thumb" src="./Ebro Hosts.jpg" alt="Hosts photo">
+      <div style="flex: 1;
+      min-width: 0;"  class="menu-content">
         <div>
-          <span class="menu-title">Ibrahim / Wema</span>
-          <span class="menu-desc">I'm Ibrahim, host of EbRo-Shop, and I am always ready to host you!</span>
+          <span style=" font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block;"   class="menu-title">Ibrahim / Wema</span>
+          <span style=" color: #6b6b6b;
+      font-size: 14px;
+      display: block;
+      margin-bottom: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;"   class="menu-desc">I'm Ibrahim, host of EbRo-Shop, and I am always ready to host you!</span>
         </div>
         <div style="margin-top:8px;">
-          <span class="menu-price"><a href="./EbroContact.html">Contact-me</a></span>
+          <span style=" font-weight: 700;
+      margin-right: 12px;"  class="menu-price"><a href="./EbroContact.html">Contact-me</a></span>
         </div>
       </div>
-    </article>
-    <article class="menu-card reveal">
-      <img class="thumb" src="./Rebyii Hosts.png" alt="Hosts photo">
-      <div class="menu-content">
+
+
+     <article  style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;"  class="menu-card reveal">
+      <img style=" width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;"  class="thumb" src="./Rebyii Hosts.png" alt="Hosts photo">
+      <div style="flex: 1;
+      min-width: 0;"  class="menu-content">
         <div>
-          <span class="menu-title">Rebyii / Agaz</span>
-          <span class="menu-desc">I'm Rebyii, host of EbRo-Shop, and I am always ready to host you!</span>
+          <span style=" font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block;"   class="menu-title">Rebyii / Agaz</span>
+          <span style=" color: #6b6b6b;
+      font-size: 14px;
+      display: block;
+      margin-bottom: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;"   class="menu-desc">I'm Rebyii, host of EbRo-Shop, and I am always ready to host you!</span>
         </div>
         <div style="margin-top:8px;">
-          <span class="menu-price"><a href="./RebyiiContact.html">Contact-me</a></span>
+          <span style=" font-weight: 700;
+      margin-right: 12px;"  class="menu-price"><a href="./RebyiiContact.html">Contact-me</a></span>
         </div>
       </div>
-    </article>
 
-    <h3 class="menu-heading reveal">Delivery service</h3>
-    <article class="menu-card reveal">
+
+
+    <h3 style=" color: var(--accent);
+      font-weight: 700;
+      font-size: 20px;
+      margin: 10px 0 16px;"  class="menu-heading reveal">Delivery service</h3>
+    <article  style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;"   class="menu-card reveal">
        <p><b>EbRo-Shop</b> offers fast and reliable delivery to make sure your orders arrive safely and on time.
         Currently, our delivery service is available in <b> Bole and nearby areas</b>, with plans to expand soon.</p>
     </article>
 
-    <h3 class="menu-heading reveal">Location</h3>
-    <article class="menu-card reveal">
+    <h3 style=" color: var(--accent);
+      font-weight: 700;
+      font-size: 20px;
+      margin: 10px 0 16px;"  class="menu-heading reveal">Location</h3>
+    <article  style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;"   class="menu-card reveal">
       <p><b>EbRo-Shop</b> is located in <b>Bole Edna Mall, in front of ማኛ ኬክ</b>. Or by click map icons <b
           style="font-size: 20px;">👉🏻</b> <br> search "<b>ማኛ ኬክ</b>" you will find us in front of it.</p>
       <a style="text-align: center;" href="https://maps.app.goo.gl/YnNTUwjB3ByMLMgJ6"><img src="./Map.png" alt="Map icon" width="50px"
