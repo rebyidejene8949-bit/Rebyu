@@ -159,7 +159,7 @@
 
 
   .gallery-preview {
-    max-width: 150px; /* before its 500px*/
+    max-width: 200px; /* before its 500px*/
     margin: 40px auto;
     text-align: center;
   }
@@ -253,48 +253,55 @@
     margin: 0;
     padding: 0;
     color: #0f172a;">
-   <h2 style="font-family: Georgia, 'Times New Roman', Times, serif; color:var(--accent); text-align: center;">📷 Ebro-Gallery</h2>
+  <div style="height:10px;"></div> <!-- ክፍተት በ 60px -->
 <!-- MAIN PREVIEW IMAGE -->
+
 <div class="gallery-preview">
-  <img src="./Developer.png" alt="Beautiful View" id="openGallery">
-  <h3><b style="font-size: 10px;">Food Items</b> <a style="text-align: center; font-size: 8px;">23 pic</a></h3>
+  <h3><b  style="font-size: 10px; text-align: left; color:var(--accent)">Food Items</b> <a style="text-align: right; font-size: 8px;">23 pic</a></h3>
+ 
+   <img style="width: 250px; height: 200px;" src="./Food Items.jpg" alt="Food Items" id="openGallery">
+  
 </div>
 
 <!-- OVERLAY GALLERY 1 -->
 <div class="overlay" id="galleryOverlay">
-  <img id="mainPhoto" src="./cooking tasks.png" alt="Gallery Photo">
+  <img id="mainPhoto" src="./Food Items.jpg" alt="Gallery Photo">
   <div class="thumbs">
     <img src="./Ebro Hosts.jpg" onclick="changePhoto(this.src)">
-    <img src="./Food sources.jpg" onclick="changePhoto(this.src)">
+    <img src="./Food Items.jpg" onclick="changePhoto(this.src)">
     <img src="./Map.png" onclick="changePhoto(this.src)">
-    <img src="./Pharmacy.jpg" onclick="changePhoto(this.src)">
+    <img src="./HealthCare.jpg" onclick="changePhoto(this.src)">
     <img src="./Rebyii Hosts.png" onclick="changePhoto(this.src)">
     <img src="./Ebro Hosts.jpg" onclick="changePhoto(this.src)">
   </div>
-  <button onclick="closeGallery()">Back Home ✖</button>
+  <button onclick="closeGallery()">Back</button>
 </div>
 
 
 <!-- MAIN PREVIEW IMAGE  2-->
 <div class="gallery-preview">
-  <img src="./Developer.png" alt="Beautiful View" id="openGallery">
-  <h3><b style="font-size: 10px;">Cooking Tasks</b> <a style="text-align: center; font-size: 8px;">23 pic</a></h3>
+  <h3><b style="font-size: 10px; color:var(--accent)">Cooking Tasks</b> <a style="text-align:right; font-size: 8px;">23 pic</a></h3>
+  <img style="width: 250px; height: 200px;" src="./Cooking Tasks.jpg" alt="Cooking Tasks" id="openGallery">
+  
 </div>
 
 <!-- OVERLAY GALLERY -->
 <div class="overlay" id="galleryOverlay">
-  <img id="mainPhoto" src="./cooking tasks.png" alt="Gallery Photo">
+  <img id="mainPhoto" src="./Cooking Tasks.jpg" alt="Gallery Photo">
   <div class="thumbs">
     <img src="./Ebro Hosts.jpg" onclick="changePhoto(this.src)">
-    <img src="./Food sources.jpg" onclick="changePhoto(this.src)">
+    <img src="./Food Items.jpg" onclick="changePhoto(this.src)">
     <img src="./Map.png" onclick="changePhoto(this.src)">
-    <img src="./Pharmacy.jpg" onclick="changePhoto(this.src)">
+    <img src="./HealthCare.jpg" onclick="changePhoto(this.src)">
     <img src="./Rebyii Hosts.png" onclick="changePhoto(this.src)">
     <img src="./Ebro Hosts.jpg" onclick="changePhoto(this.src)">
   </div>
-  <button onclick="closeGallery()">Back Home ✖</button>
+  <button onclick="closeGallery()">Back</button>
 </div>
 
+<footer class="site-footer" role="contentinfo">
+    © 2025 EbRo-Shop. All rights reserved.
+  </footer>
 
 
 
