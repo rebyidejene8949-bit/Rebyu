@@ -1,7 +1,73 @@
+ <h3 class="menu-heading">Our Menu</h3>    
+  <h3 style="color: rgb(23, 3, 241);" class="menu-heading">Food Items</h3>
+  <article class="menu-card">
+    <img class="thumb" src="./Food sources.jpg" alt="food sources">
+    <div class="menu-content">
+      <span class="menu-title">Food Items</span>
+      <span class="menu-desc">We have best food items like rice, lentils, pasta, and more</span>
+      <span class="menu-price">Price: on detail menu</span>
+    </div>
+    <div><a href="./order.html" target="_blank"><button class="order-btn">Order Now</button></a></div>
+  </article>
+
+  <article class="menu-card">
+    <img class="thumb" src="./cooking tasks.png" alt="cooking tasks">
+    <div class="menu-content">
+      <span class="menu-title">Cooking Tasks</span>
+      <span class="menu-desc">We have more cooking items like oil, berbere, and more</span>
+      <span class="menu-price">Price: on detail menu</span>
+    </div>
+    <div><a href="./order.html" target="_blank"><button class="order-btn">Order Now</button></a></div>
+  </article>
+
+  <article class="menu-card">
+    <img class="thumb" src="./Pharmacy.jpg" alt="healthcare products">
+    <div class="menu-content">
+      <span class="menu-title">HealthCare Products</span>
+      <span class="menu-desc">We have products like shampoo, soap, lotion and more</span>
+      <span class="menu-price">Price: on detail menu</span>
+    </div>
+    <div><a href="./order.html" target="_blank"><button class="order-btn">Order Now</button></a></div>
+  </article>
 
 
 
-  <div style=" --cyan: #09af6f;
+
+
+
+
+
+
+
+
+
+   @media (max-width:640px) {
+      header .brand {
+        font-size: 22px;
+      }
+
+      nav.main-nav {
+        gap: 12px;
+        font-size: 13px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .menu-card img.thumb {
+        width: 64px;
+        height: 64px;
+      }
+    }
+
+
+
+
+
+
+
+
+     :root {
+      --cyan: #09af6f;
       --lime: #d9f200;
       --muted: #f6f3f3;
       --card-border: #efebef;
@@ -9,46 +75,57 @@
       --accent: #8b1f3a;
       --text: #222;
       --radius: 6px;
-      font-family:Arial, Helvetica, sans-serif;">
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
 
-<div style=" margin: 0;
+    body {
+      margin: 0;
       color: var(--text);
       background: #fff;
-      -webkit-font-smoothing: antialiased;">
+      -webkit-font-smoothing: antialiased;
+    }
 
+    /* Header (no animation) */
+    header.site-header {
+      background: var(--cyan);
+      text-align: center;
+      padding: 26px 16px 44px;
+      position: relative;
+      box-shadow: inset 0 -3px rgba(0, 0, 0, 0.02);
+    }
 
-  <div style=" height: 10px;
-      background: linear-gradient(90deg, var(--lime), rgba(255, 255, 255, 0) 60%);
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);" class="lime-sep" aria-hidden="true"></div>
+    header .brand {
+      font-weight: 700;
+      font-size: 32px;
+      color: #fff;
+      margin: 0;
+    }
 
-  <main style=" max-width: 980px;
-      margin: 28px auto;
-      padding: 0 18px;" class="container" role="main">
+    nav.main-nav {
+      margin-top: 14px;
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      font-size: 14px;
+    }
 
-    <section style="background: #fff;
-      border-radius: 4px;
-      padding: 26px 22px;
-      margin-bottom: 22px;
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02) inset;" class="hero reveal" aria-labelledby="welcome-heading">
-      <h2 style="margin: 0 0 8px;
-      font-size: 22px;" id="welcome-heading">Welcome to EbRo-Shop</h2>
-      <p style=" margin: 0;
-      color: #666;">Forward with us. Order your favorite items online!</p>
-    </section>
+    nav.main-nav a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      opacity: 0.95;
+    }
 
-    <div style="height: 8px;
-      background: var(--lime);
-      margin-bottom: 26px;
-      border-radius: 2px;
-      opacity: 0.95;" class="lime-sep-thin reveal" aria-hidden="true"></div>
-
-    <h3 style=" color: var(--accent);
+    .menu-heading {
+      color: var(--accent);
       font-weight: 700;
       font-size: 20px;
-      margin: 10px 0 16px;" class="menu-heading reveal">Our Menu</h3>
+      margin: 20px 0 16px;
+      text-align: center;
+    }
 
-   
-   <article style=" display: flex;
+    /* Menu card */
+    .menu-card {
+      display: flex;
       gap: 18px;
       align-items: center;
       border: 1px solid var(--card-border);
@@ -56,150 +133,45 @@
       padding: 14px;
       background: linear-gradient(180deg, #fff, #fafafa);
       box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
-      overflow: hidden;" class="menu-card reveal" aria-labelledby="pizza-title">
-      <img style=" width: 80px;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 2s ease, transform 2s ease;
+    }
+
+
+    .menu-card img.thumb {
+      width: 80px;
       height: 80px;
       object-fit: cover;
       border-radius: 4px;
       flex-shrink: 0;
-      border: 1px solid #eee;" class="thumb" src="./Food sources.jpg" alt="food Items">
-      <div style="flex: 1;
-      min-width: 0;" class="menu-content">
-        <div>
-          <span id="pizza-title" style=" font-weight: 700;
+      border: 1px solid #eee;
+    }
+
+    .menu-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .menu-title {
+      font-weight: 700;
       font-size: 16px;
       margin-bottom: 6px;
-      display: inline-block;" class="menu-title">Food Items</span>
-          <span style=" color: #6b6b6b;
+      display: inline-block;
+    }
+
+    .menu-desc {
+      color: #6b6b6b;
       font-size: 14px;
       display: block;
       margin-bottom: 6px;
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;" class="menu-desc">We have a best food items like rice, lentils, pasta, and more</span>
-        </div>
-        <div style="margin-top:8px;">
-          <span style=" font-weight: 700;
-      margin-right: 12px;" class="menu-price">Price: on detail menu</span>
-        </div>
-      </div>
-      <div style="margin-left:12px">
-        <a href="./order.html" target="_blank" rel="noopener">
-          <button style=" background: #333;
-      color: #fff;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      cursor: pointer;
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
-      transition: transform .06s ease;" class="order-btn" type="button">Order Now</button>
-        </a>
-      </div>
-    </article>
+      text-overflow: ellipsis;
+    }
 
-
-
-    <article  style=" display: flex;
-      gap: 18px;
-      align-items: center;
-      border: 1px solid var(--card-border);
-      border-radius: 6px;
-      padding: 14px;
-      background: linear-gradient(180deg, #fff, #fafafa);
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
-      overflow: hidden;" class="menu-card reveal">
-      <img style=" width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 4px;
-      flex-shrink: 0;
-      border: 1px solid #eee;"  class="thumb" src="./cooking tasks.png" alt="cooking Tasks">
-      <div style="flex: 1;
-      min-width: 0;" class="menu-content">
-        <div>
-          <span style=" font-weight: 700;
-      font-size: 16px;
-      margin-bottom: 6px;
-      display: inline-block;" class="menu-title">Cooking tasks</span>
-          <span style=" color: #6b6b6b;
-      font-size: 14px;
-      display: block;
-      margin-bottom: 6px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;"  class="menu-desc">We have a more cooking tasks like oil, berber, and more</span>
-        </div>
-        <div style="margin-top:8px;">
-          <span style=" font-weight: 700;
-      margin-right: 12px;" class="menu-price">Price: on detail menu</span>
-        </div>
-      </div>
-      <div style="margin-left:12px">
-        <a href="./order.html" target="_blank" rel="noopener">
-          <button style=" background: #333;
-      color: #fff;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      cursor: pointer;
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
-      transition: transform .06s ease;"  class="order-btn" type="button">Order Now</button>
-        </a>
-      </div>
-    </article>
-
-
-
-
-    <article  style=" display: flex;
-      gap: 18px;
-      align-items: center;
-      border: 1px solid var(--card-border);
-      border-radius: 6px;
-      padding: 14px;
-      background: linear-gradient(180deg, #fff, #fafafa);
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
-      overflow: hidden;" class="menu-card reveal">
-      <img style=" width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 4px;
-      flex-shrink: 0;
-      border: 1px solid #eee;" class="thumb" src="./Pharmacy.jpg" alt="healthcare products">
-      <div style="flex: 1;
-      min-width: 0;" class="menu-content">
-        <div>
-          <span style=" font-weight: 700;
-      font-size: 16px;
-      margin-bottom: 6px;
-      display: inline-block;"  class="menu-title">HealthCare products</span>
-          <span style=" color: #6b6b6b;
-      font-size: 14px;
-      display: block;
-      margin-bottom: 6px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;"  class="menu-desc">We have a HealthCare products like Shampoo, Soap, lotion and more</span>
-        </div>
-        <div style="margin-top:8px;">
-          <span style=" font-weight: 700;
-      margin-right: 12px;" class="menu-price">Price: on detail menu</span>
-        </div>
-      </div>
-      <div style="margin-left:12px">
-        <a href="./order.html" target="_blank" rel="noopener">
-          <button style=" background: #333;
-      color: #fff;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 6px;
-      cursor: pointer;
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
-      transition: transform .06s ease;"  class="order-btn" type="button">Order Now</button>
-        </a>
-      </div>
-    </article>
-
-    <div style="text-align:right;">
-      <a style="color: rgb(45, 45, 145);" href="./Menu.html">For detail menu</a>
-    </div>
+    .menu-price {
+      font-weight: 700;
+      margin-right: 12px;
+    }
