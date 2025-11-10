@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Delivery Deposit & Document Upload</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order on Bank</title>
   <style>
-   :root {
+:root {
       --cyan: #09af6f;
       --lime: #d9f200;
       --muted: #666f78;
@@ -54,9 +54,20 @@
     }
 
 
+    /* lime separator */
+    .lime-sep {
+      height: 10px;
+      background: linear-gradient(90deg, var(--lime), rgba(255, 255, 255, 0) 60%);
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+    }
 
+    /* Main Container */
+    .container {
+      max-width: 980px;
+      margin: 28px auto;
+      padding: 0 18px;
+    }
 
-    /* Form Container (with animation) */
     .upload-container {
       background-color: #ffffff;
       padding: 30px;
@@ -64,28 +75,42 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       width: 100%;
       max-width: 400px;
+      margin: 50px auto;
       opacity: 0;
-      transform: translateY(60px);
+      transform: scale(0.8);
       transition: all 2s ease-out;
     }
 
-    .upload-container.show {
+    .upload-container.in-view {
       opacity: 1;
-      transform: translateY(0);
+      transform: scale(1);
     }
 
-    /* Input styles */
-    input[type="text"], input[type="file"], select {
+    /* Footer */
+    footer.site-footer {
+      margin-top: 38px;
+      background: var(--dark-footer);
+      color: #dcdcdc;
+      text-align: center;
+      padding: 18px 10px;
+      font-size: 13px;
+    }
+
+    /* Inputs & Buttons */
+    input[type="text"],
+    input[type="file"],
+    select {
       width: 100%;
       padding: 12px;
       border: 1px solid #ddd;
       border-radius: 6px;
       box-sizing: border-box;
       font-size: 16px;
-      transition: border-color 0.3s;
+      transition: border-color 1.5s;
     }
 
-    input[type="text"]:focus, select:focus {
+    input[type="text"]:focus,
+    select:focus {
       border-color: #007bff;
       outline: none;
     }
@@ -99,7 +124,7 @@
       border-radius: 6px;
       font-size: 18px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: background-color 1s;
     }
 
     .submit-btn:hover {
@@ -113,46 +138,19 @@
       text-align: center;
     }
 
-    /* Footer (no animation) */
-    footer.site-footer {
-      margin-top: 38px;
-      background: var(--dark-footer);
-      color: #dcdcdc;
-      text-align: center;
-      padding: 18px 10px;
-      font-size: 13px;
-    }
-
-    /* Center container */
-    .page-wrapper {
-      font-family: sans-serif;
-      background-color: #f4f7f6;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
-      flex-direction: column;
-    }
-
-    @media (max-width:640px) {
+    @media (max-width: 640px) {
       header .brand {
         font-size: 22px;
-      }
-      nav.main-nav {
-        gap: 12px;
-        font-size: 13px;
-        flex-wrap: wrap;
-        justify-content: center;
       }
     }
   </style>
 </head>
-
 <body>
   <header class="site-header" role="banner">
-    <h1 class="brand" style="font-family: Georgia, 'Times New Roman', Times, serif; color: black;">EbRo-Shop</h1>
-    <nav class="main-nav" role="navigation">
+    <h1 class="brand" style="font-family: Georgia, 'Times New Roman', Times, serif; color: black;">
+      EbRo-Shop
+    </h1>
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
       <a href="./index.html">Home</a>
       <a href="./Menu.html">Menu</a>
       <a href="./About.html">About</a>
@@ -162,64 +160,72 @@
     </nav>
   </header>
 
-  <div class="page-wrapper">
+  <div
+    style="font-family: sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
     <div class="upload-container">
-      <h1 style="color: #044b15; text-align: center; margin-bottom: 25px; font-family: Georgia, 'Times New Roman', Times, serif;"><ins>Order pay by Telebirr</ins></h1>
-      <p><b>ማዘዝ/order ማረግ የፈለጉትን ሜኑ/Menu ላይ አይተው በዚህ Telebirr <b style="color: #0419ff;">0989498343</b> የorder ዋጋ መጠን ያስገቡ። ከዛ ተመልሰው ከታች የሚታየው ፎርም ሞልተው <i style="color: #007bff;">submit</i> የሚለው ይጫኑት ከዛ እንደውልሎት አለን🙏</b></p>
+      <h1 style="color: #044b15; text-align: center; margin-bottom: 25px; font-family: Georgia, 'Times New Roman', Times, serif;">
+
+        <ins>Order pay by Telebirr</ins>
+      </h1>
+      <p>
+        <b>ማዘዝ/order ማድረግ የፈለጉትን ሜኑ/Menu ላይ አይተው በዚህ Telebirr (<b style="color:#0d4a7e">0970130755-Hayiru</b>) የorder ዋጋ መጠን ያስገቡ።
+           ተመልሰው ከታች የሚታየው ፎርም ሞልተው Submit የሚለው ይጫኑት ከዛ እንደውልሎት አለን🙏</b>
+      </p>
       <form action="https://formspree.io/f/mvgvvqar" method="POST" enctype="multipart/form-data">
-        <div class="form-group">
-          <label><b>Name/የቴሌብር ሙሉ ስም:</b></label>
-          <input type="text" name="Telebirr Full-Name" placeholder="ሙሉ ስም" required>
+        <div style="margin-bottom: 20px;" class="form-group">
+          <label for="order-id"><b>Name/የቴሌብር ሙሉ ስም:</b></label>
+          <input type="text" id="order-id" name="Telebirr Full-Name" placeholder="ሙሉ ስም" required />
         </div>
 
-        <div class="form-group">
-          <label><b>Telebirr-number/ስልክ-ቁጥር:</b></label>
-          <input type="text" name="Telebirr" placeholder="በቴሌብር የላኩበት ቁጥር" required>
+        <div style="margin-bottom: 20px;" class="form-group">
+          <label for="order-id"><b>Telebirr-number/የላኩበት ስልክ፟-ቁጥር:</b></label>
+          <input type="text" id="order-id" name="Telebirr-number" placeholder="በቴሌብር የላኩበት ቁጥር" required />
         </div>
 
-        <div class="form-group">
-          <label><b>Deposit-Amount/የላኩት የብር መጠን (ETB):</b></label>
-          <input type="text" name="deposit_amount" placeholder="e.g., 500.00" required>
+        <div style="margin-bottom: 20px;" class="form-group">
+          <label for="amount"><b>Deposit-Amount/የላኩት የብር መጠን (ETB):</b></label>
+          <input type="text" id="amount" name="deposit_amount" placeholder="e.g., 500.00" required />
         </div>
 
-        <div class="form-group">
-          <label><b>Phone-number/ስልክ ቁጥር:</b></label>
-          <input type="text" name="Phone-number" placeholder="ስልክ ቁጥር" required>
+        <div style="margin-bottom: 20px;" class="form-group">
+          <label for="bank-ref"><b>Phone-number/ስልክ ቁጥር:</b></label>
+          <input type="text" id="bank-ref" name="Phone-number" placeholder="ስልክ ቁጥር" required />
         </div>
 
-        <div class="form-group">
-          <label><b>Order/ትዕዛዝ:</b></label>
-          <input type="text" name="order" placeholder="የሚያዙት እቃ" required>
+        <div style="margin-bottom: 20px;" class="form-group">
+          <label for="order"><b>Order/ትዕዛዝ:</b></label>
+          <input type="text" id="order" name="order" placeholder="የሚያዙት እቃ" required />
         </div>
 
-        <div class="form-group">
-          <label><b>Address/አድራሻ:</b></label>
-          <input type="text" name="Address" placeholder="አድራሻዎት እዚህ ያስቀምጡ" required>
+        <div style="margin-bottom: 20px;" class="form-group">
+          <label for="Address"><b>Address/አድራሻ:</b></label>
+          <input type="text" id="Address" name="Address" placeholder="አድራሻዎት እዚህ ያስቀምጡ" required />
         </div>
 
         <button type="submit" class="submit-btn">✅ Submit order Confirmation</button>
-      
         <a style="font-size: 30px;" href="./order.html">🔙</a>
         <p class="note">Submission will securely send your data to the Hosts panel.</p>
       </form>
     </div>
   </div>
 
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     © 2025 EbRo-Shop. All rights reserved.
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const targets = document.querySelectorAll('.upload-container');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-          observer.unobserve(entry.target);
+          entry.target.classList.add('in-view');
+        } else {
+          entry.target.classList.remove('in-view');
         }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.4 });
 
-    observer.observe(document.querySelector(".upload-container"));
+    targets.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
