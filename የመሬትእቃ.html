@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Food Items</title>
+  <style>
+    :root {
+      --cyan: #09af6f;
+      --lime: #d9f200;
+      --muted: #666f78;
+      --card-border: #efebef;
+      --dark-footer: #2f2f2f;
+      --accent: #0d4a7e;
+      --radius: 14px;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      color: #222;
+      background: #fff;
+    }
+
+    /* HEADER (no animation) */
+   
+     header.site-header {
+      background: var(--cyan);
+      text-align: center;
+      padding: 26px 16px 44px;
+      position: relative;
+      box-shadow: inset 0 -3px rgba(0, 0, 0, 0.02);
+    }
+
+    header .brand {
+      font-weight: 700;
+      font-size: 32px;
+      color: #fff;
+      margin: 0;
+    }
+
+    nav.main-nav {
+      margin-top: 14px;
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      font-size: 14px;
+    }
+
+    nav.main-nav a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      opacity: 0.95;
+    }
+
+   
+
+    
+
+
+.menu-heading {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 20px;
+      margin: 20px 0 16px;
+      text-align: center;
+    }
+
+     /* Menu card */
+    .menu-card {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 2s ease, transform 2s ease;
+    }
+
+
+
+    /* Animate when visible */
+    .menu-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    
+    .order-btn {
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;
+    }
+
+    .order-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    /* Footer (no animation) */
+    footer.site-footer {
+      margin-top: 38px;
+      background: var(--dark-footer);
+      color: #dcdcdc;
+      text-align: center;
+      padding: 18px 10px;
+      font-size: 13px;
+    }
+
+   
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <h1 class="brand" style="font-family: Georgia, 'Times New Roman', Times, serif; color: black;">EbRo-Shop</h1>
+    <nav class="main-nav">
+      <a href="./index.html">Home</a>
+      <a style="color: #0b0808; font-weight: 700;" href="#">Menu</a>
+      <a href="./About.html">About</a>
+      <a href="./Contact.html">Contact</a>
+      <a href="./order.html">Order</a>
+    </nav>
+  </header>
+
+
+
+
+
+
+
+ <h3 style=" color: var(--accent);
+      font-weight: 700;
+      font-size: 20px;
+      margin: 10px 0 16px; color:rgb(122, 53, 53)" class="menu-heading reveal">Our Menu</h3>
+
+    <h3 style=" color: var(--accent);
+      font-weight: 700;
+      font-size: 20px;
+      margin: 10px 0 16px; color:#0d4a7e; text-align: left;" class="menu-heading reveal">የመሬት እቃዎች</h3>
+
+
+   <article style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;" class="menu-card reveal" aria-labelledby="pizza-title">
+     
+      <img style=" width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;" class="thumb" src="./ስካር.jpeg" alt="ስኳር">
+      <div style="flex: 1;
+      min-width: 0;" class="menu-content">
+        <div>
+          <span id="pizza-title" style=" font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block; color:#0d4a7e" class="menu-title">ስኳር</span>
+        
+        </div>
+        <div style="margin-top:8px;">
+          <span style=" font-weight: 700;
+      margin-right: 12px;" class="menu-price"><b style="color: #0d4a7e;">price</b> = 💸170birr(1ኪሎ)</span>
+        </div>
+      </div>
+      <div style="margin-left:12px">
+        <a href="./order.html" target="_blank" rel="noopener">
+          <button style=" background: #0d4a7e;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;" class="order-btn" type="button">Order Now</button>
+        </a>
+      </div>
+    </article>
+      <br>
+
+ 
+      
+   
+   <article style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;" class="menu-card reveal" aria-labelledby="pizza-title">
+     
+      <img style=" width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;" class="thumb" src="./በስመቲ ሩዝ.jpg" alt="በስመቲ">
+      <div style="flex: 1;
+      min-width: 0;" class="menu-content">
+        <div>
+          <span id="pizza-title" style=" font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block; color:#0d4a7e" class="menu-title">በስመቲ ሩዝ</span>
+        
+        </div>
+        <div style="margin-top:8px;">
+          <span style=" font-weight: 700;
+      margin-right: 12px;" class="menu-price"><b style="color: #0d4a7e;">price</b> = 💸200birr(1ኪሎ)</span>
+        </div>
+      </div>
+      <div style="margin-left:12px">
+        <a href="./order.html" target="_blank" rel="noopener">
+          <button style=" background: #0d4a7e;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;" class="order-btn" type="button">Order Now</button>
+        </a>
+      </div>
+    </article>
+     <br>
+
+   <article style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;" class="menu-card reveal" aria-labelledby="pizza-title">
+     
+      <img style=" width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;" class="thumb" src="./ኖርማል ሩዝ.jpeg" alt="ኖርማል ሩዝ">
+      <div style="flex: 1;
+      min-width: 0;" class="menu-content">
+        <div>
+          <span id="pizza-title" style=" font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block; color:#0d4a7e" class="menu-title">ኖርማል ሩዝ</span>
+        
+        </div>
+        <div style="margin-top:8px;">
+          <span style=" font-weight: 700;
+      margin-right: 12px;" class="menu-price"><b style="color: #0d4a7e;">price</b> = 💸150birr(1ኪሎ)</span>
+        </div>
+      </div>
+      <div style="margin-left:12px">
+        <a href="./order.html" target="_blank" rel="noopener">
+          <button style=" background:#0d4a7e;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;" class="order-btn" type="button">Order Now</button>
+        </a>
+      </div>
+    </article>
+     <br>
+
+
+      <article style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;" class="menu-card reveal" aria-labelledby="pizza-title">
+     
+      <img style=" width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;" class="thumb" src="./ፓስታ.jpg" alt="ፓስታ">
+      <div style="flex: 1;
+      min-width: 0;" class="menu-content">
+        <div>
+          <span id="pizza-title" style=" font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block; color:#0d4a7e" class="menu-title">ፓስታ</span>
+        
+        </div>
+        <div style="margin-top:8px;">
+          <span style=" font-weight: 700;
+      margin-right: 12px;" class="menu-price"><b style="color: #0d4a7e;">price</b> = 💸100birr</span>
+        </div>
+      </div>
+      <div style="margin-left:12px">
+        <a href="./order.html" target="_blank" rel="noopener">
+          <button style=" background:#0d4a7e;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;" class="order-btn" type="button">Order Now</button>
+        </a>
+      </div>
+    </article>
+     <br>
+
+      <article style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;" class="menu-card reveal" aria-labelledby="pizza-title">
+     
+      <img style=" width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;" class="thumb" src="./ሞኮሮኒ.jpg" alt="ሞኮሮኒ">
+      <div style="flex: 1;
+      min-width: 0;" class="menu-content">
+        <div>
+          <span id="pizza-title" style=" font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block; color:#0d4a7e" class="menu-title">ሞኮሮኒ</span>
+        
+        </div>
+        <div style="margin-top:8px;">
+          <span style=" font-weight: 700;
+      margin-right: 12px;" class="menu-price"><b style="color: #0d4a7e;">price</b> = 💸130birr(1ኪሎ)</span>
+        </div>
+      </div>
+      <div style="margin-left:12px">
+        <a href="./order.html" target="_blank" rel="noopener">
+          <button style=" background:#0d4a7e;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;" class="order-btn" type="button">Order Now</button>
+        </a>
+      </div>
+    </article>
+     <br>
+
+
+       <article style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;" class="menu-card reveal" aria-labelledby="pizza-title">
+     
+      <img style=" width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;" class="thumb" src="./ቡና.jpg" alt="ቡና">
+      <div style="flex: 1;
+      min-width: 0;" class="menu-content">
+        <div>
+          <span id="pizza-title" style=" font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block; color:#0d4a7e" class="menu-title">ቡና</span>
+        
+        </div>
+        <div style="margin-top:8px;">
+          <span style=" font-weight: 700;
+      margin-right: 12px;" class="menu-price"><b style="color:#0d4a7e">price</b> = 💸1200birr(1ኪሎ)</span>
+        </div>
+      </div>
+      <div style="margin-left:12px">
+        <a href="./order.html" target="_blank" rel="noopener">
+          <button style=" background:#0d4a7e;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;" class="order-btn" type="button">Order Now</button>
+        </a>
+      </div>
+    </article>
+     <br>
+
+
+       <article style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;" class="menu-card reveal" aria-labelledby="pizza-title">
+     
+      <img style=" width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;" class="thumb" src="./ምስር ክክ.png" alt="ምስር ክክ">
+      <div style="flex: 1;
+      min-width: 0;" class="menu-content">
+        <div>
+          <span id="pizza-title" style=" font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block; color:#0d4a7e" class="menu-title">ምስር ክክ</span>
+        
+        </div>
+        <div style="margin-top:8px;">
+          <span style=" font-weight: 700;
+      margin-right: 12px;" class="menu-price"><b style="color: #0d4a7e; ">price</b> = 💸180birr(1ኪሎ)</span>
+        </div>
+      </div>
+      <div style="margin-left:12px">
+        <a href="./order.html" target="_blank" rel="noopener">
+          <button style=" background:#0d4a7e;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;" class="order-btn" type="button">Order Now</button>
+        </a>
+      </div>
+    </article>
+     <br>
+
+ 
+    <article style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;" class="menu-card reveal" aria-labelledby="pizza-title">
+     
+      <img style=" width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;" class="thumb" src="./ድፍን ምስር.jpg" alt="ድፍን ምስር">
+      <div style="flex: 1;
+      min-width: 0;" class="menu-content">
+        <div>
+          <span id="pizza-title" style=" font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block; color:#0d4a7e" class="menu-title">ድፍን ምስር</span>
+        
+        </div>
+        <div style="margin-top:8px;">
+          <span style=" font-weight: 700;
+      margin-right: 12px;" class="menu-price"><b style="color: #0d4a7e; ">price</b> = 💸160birr(1ኪሎ)</span>
+        </div>
+      </div>
+      <div style="margin-left:12px">
+        <a href="./order.html" target="_blank" rel="noopener">
+          <button style=" background:#0d4a7e;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;" class="order-btn" type="button">Order Now</button>
+        </a>
+      </div>
+    </article>
+     <br>
+
+
+       <article style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;" class="menu-card reveal" aria-labelledby="pizza-title">
+     
+      <img style=" width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;" class="thumb" src="./ዱቄት.jpeg" alt="ዱቄት">
+      <div style="flex: 1;
+      min-width: 0;" class="menu-content">
+        <div>
+          <span id="pizza-title" style=" font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block; color:#0d4a7e" class="menu-title">ዱቄት</span>
+        
+        </div>
+        <div style="margin-top:8px;">
+          <span style=" font-weight: 700;
+      margin-right: 12px;" class="menu-price"><b style="color:#0d4a7e"> price</b> = 💸170birr(1ኪሎ)</span>
+        </div>
+      </div>
+      <div style="margin-left:12px">
+        <a href="./order.html" target="_blank" rel="noopener">
+          <button style=" background:#0d4a7e;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;" class="order-btn" type="button">Order Now</button>
+        </a>
+      </div>
+    </article>
+     <br>
+
+       <article style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;" class="menu-card reveal" aria-labelledby="pizza-title">
+     
+      <img style=" width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;" class="thumb" src="./አተር ክክ.jpg" alt="አተር ክክ">
+      <div style="flex: 1;
+      min-width: 0;" class="menu-content">
+        <div>
+          <span id="pizza-title" style=" font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block; color:#0d4a7e" class="menu-title">አተር ክክ</span>
+        
+        </div>
+        <div style="margin-top:8px;">
+          <span style=" font-weight: 700;
+      margin-right: 12px;" class="menu-price"><b style="color:#0d4a7e">price</b> = 💸130birr(1ኪሎ)</span>
+        </div>
+      </div>
+      <div style="margin-left:12px">
+        <a href="./order.html" target="_blank" rel="noopener">
+          <button style=" background:#0d4a7e;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;" class="order-btn" type="button">Order Now</button>
+        </a>
+      </div>
+    </article>
+     <br>
+
+     
+       <article style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;" class="menu-card reveal" aria-labelledby="pizza-title">
+     
+      <img style=" width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;" class="thumb" src="./ባቄላ ክክ.jpeg" alt="ባቄላ ክክ">
+      <div style="flex: 1;
+      min-width: 0;" class="menu-content">
+        <div>
+          <span id="pizza-title" style=" font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block; color:#0d4a7e" class="menu-title">ባቄላ ክክ</span>
+        
+        </div>
+        <div style="margin-top:8px;">
+          <span style=" font-weight: 700;
+      margin-right: 12px;" class="menu-price"><b style="color:#0d4a7e">price</b> = 💸120birr(1ኪሎ)</span>
+        </div>
+      </div>
+      <div style="margin-left:12px">
+        <a href="./order.html" target="_blank" rel="noopener">
+          <button style=" background:#0d4a7e;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;" class="order-btn" type="button">Order Now</button>
+        </a>
+      </div>
+    </article>
+     <br>
+
+       <article style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;" class="menu-card reveal" aria-labelledby="pizza-title">
+     
+      <img style=" width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;" class="thumb" src="./ባቄላ.jpeg" alt="ባቄላ">
+      <div style="flex: 1;
+      min-width: 0;" class="menu-content">
+        <div>
+          <span id="pizza-title" style=" font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block; color:#0d4a7e" class="menu-title">ባቄላ</span>
+        
+        </div>
+        <div style="margin-top:8px;">
+          <span style=" font-weight: 700;
+      margin-right: 12px;" class="menu-price"><b style="color:#0d4a7e">price</b> = 💸140birr(1ኪሎ)</span>
+        </div>
+      </div>
+      <div style="margin-left:12px">
+        <a href="./order.html" target="_blank" rel="noopener">
+          <button style=" background:#0d4a7e;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;" class="order-btn" type="button">Order Now</button>
+        </a>
+      </div>
+    </article>
+     <br>
+
+
+      <article style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;" class="menu-card reveal" aria-labelledby="pizza-title">
+     
+      <img style=" width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;" class="thumb" src="./ፋንዲሻ.jpeg" alt="ፋንዲሻ">
+      <div style="flex: 1;
+      min-width: 0;" class="menu-content">
+        <div>
+          <span id="pizza-title" style=" font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block; color:#0d4a7e" class="menu-title">ፋንዲሻ</span>
+        
+        </div>
+        <div style="margin-top:8px;">
+          <span style=" font-weight: 700;
+      margin-right: 12px;" class="menu-price"><b style="color:#0d4a7e">price</b> = 💸190birr(1ኪሎ)</span>
+        </div>
+      </div>
+      <div style="margin-left:12px">
+        <a href="./order.html" target="_blank" rel="noopener">
+          <button style=" background:#0d4a7e;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;" class="order-btn" type="button">Order Now</button>
+        </a>
+      </div>
+    </article>
+     <br>
+
+
+       <article style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;" class="menu-card reveal" aria-labelledby="pizza-title">
+     
+      <img style=" width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;" class="thumb" src="./ሱፍ.png" alt="ሱፍ">
+      <div style="flex: 1;
+      min-width: 0;" class="menu-content">
+        <div>
+          <span id="pizza-title" style=" font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block; color:#0d4a7e" class="menu-title">ሱፍ</span>
+        
+        </div>
+        <div style="margin-top:8px;">
+          <span style=" font-weight: 700;
+      margin-right: 12px;" class="menu-price"><b style="color:#0d4a7e">price</b> = 💸150birr(1ኪሎ)</span>
+        </div>
+      </div>
+      <div style="margin-left:12px">
+        <a href="./order.html" target="_blank" rel="noopener">
+          <button style=" background:#0d4a7e;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;" class="order-btn" type="button">Order Now</button>
+        </a>
+      </div>
+    </article>
+     <br>
+
+
+     
+       <article style=" display: flex;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff, #fafafa);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+      overflow: hidden;" class="menu-card reveal" aria-labelledby="pizza-title">
+     
+      <img style=" width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #eee;" class="thumb" src="./ጨው.jpg" alt="ጨው">
+      <div style="flex: 1;
+      min-width: 0;" class="menu-content">
+        <div>
+          <span id="pizza-title" style=" font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 6px;
+      display: inline-block; color:#0d4a7e" class="menu-title">ጨው</span>
+        
+        </div>
+        <div style="margin-top:8px;">
+          <span style=" font-weight: 700;
+      margin-right: 12px;" class="menu-price"><b style="color:#0d4a7e">price</b> = 💸80birr(1ኪሎ)</span>
+        </div>
+      </div>
+      <div style="margin-left:12px">
+        <a href="./order.html" target="_blank" rel="noopener">
+          <button style=" background:#0d4a7e;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;" class="order-btn" type="button">Order Now</button>
+        </a>
+      </div>
+    </article>
+     <br>
+<div style="margin-left:12px">
+        <a href="./Menu.html" target="_blank" rel="noopener">
+          <button style=" background: #0d4a7e;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .06s ease;" class="order-btn" type="button">Back</button>
+        </a>
+      </div>
+  <footer class="site-footer">
+    © 2025 EbRo-Shop. All rights reserved.
+  </footer>
+
+  <script>
+    // Animation trigger when elements reach the screen edge
+    const cards = document.querySelectorAll('.menu-card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    cards.forEach(card => observer.observe(card));
+  </script>
+</body>
+</html>
