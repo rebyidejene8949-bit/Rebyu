@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order-cash</title>
+  <style>
+ :root {
+      --cyan: #09af6f;
+      --lime: #d9f200;
+      --muted: #666f78;
+      --card-border: #efebef;
+      --dark-footer: #2f2f2f;
+      --accent: #0d4a7e;
+      --radius: 14px;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      color: #222;
+      background: #fff;
+    }
+
+    /* HEADER (no animation) */
+   
+     header.site-header {
+      background: var(--cyan);
+      text-align: center;
+      padding: 26px 16px 44px;
+      position: relative;
+      box-shadow: inset 0 -3px rgba(0, 0, 0, 0.02);
+    }
+
+    header .brand {
+      font-weight: 700;
+      font-size: 32px;
+      color: #fff;
+      margin: 0;
+    }
+
+    nav.main-nav {
+      margin-top: 14px;
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      font-size: 14px;
+    }
+
+    nav.main-nav a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      opacity: 0.95;
+    }
+
+    footer.site-footer {
+      margin-top: 38px;
+      background: var(--dark-footer);
+      color: #dcdcdc;
+      text-align: center;
+      padding: 18px 10px;
+      font-size: 13px;
+    }
+
+    /* --- animation setup --- */
+    .animate {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 2s ease-out;
+    }
+    .animate.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Form style */
+    input[type="text"], select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #218838;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #888;
+      margin-top: 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <h1 style="color: black; font-family: Georgia, 'Times New Roman', Times, serif;" class="brand">EbRo-Shop</h1>
+    <nav class="main-nav">
+      <a href="./index.html">Home</a>
+      <a href="./Menu.html">Menu</a>
+      <a href="./About.html">About</a>
+      <a href="./Contact.html">Contact</a>
+      <a style="color: #222; font-weight: 700;" href="#">Order</a>
+    </nav>
+  </header>
+
+  <div style="font-family: sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
+    <div class="upload-container animate" style="background-color: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); width: 100%; max-width: 400px;">
+      <h1 style="color: #044b15; text-align: center; margin-bottom: 25px; font-family: Georgia, 'Times New Roman', Times, serif;"><ins>Order pay by Cash</ins></h1>
+      <p class="animate"><b>ማዘዝ/order ማድረግ የፈለጉትን ሜኑ/Menu ላይ ተመልክተው ከታች ያለውን ፎርም ይሙሉና <b style="color: #007bff;">submit</b> ይበሉት። ትዛዝዎን አድርሰን እንደውልሎት አለን ያዘዙትን እቃ ብር ካሽ አዘጋጅተው ይጥብቁን🙏</b></p>
+
+      <form action="https://formspree.io/f/mnnlaybl" method="POST" enctype="multipart/form-data" class="animate">
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #044b15;">Name/ሙሉ ስም:</label>
+          <input type="text" name="Full-Name" placeholder="ሙሉ ስም" required>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #044b15;">Phone-number/ስልክ-ቁጥር:</label>
+          <input type="text" name="Phone-number" placeholder="ስልክ ቁጥር" required>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #044b15;">Order/ትዕዛዝ:</label>
+          <input style="background-color:#75797d;" type="text" name="Order" placeholder="የሚያዙት እቃ"  value="ዱቄት">
+        </div>
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #044b15;">How much/ብዛት(በኪሎ):</label>
+          <input type="text" name="how much/ብዛት(በኪሎ)" placeholder="ስንት ኪሎ ይፈልጋሉ" required>
+        </div>
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #044b15;">Address/አድራሻ:</label>
+          <input type="text" name="Address" placeholder="አድራሻዎት" required>
+        </div>
+
+        <button type="submit" class="submit-btn animate">✅ Submit order Confirmation</button>
+        <a style="font-size: 30px; display:block; text-align:center;" href="./Duqietorder.html">🔙</a>
+        <p class="note animate">Submission will securely send your data to the Hosts panel.</p>
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    © 2025 EbRo-Shop. All rights reserved. 
+  </footer>
+
+  <script>
+    // Scroll-based animation trigger
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible'); // keeps it dynamic
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
