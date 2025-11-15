@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Order</title>
+  <style>
+      :root {
+      --cyan: #09af6f;
+      --lime: #d9f200;
+      --muted: #666f78;
+      --card-border: #efebef;
+      --dark-footer: #2f2f2f;
+      --accent: #0d4a7e;
+      --radius: 14px;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      color: #222;
+      background: #fff;
+    }
+
+    /* HEADER (no animation) */
+   
+     header.site-header {
+      background: var(--cyan);
+      text-align: center;
+      padding: 26px 16px 44px;
+      position: relative;
+      box-shadow: inset 0 -3px rgba(0, 0, 0, 0.02);
+    }
+
+    header .brand {
+      font-weight: 700;
+      font-size: 32px;
+      color: #fff;
+      margin: 0;
+    }
+
+    nav.main-nav {
+      margin-top: 14px;
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      font-size: 14px;
+    }
+
+    nav.main-nav a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      opacity: 0.95;
+    }
+
+   
+
+
+
+
+
+
+
+    /* Animation setup */
+    .animate {
+      opacity: 0;
+      transition: all 2s ease-out;
+    }
+
+    .animate.show {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    /* specific directions */
+    .from-bottom {
+      transform: translateY(60px);
+    }
+
+    .from-right {
+      transform: translateX(80px);
+    }
+
+    .from-left {
+      transform: translateX(-80px);
+    }
+
+    
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header" role="banner">
+    <h1 class="brand" style="font-family: Georgia, 'Times New Roman', Times, serif; color: black;">EbRo-Shop</h1>
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+      <a href="./index.html">Home</a>
+      <a href="./Menu.html">Menu</a>
+      <a href="./About.html">About</a>
+      <a href="./Contact.html">Contact</a>
+      <a style="color: #222; font-weight: 700;" href="#">Order</a>
+    </nav>
+  </header>
+
+
+ 
+ 
+ 
+ 
+  <div style=" text-align: center;
+      font-family: Segoe UI, Roboto, Arial, sans-serif;
+      margin: 0;
+      color: #123;
+      padding: 40px 10px;" class="main-section">
+    <h2 style=" font-size: 24px;
+      margin-bottom: 10px;"><b>If you pay by ⏬</b></h2>
+
+    <!-- Cash from bottom -->
+    <p class="animate from-bottom">
+      <a href="./Lato4cash.html" target="_blank" rel="noopener">
+        <button style="background: #196b51;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 10px 0;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .1s ease;" class="order-btn" type="button">Cash</button>
+      </a>
+    </p>
+
+    <!-- Bank from right -->
+    <p class="animate from-right">
+      <a href="./Lato4Bank.html" target="_blank" rel="noopener">
+        <button style="background: #196b51;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 10px 0;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .1s ease;" class="order-btn" type="button">Bank</button>
+      </a>
+    </p>
+
+    <!-- Telebirr from left -->
+    <p class="animate from-left">
+      <a href="./Lato4Telebirr.html" target="_blank" rel="noopener">
+        <button style="background: #196b51;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 10px 0;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+      transition: transform .1s ease;" class="order-btn" type="button">Telebirr</button>
+      </a>
+    </p>
+  </div>
+<div style="height:150px;"></div> <!-- ክፍተት በ 60px -->
+  <footer style=" margin-top: 38px;
+      background: var(--dark-footer);
+      color: #dcdcdc;
+      text-align: center;
+      padding: 18px 10px;
+      font-size: 13px;" class="site-footer">
+    © 2025 EbRo-Shop. All rights reserved.
+  </footer>
+  <script>
+    // Animation observer
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
