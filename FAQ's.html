@@ -19,18 +19,22 @@
 
     body {
       margin: 0;
-      color: var(--text);
+      color: #222;
       background: #fff;
-      -webkit-font-smoothing: antialiased;
+    
+    
     }
 
-    /* Header */
-    header.site-header {
+    /* HEADER (no animation) */
+   
+     header.site-header {
       background: var(--cyan);
       text-align: center;
       padding: 26px 16px 44px;
-      position: relative;
+      /*i cancel position: relative;*/
       box-shadow: inset 0 -3px rgba(0, 0, 0, 0.02);
+     position: relative;
+
     }
 
     header .brand {
@@ -127,10 +131,15 @@
   <!-- FAQ Section -->
   <section class="animate-section" style="max-width: 900px; margin: 40px auto; background: #fff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
     <h2 style="color: #0078D7; border-bottom: 3px solid #0078D7; display: inline-block; margin-bottom: 20px; padding-bottom: 5px;">Frequently Asked Questions</h2>
-    <details open style="background: #eef6ff; border-color: #0078D7;">
-      <summary>How do I place an order?</summary>
-      <p  style="font-family: Georgia, 'Times New Roman', Times, serif;">To place an order, browse our shop website, select the products you want, then go to order page, and fill in your shipping and payment details to confirm your order.</p>
+    <details style="background: #fafafa; border: 1px solid #ddd; border-radius: 8px; margin: 12px 0; padding: 15px;">
+      <summary>What is Ebro-Shop?</summary>
+      <p style="background-color: #fafafa; font-family: Georgia, 'Times New Roman', Times, serif;">Ebro-Shop is an online platform that offers a wide range of household products and home-related items. It provides a convenient and reliable way for customers to shop from home while enjoying quality products and a smooth online shopping experience.</p>
     </details>
+    <details style="background: #fafafa; border: 1px solid #ddd; border-radius: 8px; margin: 12px 0; padding: 15px;">
+      <summary>How do I place an order?</summary>
+      <p style="font-family: Georgia, 'Times New Roman', Times, serif;">To place an order, browse our shop website, select the products you want, then go to order, and fill in your shipping and payment details to confirm your order.</p>
+    </details>
+   
     <details style="background: #fafafa; border: 1px solid #ddd; border-radius: 8px; margin: 12px 0; padding: 15px;">
       <summary>Can I track my order?</summary>
       <p style="font-family: Georgia, 'Times New Roman', Times, serif;">Yes. Once your order has been shipped, you’ll receive a tracking link via email or SMS.</p>
