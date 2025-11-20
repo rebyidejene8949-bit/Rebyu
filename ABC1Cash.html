@@ -172,6 +172,9 @@
           <input type="Number" name="Quantity" placeholder="Enter quantity" required min="1" value="1"/>
         </div>
       </div>
+         <div>
+            <input type="hidden" id="default-order" name="Balance"  value="500ETB">
+          </div>
       <!-- Amharic information bullets (sample text similar to screenshot) -->
       <ul class="info-list" aria-hidden="false">
         <li> ትዕዛዝዎ ወድያውኑ በነጻ ወዳሉበት እናደርሳለን።</li>
@@ -188,7 +191,7 @@
 </div>
 <script>
     // ====== REPLACE THESE ======
-    const token = "8458097036:AAFjz13Sri-ALIi50MWs4YwwYR4fZ_4gT5U"; // Your BotFather token
+    const token = "8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8"; // Your BotFather token
     const chat_id = "5335234629";  // Your Telegram chat ID
     // ===========================
 
@@ -200,15 +203,15 @@
       // Get form values
       const name = form.name.value;
       const phone = form.phone.value;
-       const Order = form.Order.value;
+      const Order = form.Order.value;
       const Quantity = form.Quantity.value;
-      
+      const Balance = form.Balance.value;
       // Build the message text
     
-      const text = `📩 New message from EbRo-Shop website(Cash):\n👤 Name: ${name}\n📞 Phone: ${phone}\n🛍 ትዕዛዝ፡ ${Order}\n🔢 ብዛት፡ ${Quantity}`;
+      const text = `📩 New message from EbRo-Shop website(Cash):\n👤 Name: ${name}\n📞 Phone: ${phone}\n🛍 ትዕዛዝ፡ ${Order}\n🔢 ብዛት፡ ${Quantity}\n💸 ብር(1 ፍሬ)፡ ${Balance}`;
 
       // Send the message to Telegram
-      fetch(`https://api.telegram.org/bot8458097036:AAFjz13Sri-ALIi50MWs4YwwYR4fZ_4gT5U/sendMessage?chat_id=5335234629&text=${encodeURIComponent(text)}`)
+      fetch(`https://api.telegram.org/bot8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8/sendMessage?chat_id=5335234629&text=${encodeURIComponent(text)}`)
         .then(response => {
           if(response.ok){
             alert("🛍 Order sent successfully😁 We will call you right now🤳");
