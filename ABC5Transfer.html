@@ -99,8 +99,7 @@
 
     <div class="modal-header">
       <div id="order-title" class="modal-title"><b>Please fill in the form to order</b></div>
-     
-    </div>
+     </div>
 
     <hr class="sep" />
 
@@ -108,11 +107,11 @@
      <div class="product">
       <div class="thumb">
         <!-- placeholder image -->
-        <img src="./ABC 2.jpg" alt="product thumbnail">
+        <img src="./ABC 5.jpg" alt="product thumbnail">
       </div>
 
       <div class="p-info">
-        <div class="p-title" style="font-family: Georgia, 'Times New Roman', Times, serif;"><b style="color: rgb(42, 92, 42);">ABC ዳይፐር</b><br><small style="font-size:13px;opacity:.9"> <b style="font-size: large;">2</b> ቁጥር</small></div>
+        <div class="p-title" style="font-family: Georgia, 'Times New Roman', Times, serif;"><b style="color: rgb(42, 92, 42);">ABC ዳይፐር</b><br><small style="font-size:13px;opacity:.9"> <b style="font-size: large;">5</b> ቁጥር</small></div>
       </div>
 
       <div class="p-price">Br500.00 ETB</div>
@@ -124,7 +123,6 @@
         <div class="line"><div class="label"><b style="font-weight:700">Total</b></div><div class="label">Br500.00 X quantity ETB</div></div>
      
     </div>
-
     <!-- form -->
     <form id="contactForm">
         
@@ -157,7 +155,7 @@
       </div>
 
           <div>
-            <input type="hidden" id="default-order" name="Order"  value="ABC ዳይፐር 2 ቁጥር">
+            <input type="hidden" id="default-order" name="Order"  value="ABC ዳይፐር 5 ቁጥር">
           </div>      
 
           <div class="field">
@@ -172,12 +170,16 @@
           <input type="Number" name="Quantity" placeholder="Enter quantity" required min="1" value="1"/>
         </div>
       </div>
-         <div>
+        <div>
             <input type="hidden" id="default-order" name="Balance"  value="500ETB">
           </div>
       <!-- Amharic information bullets (sample text similar to screenshot) -->
       <ul class="info-list" aria-hidden="false">
+        <li style="font-size:medium; font-family:'Times New Roman', Times, serif"> አጠቃላይ ሂሳቡ በዚህ አካውንት ይላኩልን። CBE➡<b style="color: rgb(14, 53, 95);">1000617484793</b> Hayru Dejene Telebirr➡<b style="color: rgb(14, 53, 95);">0970130755</b> Hayiru</li>
+       <li style="font-size:medium; font-family:'Times New Roman', Times, serif"> እንደላካቹ ለማረጋግጥ በዚህ ቴሌግራም screenshot ይላኩልን። <a href="https://t.me/ebhayru55">t.me/EbRo-Shop</a></li>
         <li> ትዕዛዝዎ ወድያውኑ በነጻ ወዳሉበት እናደርሳለን።</li>
+        <li> ትዕዛዝዎ እንዲጀምር ሙሉ ሂሳብ ወደተሰጣቹ አካውንት ማስገባት እና <b style="font-size: medium; font-family:Georgia, 'Times New Roman', Times, serif">screenshot</b> ወደቴሌግራም መላክ አለባችሁ።</li> 
+        <li> ትዕዛዝዎ ከ<b style="font-size: medium; font-family:Georgia, 'Times New Roman', Times, serif">2</b> ሰዓት በላይ ከወሰደ ገንዘብዎን ተመላሽ ይሆናል።</li>
         <li> አድራሻ፡ ቦሌ ኤድናሞል ማኛ ኬክ ፊትለፊት።</li> 
       </ul>
 
@@ -203,12 +205,12 @@
       // Get form values
       const name = form.name.value;
       const phone = form.phone.value;
-      const Order = form.Order.value;
+       const Order = form.Order.value;
       const Quantity = form.Quantity.value;
-      const Balance = form.Balance.value;
+       const Balance = form.Balance.value;
       // Build the message text
     
-      const text = `📩 New message from EbRo-Shop website(Cash):\n👤 Name: ${name}\n📞 Phone: ${phone}\n🛍 ትዕዛዝ፡ ${Order}\n🔢 ብዛት፡ ${Quantity}\n💸 ብር(1 ፍሬ)፡ ${Balance}`;
+      const text = `📩 New message from EbRo-Shop website(Transfer):\n👤 Name: ${name}\n📞 Phone: ${phone}\n🛍 ትዕዛዝ፡ ${Order}\n🔢 ብዛት፡ ${Quantity}\n💸 ብር(1 ፍሬ)፡ ${Balance}`;
 
       // Send the message to Telegram
       fetch(`https://api.telegram.org/bot8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8/sendMessage?chat_id=5335234629&text=${encodeURIComponent(text)}`)
