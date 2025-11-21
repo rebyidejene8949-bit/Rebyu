@@ -1,185 +1,230 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Order-cash</title>
-  <style>
- :root {
-      --cyan: #09af6f;
-      --lime: #d9f200;
-      --muted: #666f78;
-      --card-border: #efebef;
-      --dark-footer: #2f2f2f;
-      --accent: #0d4a7e;
-      --radius: 14px;
-      font-family: "Helvetica Neue", Arial, sans-serif;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Order — Modal Form</title>
+<style>
+  :root{
+    --bg:#f2f2f2;
+    --card:#fff;
+    --muted:#cfcfcf;
+    --accent:#111;
+    --radius:18px;
+    --mono: "Courier New", Courier, monospace;
+  }
 
-    body {
-      margin: 0;
-      color: #222;
-      background: #fff;
-    
-    
-    }
+  html,body{height:100%;margin:0;font-family:var(--mono);background:var(--bg);-webkit-font-smoothing:antialiased}
+  /* overlay */
+  .overlay{
+    position:fixed;inset:0;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;padding:20px;
+  }
 
-    /* HEADER (no animation) */
-   
-     header.site-header {
-      background: var(--cyan);
-      text-align: center;
-      padding: 26px 16px 44px;
-      /*i cancel position: relative;*/
-      box-shadow: inset 0 -3px rgba(0, 0, 0, 0.02);
-     position: relative;
+  /* modal */
+  .modal{
+    width:100%;max-width:420px;background:var(--card);border-radius:18px;padding:20px 22px;box-shadow:0 10px 30px rgba(0,0,0,.25);
+    box-sizing:border-box;max-height:96vh;overflow:auto;position:relative;
+  }
 
-    }
+  /* header */
+  .modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+  .modal-title{font-size:22px;letter-spacing:2px}
+  .close-btn{
+    width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--muted);cursor:pointer;
+    background:transparent;font-size:18px;
+  }
 
-    header .brand {
-      font-weight: 700;
-      font-size: 32px;
-      color: #fff;
-      margin: 0;
-    }
+  hr.sep{border:0;border-top:1px solid #eee;margin:12px 0 16px}
 
-    nav.main-nav {
-      margin-top: 14px;
-      display: flex;
-      justify-content: center;
-      gap: 22px;
-      font-size: 14px;
-    }
+  /* product row */
+  .product{
+    display:flex;gap:14px;align-items:center;margin-bottom:14px;
+  }
+  .thumb{
+    width:70px;height:70px;border-radius:12px;overflow:hidden;background:#eee;flex:0 0 70px;border:1px solid #e6e6e6;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .p-info{flex:1}
+  .p-title{font-size:16px;line-height:1.05}
+  .p-sub{font-size:13px;color:#666;margin-top:6px}
+  .p-price{font-weight:700;white-space:nowrap;margin-left:8px;font-size:18px}
 
-    nav.main-nav a {
-      color: rgba(255, 255, 255, 0.9);
-      text-decoration: none;
-      opacity: 0.95;
-    }
+  /* totals box */
+  .totals{
+    border:1px solid #e2e2e2;border-radius:10px;padding:14px;margin-bottom:18px;background:#fafafa;
+  }
+  .totals .line{display:flex;justify-content:space-between;align-items:center;padding:6px 0}
+  .totals .label{color:#666}
+  .totals .total{font-size:24px;font-weight:700}
 
-    footer.site-footer {
-      margin-top: 38px;
-      background: var(--dark-footer);
-      color: #dcdcdc;
-      text-align: center;
-      padding: 18px 10px;
-      font-size: 13px;
-    }
+  /* form fields */
+  .field{margin-bottom:18px}
+  .label{font-size:16px;margin-bottom:8px;display:block}
+  .input-wrap{
+    display:flex;align-items:center;background:#f6f6f6;border-radius:10px;border:1px solid #dedede;overflow:hidden;
+  }
+  .input-icon{
+    width:58px;height:48px;display:flex;align-items:center;justify-content:center;background:#e9e9e9;border-right:1px solid #e0e0e0;
+  }
+  .input-icon svg{width:20px;height:20px;opacity:.9}
+  input[type="text"], input[type="tel"]{
+    border:0;padding:14px 12px;font-family:var(--mono);font-size:16px;outline:none;background:transparent;flex:1;
+  }
 
-    /* --- animation setup --- */
-    .animate {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 2s ease-out;
-    }
-    .animate.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  /* bullet list (Amharic) */
+  .info-list{margin:6px 0 18px;padding-left:18px;font-size:20px;line-height:1.6}
+  .info-list li{margin-bottom:10px}
 
-    /* Form style */
-    input[type="text"], select {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      box-sizing: border-box;
-      font-size: 16px;
-      transition: border-color 0.3s;
-    }
+  /* submit */
+  .submit-wrap{display:flex;justify-content:center;margin-top:6px;margin-bottom:8px}
+  .btn{
+    width:100%;max-width:360px;background:#000;color:#fff;border-radius:40px;padding:16px 18px;border:0;font-size:18px;
+    cursor:pointer;font-weight:700;letter-spacing:1px;
+  }
 
-    .submit-btn {
-      width: 100%;
-      padding: 15px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 18px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .submit-btn:hover {
-      background-color: #218838;
-    }
-
-    .note {
-      font-size: 14px;
-      color: #888;
-      margin-top: 15px;
-      text-align: center;
-    }
-  </style>
+  /* small screen tweaks */
+  @media (max-width:420px){
+    .modal{padding:18px}
+    .p-price{font-size:16px}
+    .totals .total{font-size:20px}
+    .info-list{font-size:18px}
+  }
+</style>
 </head>
 <body>
 
-  <header class="site-header">
-    <h1 style="color: black; font-family: Georgia, 'Times New Roman', Times, serif;" class="brand">EbRo-Shop</h1>
-    <nav class="main-nav">
-      <a href="./index.html">Home</a>
-      <a href="./Menu.html">Menu</a>
-      <a href="./About.html">About</a>
-      <a href="./Contact.html">Contact</a>
-      <a style="color: #222; font-weight: 700;" href="#">Order</a>
-    </nav>
-  </header>
+<div class="overlay" role="dialog" aria-modal="true" aria-labelledby="order-title">
+  <div class="modal" role="document">
 
-  <div style="font-family: sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
-    <div class="upload-container animate" style="background-color: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); width: 100%; max-width: 400px;">
-      <h1 style="color: #044b15; text-align: center; margin-bottom: 25px; font-family: Georgia, 'Times New Roman', Times, serif;"><ins>Order pay by Cash</ins></h1>
-      <p class="animate"><b>ማዘዝ/order ማድረግ የፈለጉትን ሜኑ/Menu ላይ ተመልክተው ከታች ያለውን ፎርም ይሙሉና <b style="color: #007bff;">submit</b> ይበሉት። ትዛዝዎን አድርሰን እንደውልሎት አለን ያዘዙትን እቃ ብር ካሽ አዘጋጅተው ይጥብቁን🙏</b></p>
-
-      <form action="https://formspree.io/f/mnnlaybl" method="POST" enctype="multipart/form-data" class="animate">
-        <div style="margin-bottom: 20px;" class="form-group">
-          <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #044b15;">Name/ሙሉ ስም:</label>
-          <input type="text" name="Full-Name" placeholder="ሙሉ ስም" required>
-        </div>
-
-        <div style="margin-bottom: 20px;" class="form-group">
-          <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #044b15;">Phone-number/ስልክ-ቁጥር:</label>
-          <input type="text" name="Phone-number" placeholder="ስልክ ቁጥር" required>
-        </div>
-
-        <div style="margin-bottom: 20px;" class="form-group">
-          <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #044b15;">Order/ትዕዛዝ:</label>
-          <input style="background-color:#75797d;" type="text" name="Order" placeholder="የሚያዙት እቃ"  value="Duru soap/የገላ ሳሙና">
-        </div>
-        <img src="./Duru soap.jpeg" width="100px" height="100px"/>
-        <div style="margin-bottom: 20px;" class="form-group">
-          <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #044b15;">How much/ብዛት:</label>
-          <input type="text" name="how much/ብዛት" placeholder="ስንት ፍሬ ይፈልጋሉ" required>
-        </div>
-        <div style="margin-bottom: 20px;" class="form-group">
-          <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #044b15;">Address/አድራሻ:</label>
-          <input type="text" name="Address" placeholder="አድራሻዎት" required>
-        </div>
-
-        <button type="submit" class="submit-btn animate">✅ Submit order Confirmation</button>
-        <a style="font-size: 30px; display:block; text-align:center;" href="./Duruorder.html">🔙</a>
-        <p class="note animate">Submission will securely send your data to the Hosts panel.</p>
-      </form>
+    <div class="modal-header">
+      <div id="order-title" class="modal-title"><b>Please fill in the form to order</b></div>
+     
     </div>
+
+    <hr class="sep" />
+
+    <!-- product summary -->
+     <div class="product">
+      <div class="thumb">
+        <!-- placeholder image -->
+        <img src="./Duru soap.jpeg" alt="product thumbnail">
+      </div>
+
+      <div class="p-info">
+        <div class="p-title" style="font-family: Georgia, 'Times New Roman', Times, serif;"><b style="color: rgb(42, 92, 42);">Duru soap</b><br><small style="font-size:13px;opacity:.9"> <b style="font-size: large;"></b>ዱሩ የገላ ሳሙና</small></div>
+      </div>
+
+      <div class="p-price">Br200.00 ETB</div>
+    </div>
+
+    <!-- totals -->
+    <div class="totals" aria-hidden="true">
+      <div class="line"><div s="label"><b>Subtotal</b></div><div class="label">Br200.00 ETB</div></div>
+        <div class="line"><div class="label"><b style="font-weight:700">Total</b></div><div class="label">Br200.00 X quantity ETB</div></div>
+     
+    </div>
+
+    <!-- form -->
+    <form id="contactForm">
+        
+
+      <div class="field">
+        <label class="label"><b>Full Name<span style="color:#d33">*</b></span></label>
+        <div class="input-wrap">
+          <div style="background-color: rgb(48, 121, 54);" class="input-icon" aria-hidden="true">
+            <!-- user icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="3"></circle>
+              <path d="M4 20c1.5-4 7-4 8-4s6.5 0 8 4"></path>
+            </svg>
+          </div>
+          <input type="text" name="name" placeholder="Your Name" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label"><b>Phone<span style="color:#d33">*</b></span></label>
+        <div class="input-wrap">
+          <div style="background-color: rgb(102, 116, 144);" class="input-icon" aria-hidden="true">
+            <!-- phone icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12 1.21.38 2.4.78 3.53a2 2 0 0 1-.45 2.11L8.09 11.91a16 16 0 0 0 6 6l1.55-1.55a2 2 0 0 1 2.11-.45c1.13.4 2.32.66 3.53.78A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </div>
+          <input type="tel" name="phone" placeholder="Phone" required pattern="[0-9+ ]+" />
+        </div>
+      </div>
+
+          <div>
+            <input type="hidden" id="default-order" name="Order"  value="Duru የገላ ሳሙና">
+          </div>      
+
+          <div class="field">
+        <label class="label"><b>Quantity/ብዛት<span style="color:#d33">*</b></span></label>
+        <div class="input-wrap">
+          <div style="background-color: rgb(127, 124, 27);" class="input-icon" aria-hidden="true">
+            <!-- phone icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12 1.21.38 2.4.78 3.53a2 2 0 0 1-.45 2.11L8.09 11.91a16 16 0 0 0 6 6l1.55-1.55a2 2 0 0 1 2.11-.45c1.13.4 2.32.66 3.53.78A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </div>
+          <input type="Number" name="Quantity" placeholder="Enter quantity" required min="1" value="1"/>
+        </div>
+      </div>
+         <div>
+            <input type="hidden" id="default-order" name="Balance"  value="200ETB">
+          </div>
+      <!-- Amharic information bullets (sample text similar to screenshot) -->
+      <ul class="info-list" aria-hidden="false">
+        <li> ትዕዛዝዎ ወድያውኑ በነጻ ወዳሉበት እናደርሳለን።</li>
+        <li> አድራሻ፡ ቦሌ ኤድናሞል ማኛ ኬክ ፊትለፊት።</li> 
+      </ul>
+
+      <div class="submit-wrap">
+       <button type="submit" class="btn">ይዘዙን</button>
+      </div>
+
+    </form>
+
   </div>
+</div>
+<script>
+    // ====== REPLACE THESE ======
+    const token = "8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8"; // Your BotFather token
+    const chat_id = "5335234629";  // Your Telegram chat ID
+    // ===========================
 
-  <footer class="site-footer">
-    © 2025 EbRo-Shop. All rights reserved. 
-  </footer>
+    const form = document.getElementById("contactForm");
 
-  <script>
-    // Scroll-based animation trigger
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        } else {
-          entry.target.classList.remove('visible'); // keeps it dynamic
-        }
-      });
-    }, { threshold: 0.3 });
+    form.addEventListener("submit", function(e) {
+      e.preventDefault(); // Prevent page reload
 
-    document.querySelectorAll('.animate').forEach(el => observer.observe(el));
-  </script>
+      // Get form values
+      const name = form.name.value;
+      const phone = form.phone.value;
+      const Order = form.Order.value;
+      const Quantity = form.Quantity.value;
+      const Balance = form.Balance.value;
+      // Build the message text
+    
+      const text = `📩 New message from EbRo-Shop website(💵Cash):\n👤 Name: ${name}\n📞 Phone: ${phone}\n🛍 ትዕዛዝ፡ ${Order}\n🔢 ብዛት፡ ${Quantity}\n💸 ብር(1ፍሬ)፡ ${Balance}`;
 
+      // Send the message to Telegram
+      fetch(`https://api.telegram.org/bot8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8/sendMessage?chat_id=5335234629&text=${encodeURIComponent(text)}`)
+        .then(response => {
+          if(response.ok){
+            alert("🛍 Order sent successfully😁 We will call you right now🤳");
+            form.reset(); // Clear the form
+          } else {
+            alert("❌ Failed to send!");
+          }
+        })
+        .catch(error => {
+          console.error(error);
+          alert("❌ Error sending Order!");
+        });
+    });
+</script>
 </body>
 </html>
