@@ -1,33 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact-us</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
 
-  <!-- Optional: change font family -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-:root {
-      --cyan: #09af6f;
-      --lime: #d9f200;
-      --muted: #f6f3f3;
-      --card-border: #efebef;
-      --dark-footer: #2f2f2f;
-      --accent: #8b1f3a;
-      --text: #222;
-      --radius: 6px;
-      font-family: "Helvetica Neue", Arial, sans-serif;
-    }
-
-  body {
-      margin: 0;
-      color: #222;
-      background: #fff;
-    
-    
-    }
+ 
 
     /* HEADER (no animation) */
    
@@ -42,228 +23,351 @@
     }
 
 
+    header .brand {
+      font-weight: 700;
+      font-size: 32px;
+      color: #fff;
+      margin: 0;
+    }
 
-header .brand {
-  font-weight: 700;
-  font-size: 32px;
-  color: #fff;
-  margin: 0;
+    nav.main-nav {
+      margin-top: 14px;
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      font-size: 14px;
+    }
+
+    nav.main-nav a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      opacity: 0.95;
+    }
+
+   
+
+
+
+
+
+
+
+/* General Resets */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333; /* Default text color */
 }
 
-nav.main-nav {
-  margin-top: 14px;
-  display: flex;
-  justify-content: center;
-  gap: 22px;
-  font-size: 14px;
+/* Header (Mimicking Alula Hospital) */
+
+.logo {
+    color: #ce9d34; /* Approximate gold color from Alula logo */
+    font-size: 24px;
+    font-weight: bold;
 }
 
-nav.main-nav a {
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  opacity: 0.95;
+.menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
 }
 
-/* Footer (no animation) */
-footer.site-footer {
-  margin-top: 38px;
-  background: var(--dark-footer);
-  color: #dcdcdc;
-  text-align: center;
-  padding: 18px 10px;
-  font-size: 13px;
+.menu-toggle .bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    border-radius: 1px;
 }
 
-/* Main part styling */
-:root {
-  --bg:#dff4ee;
-  --card:#ffffff;
-  --muted:#9aa6b1;
-  --label:#0f1720;
-  --input-bg:#f7f8fa;
-  --accent:#0d3f60;
-  --shadow: 0 10px 24px rgba(16,24,32,0.08);
-  --radius-lg:18px;
-  --gap:18px;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+/* Hero Section (Contact Us Banner) */
+.hero-section {
+    background: url('') center center no-repeat;
+    background-size: cover;
+    height: 400px; /* Adjust height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+    margin-bottom: 50px; /* Space below the banner */
+
 }
 
-html,body{
-  height:100%;
-  margin:0;
-  background: linear-gradient(90deg,var(--bg), #ecfbf0 70%);
-  color:var(--label);
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.page {
-  min-height:100%;
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
-  padding:40px 18px;
+.hero-title {
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+    /* This color is set to white in the original image */
 }
 
-/* Main card animation */
-.card {
-  width:100%;
-  max-width:420px;
-  background:var(--card);
-  border-radius:18px;
-  box-shadow:var(--shadow);
-  padding:32px 28px;
-  border:1px solid rgba(15,23,32,0.03);
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+/* Contact Details & Form Layout */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.card.show {
-  opacity: 1;
-  transform: translateY(0);
+.contact-info {
+    flex: 1;
+    min-width: 300px; /* Ensure content doesn't squeeze too much */
+    padding-right: 30px;
 }
 
-h1, h2, label, input, textarea, button {
-  transition: all 2s ease;
+.contact-item {
+    margin-bottom: 30px;
 }
 
-/* Other input/form styles */
-h2 {
-  margin:0 0 22px 0;
-  font-size:34px;
-  font-weight:800;
-  color: #0b1720;
-  letter-spacing:-0.3px;
+.contact-icon {
+    font-size: 24px;
+    color: #ce9d34; /* Gold accent color */
+    margin-right: 10px;
+    display: block; /* To put the icon on its own line */
+    margin-bottom: 5px;
 }
 
-form {
-  display:flex;
-  flex-direction:column;
-  gap:16px;
+.contact-heading {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
 }
 
-.field { display:flex; flex-direction:column; gap:8px; }
-label { font-weight:700; color:var(--label); font-size:16px; }
-
-input[type="text"], input[type="email"], textarea {
-  font-size:18px;
-  padding:20px 18px;
-  background:var(--input-bg);
-  border:1px solid rgba(15,23,32,0.06);
-  border-radius:14px;
-  color:#24303a;
+.contact-info p {
+    margin: 0;
+    padding-left: 0;
 }
 
-textarea{
-  min-height:140px;
-  resize:vertical;
-  border-radius:14px;
+/* Get In Touch Section */
+.get-in-touch-heading {
+    font-size: 32px;
+    color: #ce9d34; /* Gold accent color */
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 10px;
 }
 
-button[type="submit"] {
-  width:100%;
-  padding:16px 22px;
-  font-size:20px;
-  font-weight:700;
-  border-radius:20px;
-  border:0;
-  background:var(--accent);
-  color:white;
-  cursor:pointer;
-  box-shadow: 0 6px 18px rgba(13,63,96,0.18);
-  transition:transform .12s ease, box-shadow .12s ease;
+.get-in-touch-text {
+    line-height: 1.6;
+    margin-bottom: 30px;
 }
-button[type="submit"]:active { transform:translateY(1px) }
-button[type="submit"]:hover { box-shadow: 0 10px 28px rgba(13,63,96,0.22) }
 
-@media (max-width:420px){
-  .card { padding:26px 18px; border-radius:14px; }
-  h2 { font-size:30px; }
-  input[type="text"], textarea { font-size:17px; padding:16px; }
-  button[type="submit"] { font-size:18px; padding:14px; border-radius:16px; }
+/* Form Styling */
+.contact-form-wrapper {
+    flex: 1;
+    min-width: 300px;
+    padding-left: 30px;
 }
-  </style>
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #aaa;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.send-button {
+    background-color: #0b1f49; /* Deep blue from the original button */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.send-button:hover {
+    background-color: #1a3c74;
+}
+
+.form-status {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    display: none; /* Hidden by default */
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+    .contact-info,
+    .contact-form-wrapper {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+</style>
 </head>
 <body>
-
-<header class="site-header" role="banner">
+    <div style=" --cyan: #09af6f;
+      --lime: #d9f200;
+      --muted: #666f78;
+      --card-border: #efebef;
+      --dark-footer: #2f2f2f;
+      --accent: #0d4a7e;
+      --radius: 14px;
+      font-family: Helvetica Neue, Arial, sans-serif;">
+      <div style="margin: 0;
+      color: #222;
+      background: #fff;">
+  <header class="site-header" role="banner">
     <h1 class="brand" style="font-family: Georgia, 'Times New Roman', Times, serif; color: black;">EbRo-Shop</h1>
     <nav class="main-nav" role="navigation" aria-label="Main navigation">
       <a href="./index.html">Home</a>
       <a href="./Menu.html">Menu</a>
       <a href="./About.html">About</a>
-      <a style="color: #222; font-weight: 700;" href="#">Contact</a>
-      <a href="./order.html">Order</a>
+      <a href="./Contact.html">Contact</a>
+      <a style="color: #222; font-weight: 700;" href="#">Order</a>
     </nav>
   </header>
+  </div>
+  </div>
 
 
+    <section style="background-image: url('./main.jpg');
 
+ 
+    background-size: cover;
+   
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    /* Ensure the section has a defined height */
+    height: 400px;" class="hero-section">
+        <div class="hero-overlay">
+            <h1 class="hero-title">Contact Us</h1>
+        </div>
+    </section>
 
-<div class="page">
-  <main class="card" role="main" aria-labelledby="contact-heading">
-    <h2 id="contact-heading" style="color:var(--accent) ;">Contact-us</h2>
-    <form id="contact-form" action="https://formspree.io/f/mnnlaybl" method="POST">
-      <div class="field">
-        <label for="first" style="color:var(--accent) ;">First Name</label>
-        <input id="first" name="first Name:" type="text" placeholder="Your first name" required>
-      </div>
+    <div class="contact-container">
+        
+        <div class="contact-info">
 
-      <div class="field">
-        <label for="last" style="color:var(--accent) ;">Last Name</label>
-        <input id="last" name="last name:" type="text" placeholder="Your last name" required>
-      </div>
+            <div class="contact-item">
+                <i class="fas fa-paper-plane contact-icon"></i>
+                <h3 class="contact-heading">Our Location:</h3>
+                <p>Bole Ednamol, Infront of Magna Pastries, Addis Ababa</p>
+            </div>
 
-      <div class="field">
-        <label for="email" style="color:var(--accent) ;">Email</label>
-        <input id="email" name="email:" type="email" placeholder="your.email13@gmail.com" required>
-      </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope contact-icon"></i>
+                <h3 class="contact-heading">Email Us:</h3>
+                <p>ebrohayru77@gmail.Com</p>
+            </div>
 
-      <div class="field">
-        <label for="subject" style="color:var(--accent) ;">Subject</label>
-        <input id="subject" name="subject:" type="text" placeholder="Message subject">
-      </div>
+            <div class="contact-item">
+                <i class="fas fa-phone-alt contact-icon"></i>
+                <h3 class="contact-heading">Call Us:</h3>
+                <p>+251 970130755</p>
+            </div>
 
-      <div class="field">
-        <label for="message" style="color:var(--accent) ;">Message</label>
-        <textarea id="message" name="message:" placeholder="Your message..."></textarea>
-      </div>
+            <div class="contact-item">
+                <i class="fas fa-clock contact-icon"></i>
+                <h3 class="contact-heading">Open Time</h3>
+                <p>Open 7:00am-11:30pm Of The Day</p>
+                <p>7 Days Of The Week</p>
+            </div>
 
-      <div class="submit-wrap">
-        <button type="submit">Send Message</button>
-      </div>
-    </form>
-  </main>
-</div>
+            <h2 class="get-in-touch-heading">Get In Touch</h2>
+            <p class="get-in-touch-text">
+                We're here to help! Send us your questions, feedback, or inquiries through the form below.
+            </p>
+        </div>
 
-<footer class="site-footer">
-  © 2025 EbRo-Shop. All rights reserved.
-</footer>
+        <div class="contact-form-wrapper">
+            <form id="contactForm" class="contact-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <input type="text" id="subject" placeholder="Your Subject" required>
+                <textarea id="comment" placeholder="Write Your Comment" rows="5" required></textarea>
+                
+                <button type="submit" class="send-button">
+                    SEND <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+            <p id="formStatus" class="form-status"></p>
+        </div>
 
-<script>
-// Show animation when main content enters viewport
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.2 });
+    </div>
 
-observer.observe(document.querySelector('.card'));
+    <script>
+    // ====== REPLACE THESE ======
+    const token = "8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8"; // Your BotFather token
+    const chat_id = "5335234629";  // Your Telegram chat ID
+    // ===========================
 
-// Prevent actual form submission (demo)
-document.getElementById('contact-form').addEventListener('submit', function(e){
-  e.preventDefault();
-  const btn = this.querySelector('button[type="submit"]');
-  btn.textContent = "Message Sent";
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = "Send Message";
-    btn.disabled = false;
-  }, 2000);
-});
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault(); // Prevent page reload
+
+      // Get form values
+      const name = form.name.value;
+      const email = form.email.value;
+      const subject = form.subject.value;
+      const comment = form.comment.value;
+
+      // Build the message text
+    
+      const text = `📩 EbRoShop Contact Form Submission:\n👤 Name: ${name}\n📧 email: ${email}\n 💡 ርእስ ፡ ${subject}\n 💌 አስተያየት፡ ${comment}`;
+
+      // Send the message to Telegram
+      fetch(`https://api.telegram.org/bot8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8/sendMessage?chat_id=5335234629&text=${encodeURIComponent(text)}`)
+        .then(response => {
+          if(response.ok){
+            alert("We have successfully received your comment. We will respond to you shortly🤳");
+            form.reset(); // Clear the form
+          } else {
+            alert("❌ Failed to send!");
+          }
+        })
+        .catch(error => {
+          console.error(error);
+          alert("❌ Error sending Order!");
+        });
+    });
 </script>
-
 </body>
 </html>
