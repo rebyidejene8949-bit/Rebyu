@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fast Bites — Food Delivery</title>
+  <style>
+    :root{
+      --bg:#fff8f2; --card:#ffffff; --accent:#ff6b35; --muted:#6b6b6b;
+      --shadow: 0 6px 20px rgba(0,0,0,0.08);
+      --radius:14px;
+      --max-width:1100px;
+      --gap:16px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; background:var(--bg); color:#111;}
+    .wrap{max-width:var(--max-width); margin:28px auto; padding:20px;}
+    header{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:64px;height:64px;border-radius:12px;background:rgb(34, 124, 34);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;box-shadow:var(--shadow)}
+    h1{font-size:20px;margin:0}
+    p.lead{margin:0;color:var(--muted)}
+    .content{display:grid;grid-template-columns:1fr 380px;gap:24px}
+    @media (max-width:900px){.content{grid-template-columns:1fr}}
+    /* Menu */
+    .menu{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--gap)}
+    .card{background:var(--card);border-radius:12px;padding:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}
+    .card img{width:100%;height:200px;object-fit:cover;border-radius:8px}
+    .meta{display:flex;align-items:center;justify-content:space-between}
+    .meta .name{font-weight:600}
+    .price{font-weight:700;color:var(--accent)}
+    .card .desc{font-size:13px;color:var(--muted)}
+    .card .actions{display:flex;gap:8px;align-items:center;margin-top:auto}
+    .btn{background:var(--accent);color:white;padding:8px 12px;border-radius:10px;border:0;cursor:pointer;font-weight:600;box-shadow:0 6px 14px rgba(255,107,53,0.18)}
+    .btn.secondary{background:transparent;border:1px solid #eee;color:#333;box-shadow:none}
+    .qty-input{width:58px;padding:6px;border-radius:8px;border:1px solid #eee;text-align:center}
+    /* Cart */
+    .cart{background:linear-gradient(180deg,#fff,#fff);padding:14px;border-radius:12px;position:sticky;top:20px;box-shadow:var(--shadow)}
+    .cart h2{margin:0 0 8px 0}
+    .cart-list{max-height:360px;overflow:auto;margin-bottom:10px}
+    .cart-item{display:flex;gap:10px;align-items:center;padding:8px;border-radius:8px;border:1px solid #faf0ea;margin-bottom:8px}
+    .cart-item img{width:56px;height:56px;border-radius:8px;object-fit:cover}
+    .ci-body{flex:1}
+    .ci-body .ci-name{font-weight:600}
+    .ci-controls{display:flex;align-items:center;gap:8px}
+    .small{font-size:13px;color:var(--muted)}
+    .total-row{display:flex;justify-content:space-between;padding:6px 0;font-weight:700}
+    .checkout-form{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+    .checkout-form input,.checkout-form textarea,.checkout-form select{padding:10px;border-radius:8px;border:1px solid #eee;font-size:14px}
+    footer{margin-top:20px;font-size:13px;color:var(--muted);text-align:center}
+    .flex{display:flex;gap:8px;align-items:center}
+    .muted{color:var(--muted)}
+    .pill{background:#fff2ee;padding:6px 10px;border-radius:999px;font-weight:600;color:var(--accent)}
+    .actions-row{display:flex;gap:8px;flex-wrap:wrap}
+    .empty{padding:22px;text-align:center;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">EbRo</div>
+        <div>
+          <h1>EbRoShop</h1>
+          <p class="lead">RawFood, Cooking & HealthCare products — delivered to your door</p>
+        </div>
+      </div>
+      <div style="margin-left:auto" class="flex">
+        <div class="pill">Free delivery over 400 Birr</div>
+      </div>
+    </header>
+
+    <div class="content">
+      <main>
+        <h2>Menu<b style="font-size:medium;">(Fooditems)</b></h2>
+        <p>Order different type product at once time.</p>
+        <div class="menu" id="menu"></div>
+      </main>
+      <aside>
+        <div class="cart" id="cartBox">
+          <h2>Bag <span id="cartCount" class="small muted"> (0 items)</span></h2>
+          <div class="cart-list" id="cartList">
+            <div class="empty">Your Bag is empty — add favorite item from the menu.</div>
+          </div>
+
+          <div class="total-summary">
+            <div class="total-row"><div class="small">Subtotal</div><div id="subtotal">0 Birr</div></div>
+            <div class="total-row"><div class="small">Delivery</div><div id="deliveryFee">50 Birr</div></div>
+            <div class="total-row" style="font-size:18px"><div>Total</div><div id="total">0 Birr</div></div>
+          </div>
+
+          <div class="checkout-form" id="checkoutForm">
+            <input type="text" id="custName" placeholder="Your name" required />
+            <input type="tel" id="custPhone" placeholder="Phone number (e.g. +2519...)" required />
+            <textarea id="custAddress" rows="2" placeholder="Delivery address" required></textarea>
+            <select style="background-color: #6b6b6b; color: #faf0ea;" id="paymentMethod">
+              <option value="💵Cash">Cash</option>
+              <option value="🏧Transfer">Transfer</option>
+            </select>
+             <ul class="info-list" aria-hidden="false">
+                <li>🔔 እባክዎን ይህንን መረጃ ሳያነቡ አይዘዙ።</li>
+                <li> ለትዕዛዝዎ Transfer ከተጠቀሙ ከታች ያለውን ይተግብሩ።</li>
+                <li style="font-size:medium; font-family:'Times New Roman', Times, serif"> የተጠቀሙት ሂሳብ በዚህ አካውንት ይላኩልን። CBE➡<b style="color: rgb(255, 255, 255); background-color: #494747;">1000617484793</b> Hayru Dejene Telebirr➡<b style="color: rgb(255, 255, 255); background-color: #5a5959;">0970130755</b> Hayiru</li>
+                <li style="font-size:medium; font-family:'Times New Roman', Times, serif"> እንደላካቹ ለማረጋግጥ በዚህ ቴሌግራም screenshot ይላኩልን። <a href="https://t.me/ebhayru55">t.me/EbRo-Shop</a></li>
+                <li> ትዕዛዝዎ እንዲጀምር ሙሉ ሂሳብ ወደተሰጣቹ አካውንት ማስገባት እና <b style="font-size: medium; font-family:Georgia, 'Times New Roman', Times, serif">screenshot</b> ወደቴሌግራም መላክ አለባችሁ።</li>
+                <li> ትዕዛዝዎ ወድያውኑ በነጻ ወዳሉበት እናደርሳለን።</li>
+                <li> ምርጫችሁ ስላደረጋቹን እናመሰግናለን🙏🏿</li> 
+                <li> አድራሻ፡ ቦሌ ኤድናሞል ማኛ ኬክ ፊትለፊት።</li> 
+      </ul>
+            <div class="actions-row">
+              <button class="btn" id="sendOrderBtn">Send Order</button>
+              <button style="background-color: rgb(26, 127, 136);" class="btn secondary" id="copyOrderBtn">Copy Order</button>
+              <button style="background-color: rgb(38, 164, 61);color: #faf0ea;" class="btn secondary" id="clearCartBtn">Clear Bag</button>
+            </div>
+
+            <div id="formHint" class="small muted" style="margin-top:8px">
+              Tip: The order will be sent to Hosts. You can also copy the order and paste into your messaging app.
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+   <footer style=" margin-top: 38px;
+      background: var(--dark-footer);
+      color: #dcdcdc;
+      text-align: center;
+      padding: 18px 10px;
+      font-size: 13px;" class="site-footer">
+    © 2025 EbRo-Shop. All rights reserved.
+  </footer>
+  </div>
+
+  <script>
+    /*******
+     * CONFIG / MENU DATA
+     *******/
+    const DELIVERY_FREE_THRESHOLD = 400; 
+    const DEFAULT_DELIVERY_FEE = 50;
+
+    const MENU = [
+      { id: "Suger", name: "ስኳር", price: 170, desc: "Suger", img: "./ስካር.jpeg" },
+      { id: "Besmeti Rice", name: "በስመቲ ሩዝ", price: 200, desc: "Besmeti Rice", img: "./በስመቲ ሩዝ.jpg" },
+      { id: "Rice", name: "ሩዝ", price: 150, desc: "Rice", img: "./ኖርማል ሩዝ.jpeg" },
+      { id: "Pasta", name: "ፓስታ", price: 100, desc: "Pasta", img: "./ፓስታ.jpg" },
+      { id: "Mokoroni", name: "ሞኮሮኒ", price: 130, desc: "Mokoroni", img: "./ሞኮሮኒ.jpg" },
+      { id: "Coffee", name: "ቡና", price: 1200, desc: "Coffee", img: "./ቡና.jpg" },
+      { id: "Red lentils", name: "ምስር ክክ", price: 180, desc: "Red lentils", img: "./ምስር ክክ.png" },
+      { id: "Whole lentils", name: "ድፍን ምስር", price: 160, desc: "Whole lentils", img: "./ድፍን ምስር.jpg" },
+      { id: "Floar", name: "ዱቄት", price: 170, desc: "Floar", img: "./ዱቄት.jpeg" },
+      { id: "Pea Cake", name: "አትር ክክ", price: 130, desc: "Pea Cake", img: "./አተር ክክ.jpg" },
+      { id: "Bean Cake", name: "ባቄላ ክክ", price: 120, desc: "Bean Cake", img: "./ባቄላ ክክ.jpeg" },
+      { id: "Bean", name: "ባቄላ", price: 140, desc: "Bean", img: "./ባቄላ.jpeg" },
+      { id: "Popcorn", name: "ፋንዲሻ", price: 190, desc: "Popcorn", img: "./ፋንዲሻ.jpeg" },
+      { id: "Suf", name: "ሱፍ", price: 150, desc: "Suf", img: "./ሱፍ.png" },
+      { id: "Salt", name: "ጨው", price: 80, desc: "Salt", img: "./ጨው.jpg" }
+    ];
+
+    /*******
+     * CART MANAGEMENT
+     *******/
+    let cart = loadCart();
+
+    function formatPrice(n){ return n.toLocaleString() + " Birr"; }
+    function saveCart(){ try { localStorage.setItem("fastbites_cart_v1", JSON.stringify(cart)); } catch(e){} }
+    function loadCart(){ try { const raw = localStorage.getItem("fastbites_cart_v1"); if(raw) return JSON.parse(raw); } catch(e){} return []; }
+
+    const menuEl = document.getElementById("menu");
+    const cartListEl = document.getElementById("cartList");
+    const cartCountEl = document.getElementById("cartCount");
+    const subtotalEl = document.getElementById("subtotal");
+    const deliveryFeeEl = document.getElementById("deliveryFee");
+    const totalEl = document.getElementById("total");
+
+    function renderMenu(){
+      menuEl.innerHTML = MENU.map(item =>` 
+        <div class="card">
+          <img src="${item.img}" alt="${item.name}" loading="lazy">
+          <div class="meta">
+            <div>
+              <div class="name">${item.name}</div>
+              <div class="desc">${item.desc}</div>
+            </div>
+            <div class="price">${formatPrice(item.price)}</div>
+          </div>
+          <div class="actions">
+            <input class="qty-input" id="qty_${item.id}" type="number" value="1" min="1" />
+            <button style="background-color:green;" class="btn" onclick="addToCart('${item.id}', 1)">Add to Bag</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function findMenuItem(id){ return MENU.find(m => m.id === id); }
+    function addToCart(itemId, qty){
+      const item = findMenuItem(itemId);
+      if(!item) return;
+      const existing = cart.find(ci => ci.id === itemId);
+      if(existing) existing.qty += Number(qty);
+      else cart.push({ id: item.id, name: item.name, price: item.price, qty: Number(qty) });
+      saveCart();
+      renderCart();
+    }
+    function updateQty(itemId, qty){ qty = Number(qty); if(qty <=0) return removeFromCart(itemId); const it = cart.find(c=>c.id===itemId); if(it) it.qty=qty; saveCart(); renderCart(); }
+    function removeFromCart(itemId){ cart=cart.filter(c=>c.id!==itemId); saveCart(); renderCart(); }
+    function clearCart(){ cart=[]; saveCart(); renderCart(); }
+    function computeTotals(){ const subtotal=cart.reduce((s,i)=>s+(Number(i.price)*Number(i.qty)),0); const delivery=subtotal>=DELIVERY_FREE_THRESHOLD&&subtotal>0?0:(subtotal===0?0:DEFAULT_DELIVERY_FEE); const total=subtotal+delivery; return {subtotal,delivery,total}; }
+    function renderCart(){
+      if(cart.length===0){ cartListEl.innerHTML='<div class="empty">Your cart is empty — add tasty food from the menu.</div>'; }
+      else {
+        cartListEl.innerHTML = cart.map(ci=>{
+          const img=(findMenuItem(ci.id)||{}).img||"";
+          return `<div class="cart-item"><img src="${img}" alt="${ci.name}"><div class="ci-body"><div class="ci-name">${ci.name}</div><div class="small">${formatPrice(ci.price)} × ${ci.qty} = ${formatPrice(ci.price*ci.qty)}</div></div><div class="ci-controls"><button class="btn secondary" onclick="updateQty('${ci.id}', ${ci.qty-1})">−</button><input class="qty-input" type="number" min="1" value="${ci.qty}" onchange="updateQty('${ci.id}', this.value)" /><button class="btn secondary" onclick="updateQty('${ci.id}', ${ci.qty+1})">+</button><button class="btn secondary" onclick="removeFromCart('${ci.id}')">Remove</button></div></div>`}).join("");
+      }
+      const totals=computeTotals();
+      cartCountEl.textContent=` (${cart.reduce((a,b)=>a+b.qty,0)} items)`;
+      subtotalEl.textContent=formatPrice(totals.subtotal);
+      deliveryFeeEl.textContent=totals.delivery===0?"Free":formatPrice(totals.delivery);
+      totalEl.textContent=formatPrice(totals.total);
+    }
+
+    function buildOrderText(){
+      const name=document.getElementById("custName").value.trim();
+      const phone=document.getElementById("custPhone").value.trim();
+      const address=document.getElementById("custAddress").value.trim();
+      const payment=document.getElementById("paymentMethod").value;
+      const totals=computeTotals();
+      let lines=[];
+      lines.push("EbroShop — New Order",""); 
+      if(name) lines.push("Customer: "+name);
+      if(phone) lines.push("Phone: "+phone);
+      if(address) lines.push("Address: "+address);
+      lines.push("Payment method: "+payment,"","Order details:");
+      if(cart.length===0){ lines.push("- (empty)"); } 
+      else { cart.forEach(ci=>lines.push(`${ci.name} x ${ci.qty} = ${ci.price*ci.qty} Birr`)); }
+      lines.push("","Subtotal: "+totals.subtotal+" Birr","Delivery: "+(totals.delivery===0?"Free":totals.delivery+" Birr"),"Total: "+totals.total+" Birr","", "Notes: (optional)");
+      return lines.join("\n");
+    }
+
+    // TELEGRAM CONFIG
+    const TELEGRAM_BOT_TOKEN = "8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8";  // <--- replace with your bot token
+    const TELEGRAM_CHAT_ID = "5335234629";      // <--- replace with your chat ID
+
+    async function sendOrderTelegram(){
+      const name=document.getElementById("custName").value.trim();
+      const phone=document.getElementById("custPhone").value.trim();
+      const address=document.getElementById("custAddress").value.trim();
+
+      if(cart.length===0){ alert("Your Bag is empty. Add items before sending the order."); return; }
+      if(!name  ||  !phone  ||  !address){ alert("Please enter your name, phone and address to send the order."); return; }
+
+      const message = buildOrderText();
+    const url = `https://api.telegram.org/bot8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8/sendMessage?chat_id=5335234629&text=${encodeURIComponent(message)}`;  try {
+        const res = await fetch(url);
+        if(res.ok){ alert("🛍 Order sent successfully! We will call you right now🤳"); clearCart(); }
+        else{ alert("Failed to send order via Telegram."); }
+      } catch(e){ alert("Error sending order: "+e.message); }
+    }
+
+    async function copyOrder(){ const text=buildOrderText(); try{ await navigator.clipboard.writeText(text); alert("Order copied to clipboard — you can paste it into SMS/WhatsApp/Telegram."); } catch(e){ const ta=document.createElement("textarea"); ta.value=text; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); alert("Order copied to clipboard (fallback)."); } }
+
+    document.getElementById("sendOrderBtn").addEventListener("click", sendOrderTelegram);
+    document.getElementById("copyOrderBtn").addEventListener("click", copyOrder);
+    document.getElementById("clearCartBtn").addEventListener("click",()=>{ if(confirm("Clear the cart?")) clearCart(); });
+
+    renderMenu();
+    renderCart();
+    window.addToCart=addToCart;
+    window.updateQty=updateQty;
+    window.removeFromCart=removeFromCart;
+  </script>
+</body>
+</html>
